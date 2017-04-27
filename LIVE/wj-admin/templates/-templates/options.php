@@ -25,7 +25,7 @@ if (isset($_POST['header-type'])) {
 	$homepage_layout_style = $_POST['homepage-layout-style'];
 
 	// SQL Query
-	$sql = "INSERT INTO `options` (`option_name`,`option_value`) VALUES ('option_header','$header_type'),('option_homepage','$homepage'),('option_homepage_layout_style','$homepage_layout_style') ON DUPLICATE KEY UPDATE `option_name` = VALUES(`option_name`), `option_value` = VALUES(`option_value`); ";
+	$sql = "INSERT INTO `options` (`option_name`,`option_value`) VALUES ('option_header','$header_type'),('option_homepage_layout_style','$homepage_layout_style'),('option_homepage','$homepage') ON DUPLICATE KEY UPDATE `option_name` = VALUES(`option_name`), `option_value` = VALUES(`option_value`); ";
 	
 
 	if (!$conn->query($sql) == TRUE) {
@@ -40,18 +40,11 @@ if (isset($_POST['header-type'])) {
 	
 } else {
 
-	// Output opening HTML
-	wj_before_content($type = 'banner-section');
-
 	?>
-
-	<header class="admin-header">
-		<h2>Global Options</h2>
-	</header>
 
 	<div class="form-contain">
 		<form name="admin-options" method="post" action="/wj-admin/index.php?page=options">
-			<h3 class="form-title">Select Options</h3>
+			<h3 class="form-title">Selection Options</h3>
 			<fieldset>
 				<div class="form-group">
 					<label class="label-left" for="header-type">Header type:</label>
@@ -63,37 +56,7 @@ if (isset($_POST['header-type'])) {
 				</div>
 				<div class="form-group">
 					<label class="label-left" for="homepage">Homepage:</label>
-					<select name="homepage" id="homepage">
-						<option name="homepage_blank" value="blank">
-						<?php
-							// Grab pages for homepage selection
-							// Connect to database
-							wj_connect();
-
-							if ($stmt = $conn->prepare("SELECT `page_title` FROM `pages` ORDER BY `page_id` ASC")) {
-					
-								$stmt->execute();
-
-								// Get Result and Bind it
-								$stmt->bind_result($ptitle);
-								
-								// While loop
-								while ($stmt->fetch()) {
-									echo '<option value="' . $ptitle . '">' . $ptitle . '</option>';
-								}
-
-								//Close Statement
-								$stmt->close();
-
-							} else {
-								echo 'SQL Failed';
-							}
-
-							//Close Connection
-							$conn->close();
-
-						?>
-					</select>	
+					<input type="text" name="homepage" id="homepage">
 				</div>
 				<div class="form-group">
 					<label class="label-left" for="homepage-layout-style">Homepage layout style:</label>
@@ -130,9 +93,9 @@ if (isset($_POST['header-type'])) {
 			//Close Statement
 			$stmt->close();
 
-			} else {
-				echo 'SQL Failed';
-			}
+		} else {
+			echo 'SQL Failed';
+		}
 
 		//Close Connection
 		$conn->close();
@@ -142,9 +105,6 @@ if (isset($_POST['header-type'])) {
 	</div>
 
 <?php
-
-// Output closing HTML
-wj_after_content($type = 'banner-section');
 
 // Endif
 }

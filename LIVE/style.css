@@ -30,19 +30,23 @@
 
 button,
 input[type="submit"] {
+	margin: 0 0 1em;
 	padding: 1em 2em;
-	border: 1px solid #ddd;
-	background: #fff;
-	font-size: .792rem;
+	border: 0;
+	background: #909090;
+	font-size: .9rem;
 	text-transform: uppercase;
+	color: #fff;
 	box-shadow: none;
-	-webkit-transition: box-shadow .2s ease;
-	transition: box-shadow .2s ease;
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
 }
 
 	button:hover,
 	input[type="submit"]:hover {
-		box-shadow: 0 1px 1px rgba(0,0,0,.15);
+		opacity: .9;
+		box-shadow: 0 1px 1px rgba(0,0,0,.1),
+					0 0 1px 1px rgba(0,0,0,.05);
 	}
 
 	button:focus,
@@ -50,10 +54,14 @@ input[type="submit"] {
 		box-shadow: inset 0 0 1px 1px rgba(0,0,0,.05);
 }
 
+button > a {
+	color: #fff;
+}
+
 input[type="submit"] {
 	margin: 1em 0;
-	font-size: .875rem;
-	color: #49c2f9;
+	font-size: .95rem;
+	background: #49c2f9;
 }
 
 body {
@@ -64,6 +72,10 @@ body {
 	font-size: 16px;
 	font-size: 1rem;
 	color: #333;
+}
+
+div, section, aside {
+	box-sizing: border-box;
 }
 
 h1, h2 {
@@ -159,12 +171,34 @@ input, select, option, textarea {
 }
 
 .label-left {
-	margin: 0;
-	padding-right: 1em;
+	margin-right: 1em;
 	float: left;
 }
 
+.label-top {
+	margin-bottom: .3em;
+	padding: 0;
+	float: none;
+}
+
 /* End Helpers */
+
+/* Forms */
+
+.form-header {
+	margin: 0;
+	padding-bottom: .5em;
+}
+
+.form-header .form-title {
+	margin: 0 0 .5em;
+	font-size: 1.2rem;
+	font-weight: 800;
+	text-transform: lowercase;
+}
+
+
+/* End Forms */
 
 /* Margins */
 
@@ -335,25 +369,55 @@ input, select, option, textarea {
 	}
 
 .main-content button > a {
-	color: #49c2f9;
 	box-shadow: none;
 }
 
 /* End Main-Content Globals
 
-/* Sections */
+/* Main Content */
 
-.main-content > section {
-	padding: 3em 0;
-	background-color: #f9f9f9;
+.banner-section {
+	padding: 0;
+	background: #f9f9f9;
 }
 
-.section-content {
+.inner-content {
 	padding: 3em;
+}
+
+.main-section {
+	padding: 3em 0;
+	background: #f9f9f9;
+}
+
+.main-section .inner-content {
 	background-color: #fff;
 }
 
 /* End Sections */
+
+/* Sidebars */
+
+.sidebar {
+	float: left;
+	width: 25%;
+	padding: 2em;
+	background: #fff;
+}
+
+.sidebar label {
+	font-size: .95rem;
+	font-weight: 600;
+	text-transform: lowercase;
+}
+
+.sidebar input,
+.sidebar select {
+	width: 100%;
+	margin-bottom: .7em;
+}
+
+/* End Sidebars */
 
 /* End Main Content */
 

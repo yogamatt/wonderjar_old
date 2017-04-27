@@ -20,15 +20,16 @@ if (isset($_POST['update'])) {
 	$pid = $_GET['p_id'];
 
 	// SQL
-	$sql = "UPDATE `pages` SET `page_title` = ?, `page_content` = ? WHERE `page_id` = '$pid'";
+	$sql = "UPDATE `pages` SET `page_title` = ?, `page_content` = ?, `page_special` = ? WHERE `page_id` = '$pid'";
 
 	if ($stmt = $conn->prepare($sql)) {
 			
-		$stmt->bind_param("ss", $page_title, $page_content);
+		$stmt->bind_param("sss", $page_title, $page_content, $page_special);
 
 		// Set variables to execute
 		$page_title = $_POST['page-title'];
 		$page_content = $_POST['page-content'];
+		$page_special = $_POST['page-special'];
 
 		$stmt->execute();
 
@@ -71,28 +72,33 @@ if (isset($_POST['update'])) {
 
 	?>
 
-	<div class="form-contain">
+	<div class="new-page-container">
 		<header class="admin-header">
 			<h2>Page submitted.</h2>
 		</header>
-		<form name="new-post-form" method="post" action="/wj-admin/index.php?page=new-page">
-			<fieldset>
-				<div class="form-group">
-					<label class="label-top" for="page-title">New Page Title:</label>
-					<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+		<div class="new-page">
+			<form name="new-page-form" method="post" action="/wj-admin/index.php?page=new-page">
+				<div class="page-form">
+					<div class="page-left">
+						<fieldset>
+							<div class="form-group">
+								<label class="label-top" for="page-title">New Page Title:</label>
+								<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+							</div>
+							<div class="form-group">
+								<label class-"label-top" for="page-content">New Page Content:</label>
+								<textarea rows="20" cols="100" name="page-content" id="page-content"><?php echo $page_content; ?>
+								</textarea>
+							</div>
+						</fieldset>
+					</div>
+					<?php wj_sidebar($type = 'new-page'); ?>
 				</div>
-			</fieldset>
-			<fieldset>
-				<div class="form-group">
-					<label class-"label-top" for="page-content">New Page Content:</label>
-					<textarea rows="20" cols="100" name="page-content" id="page-content"><?php echo $page_content; ?>
-					</textarea>
-				</div>
-			</fieldset>
-			<fieldset class="submit-group">
-				<input type="submit" name="submit" value="submit">
-			</fieldset>
-		</form>
+				<fieldset class="submit-group">
+					<input type="submit" name="submit" value="submit">
+				</fieldset>
+			</form>
+		</div>
 	</div>
 
 	<?php
@@ -103,7 +109,8 @@ if (isset($_POST['update'])) {
 // No? Returning with the page id?
 } else if (isset($_GET['p_id'])) {
 
-	// Have an action?
+	// Do you also
+	// have an action?
 	if (isset($_GET['action'])) {
 
 		// Connect to database
@@ -156,15 +163,15 @@ if (isset($_POST['update'])) {
 			$stmt->execute();
 
 			// Bind result variables
-			$stmt->bind_result($page_id, $page_time, $page_title, $page_content);
+			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content);
 
 			// Fetch values
 			$stmt->fetch();
 
-
 			$stmt->close();
 		}
 
+		// Close database connection
 		$conn->close();
 
 		// Output opening HTML
@@ -172,28 +179,33 @@ if (isset($_POST['update'])) {
 
 	?>
 
-		<div class="form-contain">
+		<div class="new-page-container">
 			<header class="admin-header">
 				<h2>Page Review</h2>
 			</header>
-			<form name="update-post-form" method="post" action="/wj-admin/index.php?page=new-page&p_id=<?php echo $pid; ?>">
-				<fieldset>
-					<div class="form-group">
-						<label class="label-top" for="page-title">Page Title:</label>
-						<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+			<div class="new-page">
+				<form name="update-page-form" method="post" action="/wj-admin/index.php?page=new-page&p_id=<?php echo $pid; ?>">
+					<div class="page-form">
+						<div class="page-left">	
+							<fieldset>
+								<div class="form-group">
+									<label class="label-top" for="page-title">Page Title:</label>
+									<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+								</div>
+								<div class="form-group">
+									<label class-"label-top" for="page-content">Page Content:</label>
+									<textarea rows="20" cols="100" name="page-content" id="page-content"><?php echo $page_content; ?>
+									</textarea>
+								</div>
+							</fieldset>
+						</div>
+						<?php wj_sidebar($type = 'new-page'); ?>
 					</div>
-				</fieldset>
-				<fieldset>
-					<div class="form-group">
-						<label class-"label-top" for="page-content">Page Content:</label>
-						<textarea rows="20" cols="100" name="page-content" id="page-content"><?php echo $page_content; ?>
-						</textarea>
-					</div>
-				</fieldset>
-				<fieldset class="submit-group">
-					<input type="submit" name="update" value="update">
-				</fieldset>
-			</form>
+					<fieldset class="submit-group">
+						<input type="submit" name="update" value="update">
+					</fieldset>
+				</form>
+			</div>
 		</div>
 
 	<?php
@@ -212,28 +224,33 @@ if (isset($_POST['update'])) {
 	// New page template
 	?>
 
-	<div class="form-contain">
+	<div class="new-page-container">
 		<header class="admin-header">
 			<h2>New Post</h2>
 		</header>
-		<form name="new-post-form" method="post" action="/wj-admin/index.php?page=new-page">
-			<fieldset>
-				<div class="form-group">
-					<label class="label-top" for="page-title">New Page Title:</label>
-					<input type="text" name="page-title" id="page-title">
+		<div class="new-page">
+			<form name="new-post-form" method="post" action="/wj-admin/index.php?page=new-page">
+				<div class="page-form">
+					<div class="page-left">
+						<fieldset>
+							<div class="form-group">
+								<label class="label-top" for="page-title">New Page Title:</label>
+								<input type="text" name="page-title" id="page-title">
+							</div>
+							<div class="form-group">
+								<label class-"label-top" for="page-content">New Page Content:</label>
+								<textarea rows="20" cols="100" name="page-content" id="page-content" placeholder="Content goes here..">
+								</textarea>
+							</div>
+						</fieldset>
+					</div>
+					<?php wj_sidebar($type = 'new-page'); ?>
 				</div>
-			</fieldset>
-			<fieldset>
-				<div class="form-group">
-					<label class-"label-top" for="page-content">New Page Content:</label>
-					<textarea rows="20" cols="100" name="page-content" id="page-content" placeholder="Content goes here..">
-					</textarea>
-				</div>
-			</fieldset>
-			<fieldset class="submit-group">
-				<input type="submit" name="submit" value="submit">
-			</fieldset>
-		</form>
+				<fieldset class="submit-group">
+					<input type="submit" name="submit" value="submit">
+				</fieldset>
+			</form>
+		</div>
 	</div>
 
 	<?php
