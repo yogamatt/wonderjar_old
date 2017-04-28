@@ -11,19 +11,9 @@
 
 
 /**
- * Database Connection
+ * @function wj_connect()
  *
  */
-
-// Find WonderJar Root
-if (!function_exists('wj_root_dir')) {
-
-	function wj_root_dir(){
-		global $folder_spot;
-		$root = $_SERVER['DOCUMENT_ROOT'];
-	}
-
-}
 
 // If need quick db connect
 // connect to database
@@ -45,7 +35,7 @@ if (!function_exists('wj_connect')) {
 }
 
 /**
- * Content Helpers
+ * @function wj_body_classes()
  *
  */
 
@@ -102,7 +92,12 @@ if (!function_exists('wj_body_classes')) {
 }
 
 
-// Is this the home page?
+/**
+ * @function wj_is_home_page()
+ *
+ *
+ */
+
 if (!function_exists('wj_is_home_page')) {
 
 	function wj_is_home_page() {
@@ -144,6 +139,11 @@ if (!function_exists('wj_is_home_page')) {
 }
 
 
+/** 
+ * @function wj_before_content($type)
+ * @function wj_after_content($type)
+ *
+ */
 
 // Outputs the opening HTML
 if (!function_exists('wj_before_content')) {
@@ -153,18 +153,17 @@ if (!function_exists('wj_before_content')) {
 		// Switch the $type
 		switch ($type) {
 			case 'banner-section':
-				echo '<section class="main-section banner-section"><div class="inner-container"><div class="section-content">';
+				echo '<div class="banner-section"><div class="inner-container"><div class="inner-content">';
 				break;
 			case 'main-section':
-				echo '<section class="main-section"><div class="inner-container"><div class="section-content">';
+				echo '<div class="main-section"><div class="inner-container"><div class="inner-content">';
 				break;
 			default:
-				echo '<section class="main-section default-section"><div class="inner-container"><div class="section-content">';
+				echo '<div class="main-section default-section"><div class="inner-container"><div class="inner-content">';
 		}
 	}
 
 }
-
 
 // Outputs the closing HTML
 if (!function_exists('wj_after_content')) {
@@ -174,17 +173,115 @@ if (!function_exists('wj_after_content')) {
 		// Switch the $type
 		switch ($type) {
 			case 'banner-section':
-				echo '</section></div></div>';
+				echo '</div></div></div>';
 				break;
 			case 'main-section':
-				echo '</section></div></div>';
+				echo '</div></div></div>';
 				break;
 			default:
-				echo '</section></div></div>';
+				echo '</div></div></div>';
 		}
 	}
 
 }
+
+
+/*
+ * @function wj_sidebar()
+ *
+ */
+
+if (!function_exists('wj_sidebar')) {
+
+	function wj_sidebar($type) {
+
+		switch($type) {
+
+			case 'new-page':
+				?>
+					<aside class="sidebar">
+							<header class="form-header">
+								<h3 class="form-title">Single Page Options</h3>
+							</header>
+							<fieldset>
+								<div class="form-group">
+									<label for="template" class="label-top">Template:</label>
+									<select name="template">
+										<option></option>
+										<option value="sections">Sections</option>
+										<option value="single">Single Page</option>
+									</select>
+								</div>
+							</fieldset>
+					</aside>
+				<?php
+				;
+				break;
+			default:
+				echo '';
+
+		}
+
+	}
+
+}
+
+
+/**
+ * Option Homepage
+ * @function find_homepage()
+ * 
+ * USED:
+ * /wj-admin/templates/options:90
+ */
+
+if (!function_exists('find_homepage')) {
+	
+	function find_homepage() {
+
+		// Grab pages for homepage selection
+		// Connect to database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		if ($stmt = $conn->prepare("SELECT `page_title` FROM `pages` ORDER BY `page_id` ASC")) {
+						
+			$stmt->execute();
+
+			// Get Result and Bind it
+			$stmt->bind_result($ptitle);
+
+			$homepage = '';
+										
+			// While loop
+			while ($stmt->fetch()) {
+				$homepage .= '<option value="' . $ptitle . '">' . $ptitle . '</option>';
+			}
+
+			// Close Statement
+			$stmt->close();
+
+		} else {
+			echo 'SQL Failed';
+		}
+
+		// Close Connection
+		$conn->close();
+
+			
+		// Echo $homepage
+		echo $homepage;
+
+	}
+
+}
+
+
 
 
 ?>
