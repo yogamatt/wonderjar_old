@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Wonderjar Main Index Template
+ * Wonderjar Index Template
  * @author Matt
  * @category template
  * @version 1.0
@@ -9,61 +8,66 @@
  *
  */
 
-		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 
-		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+if (empty($_GET['p_id'])) {
 
-		if ($conn->connect_error) {
-	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
-		}
+	echo 'Non-homepage not loaded.';
 
-
-		// SQL
-		if ($stmt = $conn->prepare("SELECT `option_value` FROM `options` WHERE `option_name` = 'option_homepage' LIMIT 1")) {
-		
-			$stmt->execute();
-
-			// Bind results to var $options
-			$stmt->bind_result($homepage);
-
-		}
-
-		echo $homepage;
-
-		$conn->close();
-
-// If home page - output the banner-section
-// else - output main-section
-if ($homepage == 'index.php'){
-
-	// Opening HTML tags
-	wj_before_content($type = 'banner-section');
-
-	?>
-
-		<div class="banner">
-			<img src="/images/banner/istock-643791624.jpg" alt="istock">
-		</div>
-
-	<?php
-
-	// End banner-section content
-	wj_after_content($type = 'banner-section');
-
-
+// Endif
 } else {
 
-	// Opening HTML tags
+	/*
+	 * Non-homepage pages
+	 *
+	 */
+
+	// Connect to database
+	wj_connect();
+
+	// Grab pages
+	// SQL
+	$sql = "SELECT * FROM `pages` WHERE `page_id` = ?";
+
+	if ($stmt = $conn->prepare($sql)) {
+
+		// Bind paramaters
+		$stmt->bind_param("s", $page_id);
+
+		// Set variable paramaters
+		$page_id = $_GET['p_id'];
+
+		// Execute
+		$stmt->execute();
+
+		// Bind result paramaters
+		$stmt->bind_result($p_id, $p_time, $p_special, $p_title, $p_content);
+
+		// Fetch
+		$stmt->fetch();
+
+		$stmt->close();
+
+	}
+
+	$conn->close();
+
+	// Output opening HTML
 	wj_before_content($type = 'main-section');
+
 	?>
 
-		<div>
-			<p>G's up.</p>
-		</div>
+	<header class="main-header">
+		<h1><?php echo $p_title; ?></h1>
+	</header>
+
+	<?php echo $p_content; ?>
+
 
 	<?php
-	// Closing HTML tags
+
+	// Output closing HTML
 	wj_after_content($type = 'main-section');
+
+	
 }
 
-?>

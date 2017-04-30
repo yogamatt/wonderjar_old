@@ -8,7 +8,6 @@
  *
  */
 
-
 // Start session
 session_start();
 
@@ -19,7 +18,8 @@ include ($_SERVER['DOCUMENT_ROOT'].'/functions.php');
 include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
 echo '<!-- End Header -->';
 
-// Get the template from '/wj-admin/templates/'
+
+// Get the template from '/templates/'
 // set page to to 'index.php' if not allowed
 $page = 'index';
 $disallowed_paths = array('header','footer');
@@ -35,16 +35,15 @@ if (!empty($_GET['page'])) {
 			
 		// Update $page
 		$page = $tmp_page;
-
 	}
-
 }
+
 
 // Include $page
 include ($_SERVER['DOCUMENT_ROOT'].'/templates/' . $page . '.php');
 
-
 // Include Footer
 include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
 echo '<!-- End Footer -->';
+
 ?>
