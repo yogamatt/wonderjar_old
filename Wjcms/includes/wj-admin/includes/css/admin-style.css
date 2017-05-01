@@ -1,0 +1,113 @@
+/**
+ * Wonderjar Admin Stylesheet
+ * @author Matt
+ * @since 2017-03-17
+ *
+ */
+
+/* Globals */
+
+.admin-header {
+	margin: 0 0 1em;
+}
+
+.admin-header > h2 {
+	display: inline-block;
+	margin: 0 0 .65em;
+	padding: 0 0 .35em;
+	font-size: 1.65em;
+	color: #585858;
+}
+
+/* End globals */
+
+/* Options */
+
+.current-options {
+	margin: 4em 0 2em;
+	padding: 2em;
+	border-width: 1px 0;
+	border-style: inset;
+	border-color: rgba(0,0,0,.35);
+	opacity: .35;
+}
+
+.current-options p {
+	font-size: .8em;
+}
+
+/* End options */
+
+/* Pages */
+
+.pages {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(0,0,0,.5);
+}
+
+.pages li {
+	margin: 0;
+	padding: 2em;
+	border-bottom: 1px solid rgba(0,0,0,.5);
+}
+
+	.pages li:last-child {
+		border-bottom: 0;
+	}
+
+	.pages li:nth-child(odd) {
+		background-color: #f1f1f1;
+	}
+
+	.pages li:nth-child(even) {
+		background-color: rgba(248,195,0,.025);
+	}
+
+.pages h3 {
+
+}
+
+.pages-edit {
+	font-size: .7em;
+}
+
+.pages-edit a {
+	color: #777;
+	box-shadow: none;
+	-moz-transition: opacity .05s ease;
+	-o-transition: opacity .05s ease;
+	-ms-transiton: opacity .05s ease;
+	-webkit-transition: opacity .05s;
+	transition: opacity .05s;
+}
+
+	.pages-edit a:hover {
+		opacity: .8;
+	}
+
+/* End pages */
+
+/* New page */
+
+.form-contain input {
+	padding: .5em;
+	width: 100%;
+	max-width: 375px;
+}
+
+/* End new page */
+
+/* TinyMCE */
+
+.form-contain .mce-edit-area {
+	margin-right: 1px !important	;
+}
+
+/* End tinyMCE */
+
+
+
