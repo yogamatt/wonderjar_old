@@ -1,0 +1,134 @@
+/**
+ * Wonderjar Admin Stylesheet
+ * @author Matt
+ * @since 2017-03-17
+ *
+ */
+
+/* Globals */
+
+.admin-header {
+	padding-bottom: 1em;
+}
+
+.admin-header > h2 {
+	margin: 0 0 1em;
+	padding: 0 0 .35em;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	font-family: 'Angelina', sans-serif;
+	font-size: 2.05em;
+	color: #f8c300;
+}
+
+/* End globals */
+
+/* Options */
+
+.current-options {
+	margin: 4em 0 2em;
+	padding: 2em;
+	border-width: 1px 0;
+	border-style: inset;
+	border-color: rgba(0,0,0,.35);
+	opacity: .35;
+}
+
+.current-options p {
+	font-size: .8em;
+}
+
+/* End options */
+
+/* Pages */
+
+.pages {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pages li {
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	-webkit-transition: box-shadow .3s ease;
+	transition: box-shadow .3s ease;
+}
+
+	.pages li:hover {
+		box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+	}
+
+	.pages li:last-child {
+		margin-bottom: 0;
+	}
+
+	.pages li::after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+
+.pages h3 {
+	float: left;
+	margin: 0;
+	padding: .3em 0;
+	font-weight: 600;
+}
+
+.pages h3 > a {
+	box-shadow: none;
+}
+
+.page-special {
+	padding-left: .5em;
+	font-family: 'Angelina', sans-serif;
+	font-size: .925em;
+	font-weight: 400;
+	letter-spacing: .07em;
+	color: #f8c300;
+}
+
+.page-options {
+	margin: 0;
+	float: right;
+	font-size: .7em;
+}
+
+.page-options a {
+	color: #808080;
+	-webkit-transition: opacity .05s;
+	transition: opacity .05s;
+}
+
+	.page-options a:hover {
+		opacity: .8;
+	}
+
+/* End pages */
+
+/* New page */
+
+.form-contain input:not([type=submit]) {
+	padding: .5em;
+	width: 100%;
+	max-width: 375px;
+}
+
+/* TinyMCE */
+
+.form-contain .mce-edit-area {
+	margin-right: 1px !important;
+}
+
+/* End tinyMCE */
+
+/* End new page */
+
+/* Menus page */
+
+/* End Menus Page */
+
+
+
