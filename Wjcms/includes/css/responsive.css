@@ -1,0 +1,17 @@
+@media screen and (min-width: 1400px) {
+	.inner-container {
+		max-width: 1370px;
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.inner-container {
+		max-width: 1170px;
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.inner-container {
+		max-width: 970px;
+	}	
+}

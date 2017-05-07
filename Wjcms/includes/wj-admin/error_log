@@ -1,0 +1,371 @@
+[14-Mar-2017 06:11:57 UTC] PHP Notice:  Undefined index: logged-in in /home/wonderadmin/public_html/wj-admin/index.php on line 12
+[14-Mar-2017 06:11:57 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:11:57 UTC] PHP Notice:  Trying to get property of non-object in /home/wonderadmin/public_html/functions.php on line 29
+[14-Mar-2017 06:12:16 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:13:32 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:13:32 UTC] PHP Notice:  Trying to get property of non-object in /home/wonderadmin/public_html/functions.php on line 29
+[14-Mar-2017 06:13:32 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 06:13:32 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 06:13:43 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:14:17 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:16:17 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:16:17 UTC] PHP Notice:  Trying to get property of non-object in /home/wonderadmin/public_html/functions.php on line 29
+[14-Mar-2017 06:16:17 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 06:16:17 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 06:21:37 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:22:01 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:22:03 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:25:43 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:27:47 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:28:20 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:28:34 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:28:40 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:36:30 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:36:42 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:36:44 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:36:46 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:38:00 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:38:05 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:47:32 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:47:37 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'ip-107-180-43-15.ip.secureserver.net' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:48:06 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:48:13 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:56:03 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:56:05 UTC] PHP Warning:  mysqli::mysqli(): (28000/1045): Access denied for user 'creativedirector'@'localhost' (using password: YES) in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 06:58:15 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 06:58:17 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 06:58:17 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:00:00 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:00:05 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:00:05 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:01:38 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:01:41 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:01:41 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:03:01 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:03:01 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 07:03:27 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:03:31 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:03:31 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:03:43 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:03:43 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home/wonderadmin/public_html/functions.php on line 28
+[14-Mar-2017 07:04:57 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:05:01 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:05:01 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:05:17 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:05:21 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:09:08 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:09:12 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:11:44 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:11:48 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 07:13:11 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:13:15 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 26
+[14-Mar-2017 07:13:48 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 07:13:52 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[14-Mar-2017 16:08:03 UTC] PHP Notice:  Undefined index: logged-in in /home/wonderadmin/public_html/wj-admin/index.php on line 12
+[14-Mar-2017 16:08:16 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[14-Mar-2017 16:08:25 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:15:45 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:15:51 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:18:56 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:19:00 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:19:04 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:19:08 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:19:19 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:19:22 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:19:26 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:19:51 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 24
+[15-Mar-2017 04:20:36 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:20:39 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 26
+[15-Mar-2017 04:20:43 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 26
+[15-Mar-2017 04:20:46 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:20:49 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 26
+[15-Mar-2017 04:21:25 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:21:29 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 26
+[15-Mar-2017 04:36:48 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:37:15 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 25
+[15-Mar-2017 04:40:53 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:40:57 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 25
+[15-Mar-2017 04:40:57 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 25
+[15-Mar-2017 04:43:53 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:46:40 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:47:09 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:47:25 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:48:40 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:48:47 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:49:36 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:49:40 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:50:30 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:50:33 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:50:35 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:50:38 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:54:28 UTC] PHP Fatal error:  Call to undefined function wj_connect() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 1
+[15-Mar-2017 04:56:09 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:56:11 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:58:11 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:58:15 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:58:33 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:59:22 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:59:25 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:59:28 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 04:59:29 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 04:59:52 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 05:04:17 UTC] PHP Fatal error:  Cannot redeclare wj_root_dir() (previously declared in /home/wonderadmin/public_html/functions.php:20) in /home/wonderadmin/public_html/functions.php on line 22
+[15-Mar-2017 05:04:40 UTC] PHP Fatal error:  Cannot redeclare wj_connect() (previously declared in /home/wonderadmin/public_html/functions.php:22) in /home/wonderadmin/public_html/functions.php on line 31
+[15-Mar-2017 05:06:52 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 05:35:55 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 05:36:00 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 25
+[15-Mar-2017 05:36:00 UTC] PHP Fatal error:  Call to a member function query() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 25
+[15-Mar-2017 05:45:59 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 10
+[15-Mar-2017 05:46:48 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 10
+[15-Mar-2017 05:46:50 UTC] PHP Warning:  mysqli_close() expects exactly 1 parameter, 0 given in /home/wonderadmin/public_html/functions.php on line 39
+[15-Mar-2017 05:47:55 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/functions.php on line 39
+[15-Mar-2017 05:47:55 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/functions.php on line 39
+[15-Mar-2017 05:49:24 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:49:24 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:50:54 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 10
+[15-Mar-2017 05:50:57 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:50:57 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:52:43 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/wonderadmin/public_html/functions.php on line 30
+[15-Mar-2017 05:52:49 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/wonderadmin/public_html/functions.php on line 30
+[15-Mar-2017 05:53:24 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:53:26 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:53:29 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 10
+[15-Mar-2017 05:53:31 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 05:53:47 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 10
+[15-Mar-2017 05:53:48 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 37
+[15-Mar-2017 06:00:11 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 45
+[15-Mar-2017 06:00:13 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 11
+[15-Mar-2017 06:00:17 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 45
+[15-Mar-2017 06:01:30 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 45
+[15-Mar-2017 06:01:32 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[15-Mar-2017 06:01:38 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 45
+[15-Mar-2017 06:02:19 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 45
+[15-Mar-2017 06:02:22 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[15-Mar-2017 06:02:23 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 45
+[15-Mar-2017 06:04:49 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/wonderadmin/public_html/functions.php on line 25
+[15-Mar-2017 06:09:08 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/wonderadmin/public_html/functions.php on line 25
+[15-Mar-2017 06:09:09 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/wonderadmin/public_html/functions.php on line 25
+[15-Mar-2017 06:09:11 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[15-Mar-2017 06:09:11 UTC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in /home/wonderadmin/public_html/functions.php on line 25
+[15-Mar-2017 06:09:23 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[15-Mar-2017 06:09:25 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 43
+[15-Mar-2017 06:09:25 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 43
+[15-Mar-2017 06:12:11 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 51
+[15-Mar-2017 06:12:11 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 51
+[15-Mar-2017 06:12:12 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 51
+[15-Mar-2017 06:12:12 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 51
+[15-Mar-2017 06:12:23 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[15-Mar-2017 06:12:25 UTC] PHP Notice:  Undefined variable: mysqli in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 51
+[15-Mar-2017 06:12:25 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 51
+[15-Mar-2017 06:15:27 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 06:15:27 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 75
+[15-Mar-2017 06:15:27 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 75
+[15-Mar-2017 06:16:03 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 06:16:03 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 72
+[15-Mar-2017 06:16:03 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 72
+[15-Mar-2017 06:16:05 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 06:16:05 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 72
+[15-Mar-2017 06:16:05 UTC] PHP Fatal error:  Call to a member function close() on null in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 72
+[15-Mar-2017 06:16:55 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[15-Mar-2017 06:17:01 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 04:12:23 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:05:58 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:10:04 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:10:23 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:10:28 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:10:37 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 05:11:11 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:17:59 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:21:15 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:22:22 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:26:08 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:39:00 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 05:51:01 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 05:59:35 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 06:03:45 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 06:03:52 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:09:30 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 34
+[16-Mar-2017 06:11:30 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 06:11:45 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 34
+[16-Mar-2017 06:12:13 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:18:19 UTC] PHP Notice:  Undefined index: logged-in in /home/wonderadmin/public_html/wj-admin/index.php on line 12
+[16-Mar-2017 06:18:19 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:28:15 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:28:44 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:28:48 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:29:27 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:29:29 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:29:34 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:30:15 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 52
+[16-Mar-2017 06:30:26 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 53
+[16-Mar-2017 06:30:30 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 53
+[16-Mar-2017 06:36:49 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:36:49 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:36:49 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:38:03 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 06:38:10 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:38:10 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:38:10 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:38:47 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:38:47 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:38:47 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:38:57 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 06:39:30 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:39:30 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:39:30 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:40:48 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-register.php on line 12
+[16-Mar-2017 06:40:57 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:40:57 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:40:57 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:41:50 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:41:50 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:41:50 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:41:53 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:41:53 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 11
+[16-Mar-2017 06:44:48 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:44:48 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:44:48 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:45:01 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:45:01 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:45:01 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:50:36 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:50:36 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:56:34 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:56:34 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:56:34 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:56:34 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/header.php on line 47
+[16-Mar-2017 06:58:20 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 06:58:20 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 06:58:20 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 06:58:20 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/header.php on line 1
+[16-Mar-2017 06:58:20 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/header.php on line 48
+[16-Mar-2017 07:02:28 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 07:02:28 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 07:02:28 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 07:02:28 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/wonderadmin/public_html/header.php on line 48
+[16-Mar-2017 07:07:26 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/index.php on line 7
+[16-Mar-2017 07:07:26 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 07:07:26 UTC] PHP Notice:  Undefined index: user in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 12
+[16-Mar-2017 07:08:39 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 07:08:53 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 36
+[16-Mar-2017 07:08:53 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 07:09:27 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 36
+[16-Mar-2017 07:09:27 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 07:09:40 UTC] PHP Notice:  Undefined index: admin in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 36
+[16-Mar-2017 07:09:40 UTC] PHP Notice:  A session had already been started - ignoring session_start() in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 2
+[16-Mar-2017 07:10:20 UTC] PHP Notice:  Undefined variable: _SESSION in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 34
+[16-Mar-2017 07:11:36 UTC] PHP Notice:  Undefined variable: _SESSION in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 33
+[16-Mar-2017 07:12:40 UTC] PHP Notice:  Undefined variable: _SESSION in /home/wonderadmin/public_html/wj-admin/wj-login.php on line 33
+[17-Mar-2017 04:51:07 UTC] PHP Warning:  include(/home/wonderadmin/public_html/template-parts/header/menu.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/header.php on line 29
+[17-Mar-2017 04:51:07 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/template-parts/header/menu.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/header.php on line 29
+[17-Mar-2017 05:13:53 UTC] PHP Warning:  include(/home/wonderadmin/public_htmlwj-admin/templates/$action.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 20
+[17-Mar-2017 05:13:53 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_htmlwj-admin/templates/$action.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 20
+[17-Mar-2017 05:14:38 UTC] PHP Warning:  include(/home/wonderadmin/public_htmlwj-admin/templates/options.php.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 20
+[17-Mar-2017 05:14:38 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_htmlwj-admin/templates/options.php.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 20
+[17-Mar-2017 05:15:02 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/options.php.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 20
+[17-Mar-2017 05:15:02 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/options.php.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 20
+[17-Mar-2017 05:21:50 UTC] PHP Parse error:  syntax error, unexpected '$', expecting '(' in /home/wonderadmin/public_html/wj-admin/index.php on line 18
+[17-Mar-2017 05:24:50 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/furballs): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:24:50 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/furballs' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:25:02 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/index): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:25:02 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/index' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:25:28 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/options): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:25:28 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/options' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:34:12 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/dipshit.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:34:12 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/dipshit.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 21
+[17-Mar-2017 05:50:46 UTC] PHP Parse error:  syntax error, unexpected '&&' (T_BOOLEAN_AND) in /home/wonderadmin/public_html/wj-admin/index.php on line 26
+[17-Mar-2017 05:51:22 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 46
+[17-Mar-2017 05:54:49 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:54:53 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:56:43 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:56:48 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:59:43 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:59:45 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:59:50 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 05:59:51 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/wonderadmin/public_html/wj-admin/index.php on line 48
+[17-Mar-2017 06:02:15 UTC] PHP Notice:  Undefined variable: action in /home/wonderadmin/public_html/wj-admin/index.php on line 35
+[17-Mar-2017 06:02:15 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 35
+[17-Mar-2017 06:02:15 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 35
+[17-Mar-2017 06:02:25 UTC] PHP Notice:  Undefined variable: action in /home/wonderadmin/public_html/wj-admin/index.php on line 35
+[17-Mar-2017 06:02:25 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 35
+[17-Mar-2017 06:02:25 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 35
+[17-Mar-2017 06:04:09 UTC] PHP Notice:  Undefined variable: action in /home/wonderadmin/public_html/wj-admin/index.php on line 37
+[17-Mar-2017 06:04:09 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 37
+[17-Mar-2017 06:04:09 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 37
+[17-Mar-2017 06:04:14 UTC] PHP Notice:  Undefined variable: action in /home/wonderadmin/public_html/wj-admin/index.php on line 37
+[17-Mar-2017 06:04:14 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 37
+[17-Mar-2017 06:04:14 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 37
+[17-Mar-2017 06:12:25 UTC] PHP Notice:  Undefined variable: action in /home/wonderadmin/public_html/wj-admin/index.php on line 42
+[17-Mar-2017 06:12:25 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 42
+[17-Mar-2017 06:12:25 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 42
+[17-Mar-2017 06:13:17 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/templates/ds.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/index.php on line 42
+[17-Mar-2017 06:13:17 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/templates/ds.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/index.php on line 42
+[17-Mar-2017 21:25:50 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[17-Mar-2017 21:26:05 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[17-Mar-2017 21:26:09 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[17-Mar-2017 21:26:41 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[17-Mar-2017 21:26:45 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[17-Mar-2017 21:29:10 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[17-Mar-2017 21:29:24 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 04:51:32 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 04:51:39 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 04:51:49 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 04:51:54 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 04:51:55 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 04:51:57 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 18:56:26 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 18:57:51 UTC] PHP Fatal error:  Call to undefined function before_admin_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 28
+[19-Mar-2017 19:44:49 UTC] PHP Notice:  Undefined variable: type in /home/wonderadmin/public_html/functions.php on line 95
+[19-Mar-2017 19:44:52 UTC] PHP Notice:  Undefined variable: type in /home/wonderadmin/public_html/functions.php on line 95
+[19-Mar-2017 19:44:53 UTC] PHP Notice:  Undefined variable: type in /home/wonderadmin/public_html/functions.php on line 95
+[19-Mar-2017 19:46:25 UTC] PHP Notice:  Undefined variable: type in /home/wonderadmin/public_html/functions.php on line 95
+[19-Mar-2017 19:46:26 UTC] PHP Notice:  Undefined variable: type in /home/wonderadmin/public_html/functions.php on line 95
+[19-Mar-2017 19:46:29 UTC] PHP Notice:  Undefined variable: type in /home/wonderadmin/public_html/functions.php on line 95
+[20-Mar-2017 05:31:32 UTC] PHP Warning:  include(/home/wonderadmin/public_html/wj-admin/template-parts/header/menu.php): failed to open stream: No such file or directory in /home/wonderadmin/public_html/wj-admin/header.php on line 30
+[20-Mar-2017 05:31:32 UTC] PHP Warning:  include(): Failed opening '/home/wonderadmin/public_html/wj-admin/template-parts/header/menu.php' for inclusion (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/wonderadmin/public_html/wj-admin/header.php on line 30
+[20-Mar-2017 05:41:52 UTC] PHP Fatal error:  Call to undefined function before_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 33
+[20-Mar-2017 06:10:18 UTC] PHP Notice:  Undefined variable: conn in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 58
+[20-Mar-2017 06:10:18 UTC] PHP Fatal error:  Call to a member function prepare() on null in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 58
+[20-Mar-2017 06:12:35 UTC] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 66
+[20-Mar-2017 06:13:33 UTC] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 66
+[20-Mar-2017 06:13:35 UTC] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 66
+[20-Mar-2017 06:14:00 UTC] PHP Warning:  mysqli_stmt::bind_result(): Number of bind variables doesn't match number of fields in prepared statement in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 66
+[20-Mar-2017 06:14:03 UTC] PHP Fatal error:  Cannot pass parameter 1 by reference in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 66
+[20-Mar-2017 06:14:18 UTC] PHP Fatal error:  Cannot pass parameter 1 by reference in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 66
+[21-Mar-2017 04:12:19 UTC] PHP Fatal error:  Call to undefined method mysqli_stmt::fetch_array() in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 72
+[21-Mar-2017 04:19:24 UTC] PHP Fatal error:  Call to undefined method mysqli_stmt::fetch_array() in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 72
+[23-Mar-2017 05:09:24 UTC] PHP Notice:  Undefined index: hidden-header-type in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[23-Mar-2017 05:09:54 UTC] PHP Notice:  Undefined index: hidden-header-type in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[23-Mar-2017 05:10:00 UTC] PHP Notice:  Undefined index: hidden-header-type in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[23-Mar-2017 05:12:28 UTC] PHP Notice:  Undefined index: hidden-header-type in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[23-Mar-2017 05:12:34 UTC] PHP Notice:  Undefined index: hidden-header-type in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[23-Mar-2017 05:36:56 UTC] PHP Notice:  Undefined index: frontpage-layout-style in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[24-Mar-2017 20:04:05 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 84
+[24-Mar-2017 20:04:07 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 84
+[24-Mar-2017 20:17:28 UTC] PHP Fatal error:  Call to undefined function before_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 33
+[24-Mar-2017 20:19:27 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/wj-admin/index.php on line 25
+[24-Mar-2017 20:19:27 UTC] PHP Fatal error:  Call to undefined function before_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 33
+[24-Mar-2017 20:21:35 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/wj-admin/index.php on line 25
+[24-Mar-2017 20:21:35 UTC] PHP Fatal error:  Call to undefined function before_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 33
+[24-Mar-2017 20:21:56 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/wj-admin/index.php on line 25
+[24-Mar-2017 20:21:56 UTC] PHP Fatal error:  Call to undefined function before_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 33
+[24-Mar-2017 20:21:57 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/wj-admin/index.php on line 25
+[24-Mar-2017 20:21:57 UTC] PHP Fatal error:  Call to undefined function before_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 33
+[24-Mar-2017 20:22:10 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[24-Mar-2017 20:25:18 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[24-Mar-2017 20:25:38 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[24-Mar-2017 20:26:51 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[24-Mar-2017 20:27:15 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 85
+[24-Mar-2017 20:27:15 UTC] PHP Notice:  Undefined variable: result in /home/wonderadmin/public_html/functions.php on line 95
+[24-Mar-2017 20:27:15 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[24-Mar-2017 20:28:20 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 77
+[24-Mar-2017 20:28:20 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/functions.php on line 77
+[24-Mar-2017 20:28:20 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[25-Mar-2017 05:16:36 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/wj-admin/index.php on line 25
+[25-Mar-2017 05:16:36 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 63
+[25-Mar-2017 05:17:48 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[25-Mar-2017 05:18:05 UTC] PHP Notice:  Undefined variable: bodyclass in /home/wonderadmin/public_html/wj-admin/index.php on line 26
+[25-Mar-2017 05:18:05 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[25-Mar-2017 05:18:12 UTC] PHP Fatal error:  Call to undefined function after_content() in /home/wonderadmin/public_html/wj-admin/index.php on line 64
+[25-Mar-2017 06:08:59 UTC] PHP Notice:  Undefined index: homepage in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 24
+[25-Mar-2017 06:08:59 UTC] PHP Notice:  Undefined index: homepage-layout-style in /home/wonderadmin/public_html/wj-admin/templates/options.php on line 25
