@@ -13,10 +13,10 @@
 wj_connect();
 
 // SQL
-$stmt = $conn->prepare("SELECT `page_id`,`page_title`,`page_special` FROM `pages`");
+$stmt = $conn->prepare("SELECT `page_id`,`page_title`,`page_special`,`page_permalink` FROM `pages`");
 
 // Bind result variables
-$stmt->bind_result($page_id, $page_title, $page_special);
+$stmt->bind_result($page_id, $page_title, $page_special, $page_permalink);
 
 // Execute statement
 $stmt->execute();
@@ -44,7 +44,7 @@ wj_before_content($type = 'plain-section');
 
 					?>
 
-					<li>
+					<li title="<?php echo $page_permalink; ?>">
 						<h3>
 							<a href="<?php echo '/wj-admin/index.php?page=new-page&p_id=' . $page_id; ?>">
 

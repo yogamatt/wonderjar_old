@@ -44,27 +44,64 @@ if (isset($_POST['update'])) {
 	wj_connect();
 
 
-	$sql = "INSERT INTO `pages` (`page_title`, `page_content`, `page_special`) VALUES (?,?,?)";
+	$sql = "INSERT INTO `pages` (`page_title`, `page_content`, `page_special`, `page_permalink`) VALUES (?,?,?,?)";
 		
 	if ($stmt = $conn->prepare($sql)) {
 
 		// Bind params
-		$stmt->bind_param("sss", $page_title, $page_content, $page_special);
+		$stmt->bind_param("ssss", $page_title, $page_content, $page_special, $page_permalink);
 
 		// Set parameters
 		$page_title = $_POST['page-title'];
 		$page_content = $_POST['page-content'];
 		$page_special = '';
+		$page_permalink = '';
 
-		// Execute statement
 		$stmt->execute();
-		
-		// Close statement
-		$stmt->close();
-		
-		// Close db connection
-		$conn->close();
+
 	}
+	
+	$stmt->close();
+		
+	
+	// Unset sql vars
+	unset($stmt, $sql);
+
+	$sql = "SELECT `page_id` FROM `pages` WHERE `page_title` = ?";
+
+	if ($stmt = $conn->prepare($sql)) {
+
+		// Bind param page title, set above
+		$stmt->bind_param("s", $page_title);
+
+		$stmt->execute();
+
+		$stmt->bind_result($page_id);
+
+		$stmt->fetch();
+
+	}
+
+	$stmt->close();
+
+	// Unset sql vars
+	unset($stmt, $sql);
+
+	$sql = "UPDATE `pages` SET `page_permalink` = ? WHERE `page_id` = ?";
+
+	if ($stmt = $conn->prepare($sql)) {
+
+		$stmt->bind_param("ss", $page_permalink, $param_id);
+
+		$page_permalink = 'http://wonderjarcreative.com/index.php?p_id=' . $page_id;
+		$param_id = $page_id;
+
+		$stmt->execute();
+
+	}
+
+	// Close db connection
+	$conn->close();
 
 	// Output opening HTML
 	wj_before_content($type = 'plain-section');
@@ -83,6 +120,10 @@ if (isset($_POST['update'])) {
 							<div class="form-group">
 								<label class="label-top" for="page-title">New Page Title:</label>
 								<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+							</div>
+							<div class="form-group permagroup">
+								<label class="label-top" for="page-permalink">Perma:</label>
+								<input type="text" name="page-permalink" id="page-permalink" placeholder="<?php echo $page_permalink; ?>" value="<?php echo $page_permalink; ?>">
 							</div>
 							<div class="form-group">
 								<label class-"label-top" for="page-content">New Page Content:</label>
@@ -162,7 +203,7 @@ if (isset($_POST['update'])) {
 			$stmt->execute();
 
 			// Bind result variables
-			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content);
+			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
 
 			// Fetch values
 			$stmt->fetch();
@@ -190,6 +231,10 @@ if (isset($_POST['update'])) {
 								<div class="form-group">
 									<label class="label-top" for="page-title">Page Title:</label>
 									<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+								</div>
+								<div class="form-group permagroup">
+									<label class="label-top" for="page-permalink">Perma:</label>
+									<input type="text" name="page-permalink" id="page-permalink" placeholder="<?php echo $page_permalink; ?>" value="<?php echo $page_permalink; ?>">
 								</div>
 								<div class="form-group">
 									<label class-"label-top" for="page-content">Page Content:</label>

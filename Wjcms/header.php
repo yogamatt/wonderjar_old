@@ -12,6 +12,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script src="https://use.fontawesome.com/cba49e1fab.js"></script>
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../includes/css/responsive.css">
 	<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/functions.php'); ?>

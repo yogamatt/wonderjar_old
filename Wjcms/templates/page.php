@@ -29,7 +29,7 @@ if ($stmt = $conn->prepare($sql)) {
 	$stmt->execute();
 
 	// Bind result paramaters
-	$stmt->bind_result($p_id, $p_time, $p_special, $p_title, $p_content);
+	$stmt->bind_result($p_id, $p_time, $p_special, $p_title, $p_content, $p_permalink);
 
 	// Fetch
 	$stmt->fetch();

@@ -110,6 +110,22 @@
 
 /* New page */
 
+.permagroup {
+	margin: 0 0 1em;
+	padding: .5em;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+}
+
+.permagroup label {
+	color: #555;
+}
+
+.permagroup input {
+	margin: 0;
+	color: #555;
+}
+
 .form-contain input:not([type=submit]) {
 	padding: .5em;
 	width: 100%;

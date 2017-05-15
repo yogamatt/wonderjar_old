@@ -23,19 +23,15 @@ wj_get_homepage();
 
 
 // Output opening HTML
-wj_before_content($type = 'main-section');
+wj_before_content($type = 'home-section');
 
 ?>
-
-<header class="main-header">
-	<h1><?php echo $page_title; ?></h1>
-</header>
 
 <?php echo $page_content; ?>
 
 <?php
 
 // Output closing HTML
-wj_after_content($type = 'main-section');
+wj_after_content($type = 'home-section');
 
 ?>
