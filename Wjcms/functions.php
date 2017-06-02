@@ -266,13 +266,13 @@ if (!function_exists('wj_after_content')) {
 /*
  * Get homepage ID
  * Function: wj_homepage_id()
- * Used: index.php:
+ * Used: index.php, new-page.php
  *
  */
 
 if (!function_exists('wj_homepage_id')) {
 
-	function wj_homepage_id() {
+	function wj_homepage_id($h_id) {
 
 		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
@@ -300,7 +300,10 @@ if (!function_exists('wj_homepage_id')) {
 			$stmt->bind_result($homepage_id);
 
 			// Fetch
-			$stmt->fetch();
+			while ($stmt->fetch()) {
+
+				$r_id = $homepage_id;
+			}
 
 			$stmt->close();
 
@@ -308,7 +311,11 @@ if (!function_exists('wj_homepage_id')) {
 
 		$conn->close();
 
-		echo $homepage_id;
+		if ($h_id == $r_id) {
+			
+			return true;
+
+		}
 
 	}
 

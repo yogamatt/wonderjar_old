@@ -175,10 +175,6 @@ if (isset($_POST['update'])) {
 
 				$stmt->close();
 
-			} else {
-
-				echo 'noworky ' . $action . 'y'; 
-			
 			}
 
 			$conn->close();
@@ -219,38 +215,55 @@ if (isset($_POST['update'])) {
 
 	?>
 
-		<div class="form-contain">
-			<header class="admin-header">
-				<h2>Page Review</h2>
-			</header>
-			<div class="new-page">
-				<form id="update-page-form" method="post" action="/wj-admin/index.php?page=new-page&p_id=<?php echo $pid; ?>">
-					<div class="inner-form">
-						<div class="inner-left">	
-							<fieldset>
-								<div class="form-group">
-									<label class="label-top" for="page-title">Page Title:</label>
-									<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
-								</div>
-								<div class="form-group permagroup">
-									<label class="label-top" for="page-permalink">Perma:</label>
-									<input type="text" name="page-permalink" id="page-permalink" placeholder="<?php echo $page_permalink; ?>" value="<?php echo $page_permalink; ?>">
-								</div>
-								<div class="form-group">
-									<label class-"label-top" for="page-content">Page Content:</label>
-									<textarea rows="20" cols="100" name="page-content" id="page-content"><?php echo $page_content; ?>
-									</textarea>
-								</div>
-							</fieldset>
+	<?php
+
+		
+		// Is it the homepage?
+		// @function wj_homepage_id($h_id) returns true/false
+		$h_id = $_GET['p_id'];
+
+		if (wj_homepage_id($h_id)) {
+
+			include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/new-homepage.php');
+
+		} else {
+
+		?>
+
+			<div class="form-contain">
+				<header class="admin-header">
+					<h2>Page Review</h2>
+				</header>
+				<div class="new-page">
+					<form id="update-page-form" method="post" action="/wj-admin/index.php?page=new-page&p_id=<?php echo $pid; ?>">
+						<div class="inner-form">
+							<div class="inner-left">	
+								<fieldset>
+									<div class="form-group">
+										<label class="label-top" for="page-title">Page Title:</label>
+										<input type="text" name="page-title" id="page-title" value="<?php echo $page_title; ?>">
+									</div>
+									<div class="form-group permagroup">
+										<label class="label-top" for="page-permalink">Perma:</label>
+										<input type="text" name="page-permalink" id="page-permalink" placeholder="<?php echo $page_permalink; ?>" value="<?php echo $page_permalink; ?>">
+									</div>
+									<div class="form-group">
+										<label class-"label-top" for="page-content">Page Content:</label>
+										<textarea rows="20" cols="100" name="page-content" id="page-content"><?php echo $page_content; ?>
+										</textarea>
+									</div>
+								</fieldset>
+							</div>
+							<?php wj_sidebar($type = 'new-page'); ?>
 						</div>
-						<?php wj_sidebar($type = 'new-page'); ?>
-					</div>
-					<fieldset class="submit-group">
-						<input type="submit" name="update" value="update">
-					</fieldset>
-				</form>
+						<fieldset class="submit-group">
+							<input type="submit" name="update" value="update">
+						</fieldset>
+					</form>
+				</div>
 			</div>
-		</div>
+
+		<?php } ?>
 
 	<?php
 
