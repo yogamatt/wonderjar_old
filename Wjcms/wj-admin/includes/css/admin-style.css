@@ -22,6 +22,86 @@
 
 /* End globals */
 
+/* Main Header */
+
+.main-header {
+	border-bottom: 1px solid #eee;
+}
+
+/* End Main Header */
+
+/* Logo */
+
+.logo-link {
+	display: inline-block;
+	padding: 15px 0 13px;
+}
+
+.logo {
+	max-height: 46px;
+}
+
+/* End Logo */
+
+/* Main Navigation */
+
+.wj-admin .main-nav {
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+}
+
+.wj-admin .main-nav-ul {
+	margin: 0;
+	padding: 0;
+	float: right;
+	display: table;
+	height: 100%;
+	list-style: none;
+}
+
+	.wj-admin .main-nav-ul::after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+
+.wj-admin .main-nav li {
+	padding: 0 2em;
+	border-left: 1px solid #eee;
+	display: table-cell;
+	vertical-align: middle;
+	background: transparent;
+	height: 100%;
+	-webkit-transition: background .05s ease;
+	transition: background .05s ease;
+}
+
+	.wj-admin .main-nav li:last-child {
+		border-right: 1px solid #eee;
+	}
+
+	.wj-admin .main-nav li:hover {
+		background: #fff;
+	}
+
+.wj-admin .main-nav a {
+	padding: .5em 0;
+	font-size: 1.03em;
+	letter-spacing: .015em;
+	text-transform: lowercase;
+	color: #969696;
+	-webkit-transition: color .05s ;
+	transition: color .05s ;ease
+}
+
+
+/* End Main Navigation */
+
 /* Options */
 
 .current-options {
@@ -109,6 +189,22 @@
 /* End pages */
 
 /* New page */
+
+.permagroup {
+	margin: 0 0 1em;
+	padding: .5em;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+}
+
+.permagroup label {
+	color: #555;
+}
+
+.permagroup input {
+	margin: 0;
+	color: #555;
+}
 
 .form-contain input:not([type=submit]) {
 	padding: .5em;

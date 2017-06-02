@@ -11,31 +11,32 @@
 
 /*
  * @function wj_get_homepage()
- * 
- * From: /functions.php:113
- *
- * Get the homepage page
  * returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
- *
  */
 
 wj_get_homepage();
 
 
-// Output opening HTML
-wj_before_content($type = 'main-section');
+// Add homepage to bodyclass
+$bodyclass .= 'homepage ';
+
+
+// Include header
+include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
+echo '<!-- End Header -->';
 
 ?>
 
-<header class="main-header">
-	<h1><?php echo $page_title; ?></h1>
-</header>
 
-<?php echo $page_content; ?>
+<div class="homepage-content">
+	<?php echo $page_content; ?>
+</div>
+
 
 <?php
 
-// Output closing HTML
-wj_after_content($type = 'main-section');
+// Include Footer
+include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
+echo '<!-- End Footer -->';
 
 ?>

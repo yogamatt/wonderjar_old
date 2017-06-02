@@ -9,9 +9,13 @@
  */
 
 // Grab submitted current-menu
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])):
 	current_menu_submit();
-}
+
+elseif (isset($_GET['action'])):
+	delete_menu_item();
+
+endif;
 
 
 // Output opening HTML
@@ -24,7 +28,7 @@ wj_before_content($type = 'plain-section');
 
 	<?php
 		
-		// Get menus sidebar - @function wj_sidebar($type)
+		// Get menus sidebar
 		wj_sidebar($type = 'menus');
 
 	?>
@@ -36,7 +40,7 @@ wj_before_content($type = 'plain-section');
 				<div class="inner-form">
 					<?php
 
-						// Insert menus @function current_menu()
+						// Insert current menus
 						current_menu();
 					?>
 				</div>

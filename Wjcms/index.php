@@ -11,12 +11,12 @@
 // Start session
 session_start();
 
+// Start $bodyclass for main <body> tag
+global $bodyclass;
+$bodyclass = '';
+
 // Include functions
 include ($_SERVER['DOCUMENT_ROOT'].'/functions.php');
-
-// Include header
-include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
-echo '<!-- End Header -->';
 
 
 // Get the template from '/templates/'
@@ -42,8 +42,5 @@ if (!empty($_GET['page'])) {
 // Include $page
 include ($_SERVER['DOCUMENT_ROOT'].'/templates/' . $page . '.php');
 
-// Include Footer
-include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
-echo '<!-- End Footer -->';
 
 ?>

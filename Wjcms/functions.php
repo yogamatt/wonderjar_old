@@ -37,6 +37,7 @@ if (!function_exists('wj_connect')) {
 
 }
 
+
 /*
  * @function wj_body_classes()
  *
@@ -51,11 +52,9 @@ if (!function_exists('wj_body_classes')) {
 
 	function wj_body_classes($bodyclass) {
 
-		// Database Connection
+		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
-
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
-
 		if ($conn->connect_error) {
 	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
@@ -65,8 +64,6 @@ if (!function_exists('wj_body_classes')) {
 		if ($stmt = $conn->prepare("SELECT `option_value` FROM `options` ORDER BY `id` DESC")) {
 		
 			$stmt->execute();
-
-			// Bind results to var $options
 			$stmt->bind_result($options);
 
 			// Start $bodyclass and $row array()
@@ -98,13 +95,70 @@ if (!function_exists('wj_body_classes')) {
 
 }
 
+
+/*
+ * Get menu for header
+ * @function get_menu()
+ *
+ * Used: /templates/menu.php:12
+ */
+
+if (!function_exists('get_menu')) {
+
+	function get_menu() {
+
+		// Database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// Start markup
+		$mark = '<nav class="main-nav">';
+		$mark .= '<ul class="main-nav-ul">';
+
+		$sql = "SELECT `nav_id`, `nav_title`, `nav_permalink` FROM `menus` ORDER BY `id`";
+
+		if ($stmt = $conn->prepare($sql)) {
+			$stmt->execute();
+
+			$stmt->bind_result($result_id, $nav_title, $nav_permalink);
+
+			while ($stmt->fetch()) {
+
+				$ids = str_split($result_id, 2);
+
+				foreach ($ids as $key => $id) {
+
+					$mark .= '<li><a href="' . $nav_permalink . '">' . $nav_title . '</a></li>';
+
+				}
+
+			}
+
+		}
+
+		$mark .= '</ul></nav>';
+
+		echo $mark;
+
+		$stmt->close();
+		$conn->close();
+
+	}
+
+}
+
+
+
 /*
  * @function wj_get_homepage()
  *
  * Get the homepage page
  * returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
  *
- * Used: /templates/homepage.php:
+ * Used: /templates/homepage.php:17
  *
  */
 
@@ -112,7 +166,7 @@ if (!function_exists('wj_get_homepage')) {
 
 	function wj_get_homepage() {
 
-		// Database Connection
+		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
@@ -139,7 +193,7 @@ if (!function_exists('wj_get_homepage')) {
 			$stmt->execute();
 
 			// Bind result variables
-			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content);
+			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
 
 			// Fetch
 			$stmt->fetch();
@@ -150,7 +204,7 @@ if (!function_exists('wj_get_homepage')) {
 
 		$conn->close();
 
-		return array ($page_id, $page_time, $page_special, $page_title, $page_content);
+		return array ($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
 
 	}
 
@@ -170,11 +224,14 @@ if (!function_exists('wj_before_content')) {
 
 		// Switch the $type
 		switch ($type) {
-			case 'plain-section':
-				echo '<div class="plain-section"><div class="inner-container"><div class="inner-content">';
+			case 'home-section':
+				echo '<div class="home-section"><div class="inner-content">';
 				break;
 			case 'main-section':
 				echo '<div class="main-section"><div class="inner-container"><div class="inner-content">';
+				break;
+			case 'plain-section':
+				echo '<div class="plain-section"><div class="inner-container"><div class="inner-content">';
 				break;
 			default:
 				echo '<div class="main-section default-section"><div class="inner-container"><div class="inner-content">';
@@ -190,10 +247,13 @@ if (!function_exists('wj_after_content')) {
 
 		// Switch the $type
 		switch ($type) {
-			case 'plain-section':
-				echo '</div></div></div>';
+			case 'home-section':
+				echo '</div></div>';
 				break;
 			case 'main-section':
+				echo '</div></div></div>';
+				break;
+			case 'plain-section':
 				echo '</div></div></div>';
 				break;
 			default:
@@ -214,11 +274,9 @@ if (!function_exists('wj_homepage_id')) {
 
 	function wj_homepage_id() {
 
-		// Database Connection
+		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
-
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
-
 		if ($conn->connect_error) {
 	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
@@ -258,8 +316,10 @@ if (!function_exists('wj_homepage_id')) {
 
 
 /*
+ * Sidebars
  * @function wj_sidebar()
  *
+ * Used: All over
  */
 
 if (!function_exists('wj_sidebar')) {
@@ -313,7 +373,7 @@ if (!function_exists('option_generals')) {
 
 	function option_generals() {
 
-		// Database Connection
+		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
@@ -446,7 +506,7 @@ if (!function_exists('option_pages')) {
 			echo 'SQL Failed';
 		}
 
-		// Close Connection
+		// Close connection
 		$conn->close();
 
 			
@@ -552,7 +612,7 @@ if (!function_exists('current_menu')) {
 		$result_array = array();
 
 		// Grab existing pages from menus table
-		$sql = "SELECT `nav_list_id` FROM `menus` ORDER BY `id` ASC";
+		$sql = "SELECT `nav_id` FROM `menus` ORDER BY `id` ASC";
 
 		if ($stmt = $conn->prepare($sql)) {
 
@@ -574,7 +634,7 @@ if (!function_exists('current_menu')) {
 
 		foreach ($result_array as $result) {
 
-			$sql = "SELECT `page_id`, `page_title` FROM `pages` WHERE `page_id` = ?";
+			$sql = "SELECT `page_id`, `page_title`, `page_permalink` FROM `pages` WHERE `page_id` = ?";
 
 			if ($stmt = $conn->prepare($sql)) {
 
@@ -583,7 +643,7 @@ if (!function_exists('current_menu')) {
 
 				$stmt->execute();
 
-				$stmt->bind_result($result_id, $result_title);
+				$stmt->bind_result($result_id, $result_title, $result_plink);
 				$stmt->fetch();
 
 			}
@@ -601,10 +661,12 @@ if (!function_exists('current_menu')) {
 			$mark .= '</h3></div>';
 
 			$mark .= '<div class="item-option-cont">';
-			$mark .= '<span><a href="#">delete</a></span>';
+			$mark .= '<span><a href="http://wonderjarcreative.com/wj-admin/index.php?page=menus&p_id=' . $result_id . '&action=delete">delete</a></span>';
 			$mark .= '</div>';
 
-			$mark .= '<input type="hidden" name="menu-item[]" value="' . $result_id . '">';
+			$mark .= '<input type="hidden" name="menu-id[]" value="' . $result_id . '">';
+			$mark .= '<input type="hidden" name="menu-title[]" value="' . $result_title . '">';
+			$mark .= '<input type="hidden" name="menu-permalinks[]" value="' . $result_plink . '">';
 			$mark .= '</li>';
 
 		}
@@ -622,7 +684,7 @@ if (!function_exists('current_menu')) {
 		if (isset($_POST['set-menu-submit'])) {
 
 			// Set the prepared statement
-			$sql = "SELECT `page_id`, `page_title` FROM `pages` WHERE `page_id` = ?";
+			$sql = "SELECT `page_id`, `page_title`, `page_permalink` FROM `pages` WHERE `page_id` = ?";
 			$stmt = $conn->prepare($sql);
 			$stmt->bind_param("s", $page_id);
 
@@ -633,7 +695,7 @@ if (!function_exists('current_menu')) {
 
 				$stmt->execute();
 
-				$stmt->bind_result($page_id, $page_title);
+				$stmt->bind_result($page_id, $page_title, $page_permalink);
 
 				$stmt->fetch();
 
@@ -645,10 +707,12 @@ if (!function_exists('current_menu')) {
 				$mark .= '</h3></div>';
 
 				$mark .= '<div class="item-option-cont">';
-				$mark .= '<span><a href="#">delete</a></span>';
+				$mark .= '<span><a href="http://wonderjarcreative.com/wj-admin/index.php?page=menus&p_id=' . $page_id . '&action=delete">delete</a></span>';
 				$mark .= '</div>';
 
-				$mark .= '<input type="hidden" name="menu-item[]" value="' . $page_id . '">';
+				$mark .= '<input type="hidden" name="menu-id[]" value="' . $page_id . '">';
+				$mark .= '<input type="hidden" name="menu-title[]" value="' . $page_title . '">';
+				$mark .= '<input type="hidden" name="menu-permalinks[]" value="' . $page_permalink . '">';
 				$mark .= '</li>';
 
 			}
@@ -692,27 +756,87 @@ if (!function_exists('current_menu_submit')) {
 		}
 
 		// Insert query
-		$sql = "INSERT INTO `menus` (`nav_list_spot`, `nav_list_id`, `nav_list_title`) VALUES (?, ?, ?)";
+		$sql = "INSERT INTO `menus` (`nav_position`, `nav_id`, `nav_title`, `nav_permalink`) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE nav_position=VALUES(nav_position), nav_id=VALUES(nav_id), nav_title=VALUES(nav_title), nav_permalink=VALUES(nav_permalink);";
 		$stmt = $conn->prepare($sql);
-		$stmt->bind_param("iis", $param_spot, $param_id, $param_title);
+		$stmt->bind_param("iiss", $param_pos, $param_id, $param_title, $param_permalink);
 
-		// Post var array doesn't need []
-		$currents = $_POST['menu-item'];
+		// Post var arrays don't need []
+		$current_ids = $_POST['menu-id'];
+		$current_titles = $_POST['menu-title'];
+		$current_permalinks = $_POST['menu-permalinks'];
 
-		foreach ($currents as $current) {
+		foreach ($current_ids as $key => $current_id) {
 
-			$param_spot = '';
-			$param_id = $current;
-			$param_title = '';
+			// Set params
+			$param_pos = '';
+			$param_id = $current_id;
+			$param_title = $current_titles[$key];
+			$param_permalink = $current_permalinks[$key];
 
-			echo $param_id;
+			$stmt->execute();
 
 		}
 
+		$stmt->close();
+		$conn->close();
 
 	}
 
 }
+
+/*
+ * Delete selected menu item
+ * @function delete_memu_item()
+ *
+ * Used: /wj-admin/templates/menu.php:14
+ */
+
+if (!function_exists('delete_menu_item')) {
+
+	function delete_menu_item() {
+
+		if ($_GET['action'] === 'delete') {
+			// No page id?
+			if (!isset($_GET['p_id'])) {
+
+				return;
+
+			} else {
+
+				// Connect to the database
+				require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+				$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+				if ($conn->connect_error) {
+					die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+				}
+
+				// Delete menu item with get variable
+				$sql = "DELETE FROM `menus` WHERE `nav_id` = ?";
+
+				if ($stmt = $conn->prepare($sql)) {
+
+					$stmt->bind_param("s", $param_id);
+					$param_id = $_GET['p_id'];
+
+					$stmt->execute();
+
+				}
+
+				$stmt->close();
+				$conn->close();
+
+			}
+
+			echo 'deleted';
+
+		}
+
+	}
+
+}
+
+
+
 
 
 

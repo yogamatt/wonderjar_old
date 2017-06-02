@@ -1,62 +1,15 @@
-<nav class="main-nav">
-	<ul class="main-nav-ul">
-		<li class="section-link">
-			<a href="/#solutions">Solutions</a>
-		</li>
-		<li class="section-link">
-			<a href="/#portfolio">Portfolio</a>
-		</li>
-		<li class="connect social">
-			<?php
+<?php
+/**
+ * Wonderjar Menus Menu Template-Part
+ * @author Matt
+ * @category menu, template-part
+ * @version 1.0
+ * @since 2017-05-9
+ *
+ */
 
-			//Is this an admin?
-			if (isset($_SESSION['admin'])) {
+// Get menu set from /wj-admin/index.php?page=menus
+get_menu();
 
-			?>
 
-				<a href="/wj-admin/logout.php">Logout</a>
-								
-			<?php
-
-			//No?, What else
-			} else {
-
-			?>
-
-				<a href="#">Social</a>
-
-			<?php
-
-			//Endif
-			}
-
-			?>
-		</li>
-		<li class="connect contact">
-			<?php
-
-			//Is this an admin?
-			if (isset($_SESSION['admin'])) {
-
-			?>
-			
-				<a href="/wj-admin/index.php?page=index">WJ-Admin</a>
-								
-			<?php
-
-			//No?, What else
-			} else {
-
-			?>
-
-				<a href="/#contact">Contact</a>
-
-			<?php
-
-			//Endif
-			}
-
-			?>
-		</li>
-	</ul>
-</nav><!-- main-nav -->
+?>

@@ -7,7 +7,7 @@
 	<meta name="description" content="Find your new website development solutions. Specialized in innovative and modern styles.">
 	<meta name="keywords" content="Website Development, Website Design, Denver Website Development, Denver Website Design">
 	<meta name="author" content="Matthew Ediger">
-	<title>Wonderjar Creative Admin</title>
+	<title>WJ Administrations</title>
 	<link rel="shortcut icon" href="/favicon.ico?v2">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -25,7 +25,10 @@
   				'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
   				'save table contextmenu directionality emoticons template paste textcolor'
   			],
-  		toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  		toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
+	  	protect: [
+	  		/<\?php.*?\?>/g
+	  	]
 	  });
   </script>
 </head>
@@ -35,7 +38,7 @@
 			<div class="header-container">
 				<div class="logo-container">
 					<a href="/" class="logo-link">
-						<img src="/images/logo/wjmagicwand.png" alt="wonderjar-logo" class="logo">
+						<img src="/images/uploads/logo/wjmagicwand.png" alt="wonderjar-logo" class="logo">
 					</a>
 				</div>
 				<div class="navigation-container">

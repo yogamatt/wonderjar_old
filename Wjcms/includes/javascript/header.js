@@ -1,11 +1,21 @@
 $(document).ready(function(){
 
+	menu_toggle();
+	function menu_toggle() {
+		var menu_container = $('.navigation-container');
+		var menu_toggler = $('.main-header .menu-toggle');
+
+		menu_toggler.click(function(){
+			menu_container.toggleClass('toggled');
+		})
+	}
 	
 
 })
 
 $(window).on('load', function(){
 
+	fixed_header();
 	function fixed_header(){
 		var header = $('.fixed-header .main-header');
 		var header_height = header.height();
@@ -13,8 +23,8 @@ $(window).on('load', function(){
 
 		content.css('margin-top',header_height);
 	}
-	fixed_header();
 
+	header_containers_same_height();
 	function header_containers_same_height(){
 		var container = $('.header-container > div');
 		var highest;
@@ -36,6 +46,5 @@ $(window).on('load', function(){
 		})
 
 	}
-	header_containers_same_height();
 
 })

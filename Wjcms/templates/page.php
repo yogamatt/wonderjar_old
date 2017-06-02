@@ -15,6 +15,7 @@ wj_connect();
 
 // Grab pages
 // SQL
+
 $sql = "SELECT * FROM `pages` WHERE `page_id` = ?";
 
 if ($stmt = $conn->prepare($sql)) {
@@ -29,7 +30,7 @@ if ($stmt = $conn->prepare($sql)) {
 	$stmt->execute();
 
 	// Bind result paramaters
-	$stmt->bind_result($p_id, $p_time, $p_special, $p_title, $p_content);
+	$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
 
 	// Fetch
 	$stmt->fetch();
@@ -40,23 +41,32 @@ if ($stmt = $conn->prepare($sql)) {
 
 $conn->close();
 
+
+// Include header
+include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
+echo '<!-- End Header -->';
+
+
 // Output opening HTML
 wj_before_content($type = 'main-section');
 
 ?>
 
-	<header class="main-header">
-		<h1><?php echo $p_title; ?></h1>
+	<header class="content-header">
+		<h1><?php echo $page_title; ?></h1>
 	</header>
 
-	<?php echo $p_content; ?>
+	<?php echo $page_content; ?>
 
 
-	<?php
+<?php
 
-	// Output closing HTML
-	wj_after_content($type = 'main-section');
+// Output closing HTML
+wj_after_content($type = 'main-section');
 
 
+// Include Footer
+include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
+echo '<!-- End Footer -->';
 
-	?>
+?>
