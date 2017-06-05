@@ -56,6 +56,13 @@ wj_before_content($type = 'main-section');
 		<h1><?php echo $page_title; ?></h1>
 	</header>
 
+	<?php 
+
+		// see if post has any shortcode
+		check_for_shortcodes($page_content);
+
+	?>
+
 	<?php echo $page_content; ?>
 
 

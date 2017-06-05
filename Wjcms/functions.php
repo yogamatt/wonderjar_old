@@ -214,6 +214,7 @@ if (!function_exists('wj_get_homepage')) {
 /*
  * @function wj_before_content($type)
  * @function wj_after_content($type)
+ * Used: all over
  *
  */
 
@@ -266,7 +267,7 @@ if (!function_exists('wj_after_content')) {
 /*
  * Get homepage ID
  * Function: wj_homepage_id()
- * Used: index.php:
+ * Used: unused
  *
  */
 
@@ -274,32 +275,32 @@ if (!function_exists('wj_homepage_id')) {
 
 	function wj_homepage_id() {
 
-		// Database connection
+		// database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
 		if ($conn->connect_error) {
 	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
 
-		// Grab the homepage from `pages` -> `page_special`
+		// grab the homepage from `pages` -> `page_special`
 		// SQL
 		$sql = "SELECT `page_id` FROM `pages` WHERE `page_special` = ?";
 
 		if ($stmt = $conn->prepare($sql)){
 
-			// Bind parameters
+			// bind parameters
 			$stmt->bind_param("s", $special_home);
 
-			// Set variable parameters
+			// set variable parameters
 			$special_home = 'homepage';
 
-			// Execute
+			// execute
 			$stmt->execute();
 
-			// Bind result variables
+			// bind result variables
 			$stmt->bind_result($homepage_id);
 
-			// Fetch
+			// fetch
 			$stmt->fetch();
 
 			$stmt->close();
@@ -319,7 +320,7 @@ if (!function_exists('wj_homepage_id')) {
  * Sidebars
  * @function wj_sidebar()
  *
- * Used: All over
+ * Used: all over
  */
 
 if (!function_exists('wj_sidebar')) {
@@ -361,12 +362,276 @@ if (!function_exists('wj_sidebar')) {
 
 }
 
+
+/*
+ * Check For Shortcodes
+ * @function check_for_shortcodes($page_content)
+ *
+ * Used: /templates/page.php:62
+ *
+ * Notes: /\[\w*]/
+ *		  \[([^<>&/\]/]+)]     
+ *
+ */
+
+if (!function_exists('check_for_shortcodes')) {
+
+	function check_for_shortcodes($page_content) {
+
+		$pattern = '@\[([^<>&/\[\]\x00-\x20=]++)@';
+		$subject = $page_content;
+		preg_match_all($pattern, $subject, $matches);
+
+		foreach ($matches as $key => $match) {
+			
+			echo $match[$key] . '<br>';
+
+		}
+	}
+
+}
+
+
+/*
+ * Insert New Page
+ * @function insert_new_page()
+ * @category admin
+ *
+ * Notes: Three statements being executed
+ *
+ * Used: /wj-admin/templates/new-page.php:15
+ */
+
+if (!function_exists('insert_new_page')) {
+
+	function insert_new_page() {
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		
+		// insert details
+		$sql = "INSERT INTO `pages` (`page_title`, `page_content`, `page_special`, `page_permalink`) VALUES (?,?,?,?)";
+		
+		if ($stmt = $conn->prepare($sql)) {
+
+			// bind params
+			$stmt->bind_param("ssss", $page_title, $page_content, $page_special, $page_permalink);
+
+			// set parameters
+			$page_title = $_POST['page-title'];
+			$page_content = $_POST['page-content'];
+			$page_special = '';
+			$page_permalink = '';
+
+			$stmt->execute();
+
+		}
+		
+		$stmt->close();
+			
+		// unset sql vars
+		unset($stmt, $sql);
+
+		// grab page_id from just inserted details
+		$sql = "SELECT `page_id` FROM `pages` WHERE `page_title` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			// bind param page title, set above
+			$stmt->bind_param("s", $page_title);
+			$stmt->execute();
+
+			$stmt->bind_result($page_id);
+			$stmt->fetch();
+
+		}
+
+		$stmt->close();
+
+		// unset sql vars
+		unset($stmt, $sql);
+
+		
+		// update the permalink with the newly inserted
+		// and retrieved page_id
+		$sql = "UPDATE `pages` SET `page_permalink` = ? WHERE `page_id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("ss", $page_permalink, $param_id);
+
+			$page_permalink = 'http://wonderjarcreative.com/index.php?p_id=' . $page_id;
+			$param_id = $page_id;
+
+			$stmt->execute();
+
+		}
+
+		$stmt->close();
+		$conn->close();
+
+
+		// refresh page to include new page_id
+		header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=new-page&p_id=" . $page_id . "");
+
+	}
+
+}
+
+
+/*
+ * Update New Page
+ * @function update_new_page()
+ *
+ * Used: /wj-admin/templates/new-page.php:19
+ */
+
+if (!function_exists('update_new_page')) {
+
+	function update_new_page() {
+
+		$p_id = $_GET['p_id'];
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "UPDATE `pages` SET `page_title` = ?, `page_content` = ? WHERE `page_id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+				
+			$stmt->bind_param("ssi", $page_title, $page_content, $page_id);
+
+			// set params
+			$page_id = $p_id; 
+			$page_title = $_POST['page-title'];
+			$page_content = $_POST['page-content'];
+
+			$stmt->execute();
+
+			$stmt->close();
+			$conn->close();
+		}
+		
+		// refresh page to include new page_id
+		header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=new-page&p_id=" . $page_id . "");
+
+	}
+
+}
+
+
+/*
+ * Delete page via the p_id
+ * @function delete_page($p_id)
+ *
+ * Notes: Deletes page based on $p_id.
+ *
+ * Used: /wj-admin/templates/new-page.php:33
+ */
+
+if (!function_exists('delete_page')) {
+
+	function delete_page($p_id) {
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "DELETE FROM `pages` WHERE `page_id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("i", $p_id);
+			$p_id = $p_id;
+
+			// execute statement
+			if ($stmt->execute()) {
+				echo '<h1>Record id #' . $p_id . ' deleted.</h1>';
+				
+				// refresh page to include new page_id
+				header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=pages");
+			}
+
+		$stmt->close();
+		$conn->close();
+
+		}
+
+	}
+
+}
+
+
+/*
+ * Get Page Details via the p_id
+ * @function get_page_details($p_id)
+ *
+ * Used: /wj-admin/templates/new-page.php:40
+ */
+
+if (!function_exists('get_page_details')) {
+
+	function get_page_details($p_id) {
+
+		// start globals
+		global $page_id, $page_special, $page_title, $page_content, $page_permalink;
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// SQL
+		$sql = "SELECT `page_id`, `page_special`, `page_title`, `page_content`, `page_permalink` FROM `pages` WHERE `page_id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("i", $param_id);
+			
+			// set params and execute
+			$param_id = $p_id;
+			$stmt->execute();
+
+			$stmt->bind_result($page_id, $page_special, $page_title, $page_content, $page_permalink);
+
+			// if has results return details
+			if ($stmt->fetch()) {
+
+				return array ($page_id, $page_special, $page_title, $page_content, $page_permalink);
+			
+			}
+
+		}
+
+		$stmt->close();
+		$conn->close();
+
+	}
+
+}
+
+
 /*
  * Option Generals
  * @function option_generals()
  *
- * Used:
- * /wj-admin/templates/options:123
+ * Used: /wj-admin/templates/options:123
  */
 
 if (!function_exists('option_generals')) {

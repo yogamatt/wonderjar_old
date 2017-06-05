@@ -26,9 +26,6 @@
   				'save table contextmenu directionality emoticons template paste textcolor'
   			],
   		toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons',
-	  	protect: [
-	  		/<\?php.*?\?>/g
-	  	]
 	  });
   </script>
 </head>

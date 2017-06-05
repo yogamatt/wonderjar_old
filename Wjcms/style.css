@@ -18,7 +18,7 @@
   src: url('/includes/fonts/angelina/angelina.ttf') format("truetype");
 }
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Lato:100');
 
 /* End Fonts */
 
@@ -73,7 +73,7 @@ body {
 	padding: 0;
 	background: #fff;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
+	font-size: 18px;
 	color: #333;
 }
 
@@ -110,14 +110,21 @@ h2 {
 
 h3 {
 	font-size: 1.25em;
-	color: #1c3b6b;
+	color: #606060;
 }
 
 h4 {
-	font-weight: 600;
+	font-family: 'Lato', sans-serif;
+	font-weight: 100;
 	font-size: .95em;
 	text-transform: uppercase;
-	color: #707070;
+	color: #bbb;
+}
+
+h5 {
+	font-weight: 600;
+	font-size: 1.1em;
+	color: #444;
 }
 
 p {
@@ -554,8 +561,7 @@ input[type="checkbox"] {
 }
 
 .full-image img {
-	margin: 0 auto;
-	display: block;
+	float: right;
 }
 
 .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
@@ -574,15 +580,17 @@ input[type="checkbox"] {
 	width: 100%;
 }
 
-.homepage-content .col-6,
-.homepage-content .col-12 {
+.homepage-content > section {
 	padding: 4em 0;
 }
 
 .homepage-content .mce-button {
-	margin: 2em 0 1em;
+	margin: 1em 0;
 	background: #fff;
 	border-color: #fff;
+}
+
+.homepage-content .mce-button > a {
 	color: #606060;
 }
 
@@ -625,48 +633,51 @@ input[type="checkbox"] {
 	        align-items: flex-end;
 }
 
-.first-section {
+.homepage-content > .first-section {
+	padding-bottom: 0;
 	-webkit-transition: padding-top .2s ease;
 	transition: padding-top .2s ease;
 }
 
+.first-section .col-6 {
+	padding: 2em 0;
+}
+
 .first-section h1 {
-	margin-bottom: .5em;
+	margin-bottom: .1rem;
 	color: #4e4e4e;
 }
 
-.second-section {
+.first-section h4 {
+	letter-spacing: .04em;
+	color: #929292;
+}
+
+.homepage-content > .second-section {
+	padding-top: 3em;
+	padding-bottom: 3em;
 	background: url('/images/uploads/interior/textures/text1.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .second-section h3 {
-	color: #454545;
+	margin-bottom: .75rem;
+	font-size: 1.4em;
+	text-transform: uppercase;
 }
 
-.second-section h4 {
-	margin-bottom: .7em;
+.second-section h5 {
+	margin-bottom: 0;
 	color: #767676;
 }
 
-.fourth-section {
-	padding: 0 !important;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	text-align: center;
+.section-section button {
+	margin: 0;
 }
 
-.fourth-section .col-6 {
-}
-
-.fourth-section .col-6 h2 {
-	color: #fff;
-}
-
-.fourth-section .col-6 p {
-	color: #f4f4f4;
+.third-section .col-6:first-child {
+	border-right: 1px inset #eee;
 }
 
 
