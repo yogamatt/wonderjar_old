@@ -353,6 +353,26 @@ if (!function_exists('wj_sidebar')) {
 				<?php
 				;
 				break;
+			case 'options':
+				?>
+					<aside class="sidebar">
+							<header class="form-header">
+								<h3 class="form-title">Theme Options</h3>
+							</header>
+							<div class="theme-options-container">
+								<ul class="theme-options">
+									<li class="theme-option">
+										<a href="#">Tagline</a>
+									</li>
+									<li class="theme-option">
+										<a href="#">Promo</a>
+									</li>
+								</ul>
+							</div>
+					</aside>
+				<?php
+				;
+				break;
 			default:
 				echo '';
 

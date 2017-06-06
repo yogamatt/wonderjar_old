@@ -211,95 +211,6 @@ div[style^="clear"] {
 
 /* End Helpers */
 
-/* Forms */
-
-.inner-form {}
-
-	.inner-form::after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-
-.main-form {
-	float: left;
-	width: 73%;
-	margin-left: 2%;
-	padding-left: 2%;
-	border-left: 1px inset #ccc;
-}
-
-.main-form > .form-contain {
-	padding: 2em;
-	background: #fff;
-	min-height: 16em;
-}
-
-.main-form .submit-group {
-	float: right;
-}
-
-.inner-left {
-	float: left;
-	width: 73%;
-	margin-right: 2%;
-	padding-right: 2%;
-	border-right: 1px inset #ccc;
-}
-
-.form-header {
-	margin: 0;
-	padding-bottom: .5em;
-}
-
-.form-header .form-title {
-	margin: 0 0 .5em;
-	font-size: 1.2rem;
-	font-weight: 800;
-	text-transform: lowercase;
-}
-
-.form-group {}
-
-	.form-group::after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-
-.submit-group {
-	margin-top: 1.5em;
-}
-
-/* Checkboxes */
-
-input[type="checkbox"] {
-	width: auto !important;
-	max-width: none !important;
-}
-
-.checkbox {
-	margin: 0 0 .3em;
-	display: table;
-}
-
-.checkbox input {
-	float: left;
-	margin-bottom: 0 !important;
-}
-
-.checkbox label {
-	margin: 0 !important;
-	padding-left: .4em;
-	display: table-cell;
-	vertical-align: text-top;
-	text-transform: uppercase !important;
-	color: #505050;
-}
-
-
-/* End Forms */
-
 /* Margins */
 
 .inner-container {
@@ -520,29 +431,6 @@ input[type="checkbox"] {
 }
 
 /* End Sections */
-
-/* Sidebars */
-
-.sidebar {
-	float: left;
-	width: 25%;
-	padding: 2em;
-	background: #fff;
-}
-
-.sidebar label {
-	font-size: .95rem;
-	font-weight: 600;
-	text-transform: lowercase;
-}
-
-.sidebar input,
-.sidebar select {
-	width: 100%;
-	margin-bottom: .7em;
-}
-
-/* End Sidebars */
 
 /* Homepage */
 

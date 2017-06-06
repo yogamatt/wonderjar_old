@@ -21,13 +21,13 @@ elseif (!empty($_POST['update'])):
 endif;
 
 
-// check for p_id set in url
+// see if p_id is set
 if (!empty($_GET['p_id'])):
 
 	// set var $p_id
 	$p_id = $_GET['p_id'];
 
-	// and if action is set in url
+	// and if action is set
 	if (!empty($_GET['action'])) {
 
 		$action = $_GET['action'];
@@ -51,6 +51,12 @@ if (!empty($_GET['p_id'])):
 
 	}
 
+// see if options is set
+elseif (!empty($_GET['options'])):
+
+	include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/new-page/options.php');
+
+// no p_id or options
 else:
 
 	include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/new-page/empty.php');

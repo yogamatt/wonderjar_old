@@ -130,43 +130,46 @@ if (isset($_POST['submit'])) {
 		<h2>Global Options</h2>
 	</header>
 
-	<div class="form-contain">
-		<form name="admin-options" method="post" action="/wj-admin/index.php?page=options">
-			<h3 class="form-title">Select Options</h3>
-			<fieldset>
-				<div class="form-group">
-					<label class="label-left" for="header-type">Header type:</label>
-					<select name="header-type" id="header-type">
-						<option value=""></option>
-						<option value="relative" <?php if ($option_header_type === 'relative') echo 'selected';  ?>>Relative</option>
-						<option value="fixed-header" <?php if ($option_header_type === 'fixed-header') echo 'selected';  ?>>Fixed</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="label-left" for="homepage-layout">Homepage layout style:</label>
-					<select name="homepage-layout" id="homepage-layout">
-						<option value=""></option>
-						<option value="single" <?php if ($option_layout === 'single') echo 'selected'; ?>>Single Page</option>
-						<option value="sections" <?php if ($option_layout === 'sections') echo 'selected'; ?>>Sections</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label class="label-left" for="homepage">Homepage:</label>
-					<select name="homepage" id="homepage">
-						<option value=""></option>
-						<?php 
-						/*
-						 * @function select_pages()
-						 * from: /functions.php:238
-						 */
+	<div class="options-container">
+		<div class="form-contain">
+			<form name="admin-options" method="post" action="/wj-admin/index.php?page=options">
+				<h3 class="form-title">Select Options</h3>
+				<fieldset>
+					<div class="form-group">
+						<label class="label-left" for="header-type">Header type:</label>
+						<select name="header-type" id="header-type">
+							<option value=""></option>
+							<option value="relative" <?php if ($option_header_type === 'relative') echo 'selected';  ?>>Relative</option>
+							<option value="fixed-header" <?php if ($option_header_type === 'fixed-header') echo 'selected';  ?>>Fixed</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="label-left" for="homepage-layout">Homepage layout style:</label>
+						<select name="homepage-layout" id="homepage-layout">
+							<option value=""></option>
+							<option value="single" <?php if ($option_layout === 'single') echo 'selected'; ?>>Single Page</option>
+							<option value="sections" <?php if ($option_layout === 'sections') echo 'selected'; ?>>Sections</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="label-left" for="homepage">Homepage:</label>
+						<select name="homepage" id="homepage">
+							<option value=""></option>
+							<?php 
+							/*
+							 * @function select_pages()
+							 * from: /functions.php:238
+							 */
 
-							option_pages();
-						?>
-					</select>	
-				</div>
-			</fieldset>
-			<input type="submit" name="submit" value="Submit">
-		</form>
+								option_pages();
+							?>
+						</select>	
+					</div>
+				</fieldset>
+				<input type="submit" name="submit" value="Submit">
+			</form>
+		</div>
+		<?php wj_sidebar($type = 'options'); ?>
 	</div>
 
 	<div class="current-options">
