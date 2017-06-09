@@ -10,6 +10,7 @@
 
 
 /*
+ * WJ Connect
  * @function wj_connect()
  *
  * If need quick db connect
@@ -39,6 +40,7 @@ if (!function_exists('wj_connect')) {
 
 
 /*
+ * WJ Body Classes
  * @function wj_body_classes()
  *
  * Get body classes
@@ -47,12 +49,11 @@ if (!function_exists('wj_connect')) {
  *
  */
 
-// Body classes
 if (!function_exists('wj_body_classes')) {
 
 	function wj_body_classes($bodyclass) {
 
-		// Database connection
+		// database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
 		if ($conn->connect_error) {
@@ -60,34 +61,38 @@ if (!function_exists('wj_body_classes')) {
 		}
 
 
-		// SQL
-		if ($stmt = $conn->prepare("SELECT `option_value` FROM `options` ORDER BY `id` DESC")) {
-		
+		// sql
+		if ($stmt = $conn->prepare("SELECT `option_value` FROM `options` WHERE `option_type` = ?")) {
+			$stmt->bind_param("s", $param_type);
+
+			// get the body options
+			$param_type = 'body';
+
 			$stmt->execute();
+
 			$stmt->bind_result($options);
 
-			// Start $bodyclass and $row array()
+			// start $bodyclass and $row array()
 			if (!isset($bodyclass)) {
 				$bodyclass = '';
 			}
 			$row = array();
 
-
-			// Using while loop for multiple database rows
+			// using while loop for multiple database rows
 			while ($stmt->fetch()) {
 
-				// Set values array() into $row array()
+				// set values array() into $row array()
 				$row[] = array('options' => $options);
 			
 				$bodyclass .= $options . ' ';
 			}
 
-			// Close connection
+			$stmt->close();
 			$conn->close();
 
 		}
 
-		// Output $bodyclass
+		// output $bodyclass
 		// echoing into <body> tag
 		echo $bodyclass;
 
@@ -152,7 +157,10 @@ if (!function_exists('get_menu')) {
 
 
 
+
+
 /*
+ * Get and return homepage
  * @function wj_get_homepage()
  *
  * Get the homepage page
@@ -362,10 +370,10 @@ if (!function_exists('wj_sidebar')) {
 							<div class="theme-options-container">
 								<ul class="theme-options">
 									<li class="theme-option">
-										<a href="#">Tagline</a>
+										<a href="http://wonderjarcreative.com/wj-admin/index.php?page=options&theme_option=tagline">Tagline</a>
 									</li>
 									<li class="theme-option">
-										<a href="#">Promo</a>
+										<a href="http://wonderjarcreative.com/wj-admin/index.php?page=options&theme_option=promo">Promo</a>
 									</li>
 								</ul>
 							</div>
@@ -648,6 +656,301 @@ if (!function_exists('get_page_details')) {
 
 
 /*
+ * Submit Tagline
+ * @function submit_tagline()
+ *
+ * Used: /wj-admin/templates/template-parts/tagline.php
+ */
+
+if (!function_exists('submit_tagline')) {
+
+	function submit_tagline() {
+
+		if (!empty($_POST['tagline'])) {
+
+			// database connection
+			require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+			$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+			if ($conn->connect_error) {
+		    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+			}
+
+			// sql
+			$sql = "INSERT INTO `options` (`option_type`,`option_name`,`option_value`) VALUES (?,?,?)
+					ON DUPLICATE KEY UPDATE
+						`option_type` = VALUES(`option_type`),
+						`option_name` = VALUES(`option_name`),
+						`option_value` = VALUES(`option_value`)";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("sss", $param_type, $param_name, $param_value);
+				
+				// set params
+				$param_type = 'theme';
+				$param_name = 'tagline';
+				$param_value = $_POST['tagline-content'];
+
+				$stmt->execute();
+
+			}
+
+			$stmt->close();
+			$conn->close();
+
+		}
+
+
+	}
+
+}
+
+
+/*
+ * Return Tagline
+ * @function return_tagline()
+ *
+ * Used: /wj-admin/templates/template-parts/tagline.php
+ */
+
+if (!function_exists('return_tagline')) {
+
+	function return_tagline() {
+
+		global $tagline_content;
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT `option_value` FROM `options` WHERE `option_name` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $param_name);
+
+			// set param
+			$param_name = 'tagline';
+
+			$stmt->execute();
+
+			$stmt->bind_result($tagline_content);
+			$stmt->fetch();
+
+		}
+
+		$stmt->close();
+		$conn->close();
+
+		return $tagline_content;
+
+	}
+
+}
+
+
+/*
+ * Submit Promo
+ * @function submit_promo()
+ *
+ * Used: /wj-admin/templates/template-parts/promo.php
+ */
+
+if (!function_exists('submit_promo')) {
+
+	function submit_promo() {
+
+		if (!empty($_POST['promo'])) {
+
+			// database connection
+			require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+			$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+			if ($conn->connect_error) {
+		    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+			}
+
+			// sql
+			$sql = "INSERT INTO `options` (`option_type`,`option_name`,`option_value`) VALUES (?,?,?)
+					ON DUPLICATE KEY UPDATE
+						`option_type` = VALUES(`option_type`),
+						`option_name` = VALUES(`option_name`),
+						`option_value` = VALUES(`option_value`)";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("sss", $param_type, $param_name, $param_value);
+				
+				// set params
+				$param_type = 'theme';
+				$param_name = 'promo';
+				$param_value = $_POST['promo-content'];
+
+				$stmt->execute();
+
+			}
+
+			$stmt->close();
+			$conn->close();
+
+		}
+
+
+	}
+
+}
+
+
+/*
+ * Return Promo
+ * @function return_promo()
+ *
+ * Used: /wj-admin/templates/template-parts/promo.php
+ */
+
+if (!function_exists('return_promo')) {
+
+	function return_promo() {
+
+		global $promo_content;
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT `option_value` FROM `options` WHERE `option_name` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $param_name);
+
+			// set param
+			$param_name = 'promo';
+
+			$stmt->execute();
+
+			$stmt->bind_result($promo_content);
+			$stmt->fetch();
+
+		}
+
+		$stmt->close();
+		$conn->close();
+
+		return $promo_content;
+
+	}
+
+}
+
+
+/*
+ * Submit Options
+ * @function submit_options()
+ *
+ * Used: /wj-admin/templates/options.php:14
+ */
+
+if (!function_exists('submit_options')) {
+
+	function submit_options() {
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		/* main options */
+
+			// sql
+			$sql = "INSERT INTO `options` (`option_type`,`option_name`,`option_value`) VALUES (?,?,?), (?,?,?)
+					ON DUPLICATE KEY UPDATE 
+						`option_type` = VALUES(`option_type`),
+						`option_name` = VALUES(`option_name`),
+						`option_value` = VALUES(`option_value`)";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("ssssss", $header_type_type, $header_type_label, $header_type, $homepage_layout_type, $homepage_layout_label, $homepage_layout);
+
+				// set params
+				$header_type_type = 'body';
+				$header_type_label = 'option_header';
+				$header_type = $_POST['header-type'];
+
+				$homepage_layout_type = 'body';
+				$homepage_layout_label = 'option_layout';
+				$homepage_layout = $_POST['homepage-layout'];
+
+				$stmt->execute();
+
+			}
+
+			$stmt->close();
+
+		unset($stmt, $sql);
+
+		/* unset homepage option */
+
+			// sql
+			$sql = "UPDATE `pages` SET `page_special` = ? WHERE `page_special` = ?";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("ss", $blank_value, $page_special);
+
+				// set params
+				$blank_value = '';
+				$page_special = 'homepage';
+
+				$stmt->execute();
+
+			}
+
+			$stmt->close();
+
+		unset($stmt, $sql);
+
+		/* insert new homepage option */
+
+			// sql
+			$sql = "UPDATE `pages` SET `page_special` = ? WHERE `page_title` = ?";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("ss", $homepage_label, $homepage);
+
+				// set params
+				$homepage_label = 'homepage';
+				$homepage = $_POST['homepage'];
+
+				$stmt->execute();
+
+			}
+
+			$stmt->close();
+
+		$conn->close();
+
+		// reload page
+		header('Location: http://wonderjarcreative.com/wj-admin/index.php?page=options');
+	
+	}
+
+}
+
+
+
+/*
  * Option Generals
  * @function option_generals()
  *
@@ -660,9 +963,7 @@ if (!function_exists('option_generals')) {
 
 		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
-
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
-
 		if ($conn->connect_error) {
 	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
@@ -745,7 +1046,7 @@ if (!function_exists('option_generals')) {
  * @function option_pages()
  * 
  * Used:
- * /wj-admin/templates/options:166
+ * /wj-admin/templates/template-parts/options/layout.php:55
  */
 
 if (!function_exists('option_pages')) {
@@ -755,9 +1056,7 @@ if (!function_exists('option_pages')) {
 		// Grab pages for homepage selection
 		// Connect to database
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
-
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
-
 		if ($conn->connect_error) {
 			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}

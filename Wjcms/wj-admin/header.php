@@ -19,7 +19,7 @@
 	<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/functions.php'); ?>
 	<script>
 	  tinymce.init({
-	    selector: 'textarea#page-content',
+	    selector: 'textarea',
 	    plugins: [
 	    		'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
   				'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',

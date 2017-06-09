@@ -1,4 +1,12 @@
 <?php
+/**
+ * Wonderjar Admin New-Page Template-Part
+ * @author Matt
+ * @category admin, template-part
+ * @version 1.0
+ * @since 2017-06-06
+ *
+ */
 
 	// Output opening HTML
 	wj_before_content($type = 'plain-section');

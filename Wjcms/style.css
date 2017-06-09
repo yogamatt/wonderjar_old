@@ -468,7 +468,7 @@ div[style^="clear"] {
 	width: 100%;
 }
 
-.homepage-content > section {
+.homepage-content section {
 	padding: 4em 0;
 }
 
@@ -521,7 +521,7 @@ div[style^="clear"] {
 	        align-items: flex-end;
 }
 
-.homepage-content > .first-section {
+.homepage-content .first-section {
 	padding-bottom: 0;
 	-webkit-transition: padding-top .2s ease;
 	transition: padding-top .2s ease;
@@ -541,12 +541,23 @@ div[style^="clear"] {
 	color: #929292;
 }
 
-.homepage-content > .second-section {
+.homepage-content .second-section {
 	padding-top: 3em;
 	padding-bottom: 3em;
+	background: #78e8b4;
+	/*
 	background: url('/images/uploads/interior/textures/text1.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
+	*/
+}
+
+.second-section .inner-container {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	
 }
 
 .second-section h3 {
