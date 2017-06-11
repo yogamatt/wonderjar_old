@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin Options Tagline Template Part
+ * Wonderjar Admin Template Part - Options Tagline
  * @author Matt
  * @category admin, template-part
  * @version 1.0

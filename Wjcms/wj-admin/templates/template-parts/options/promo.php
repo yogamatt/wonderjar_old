@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin Options Promo Template Part
+ * Wonderjar Admin Template Part - Options Promo
  * @author Matt
  * @category admin, template-part
  * @version 1.0

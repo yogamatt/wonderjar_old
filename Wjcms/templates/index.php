@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Index Template
+ * Wonderjar Template - Index 
  * @author Matt
  * @category template
  * @version 1.0

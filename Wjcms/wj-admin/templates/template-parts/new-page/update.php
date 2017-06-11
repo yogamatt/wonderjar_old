@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin Update Template-Part
+ * Wonderjar Admin Template-Part - Update
  * @author Matt
  * @category admin, template-part
  * @version 1.0
@@ -28,7 +28,7 @@ wj_before_content($type = 'plain-section');
 							</div>
 							<div class="form-group permagroup">
 								<label class="label-top" for="page-permalink">Perma:</label>
-								<input type="text" name="page-permalink" id="page-permalink" placeholder="<?php echo $page_permalink; ?>" value="<?php echo $page_permalink; ?>">
+								<input type="text" name="page-permalink" id="page-permalink" value="<?php echo $page_permalink; ?>" disabled>
 							</div>
 							<div class="form-group">
 								<label class-"label-top" for="page-content">Page Content:</label>

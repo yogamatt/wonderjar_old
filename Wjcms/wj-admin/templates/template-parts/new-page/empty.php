@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin New-Page Template-Part
+ * Wonderjar Admin Template-Part - New-Page
  * @author Matt
  * @category admin, template-part
  * @version 1.0

@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin Options Layout Template Part
+ * Wonderjar Admin Template Part - Options Layout
  * @author Matt
  * @category admin, template-part
  * @version 1.0

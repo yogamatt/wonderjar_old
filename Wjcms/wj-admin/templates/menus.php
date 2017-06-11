@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin Menus Template
+ * Wonderjar Admin Template - Menus
  * @author Matt
  * @category admin, template
  * @version 1.0

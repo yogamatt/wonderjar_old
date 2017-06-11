@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Admin Options Template
+ * Wonderjar Admin Template - Options
  * @author Matt
  * @category admin, template
  * @version 1.0
@@ -26,6 +26,7 @@ if (!empty($_GET['theme_option'])):
 
 else:
 
+	// original layout
 	include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/options/layout.php');
 
 endif;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Wonderjar Admin Pages Template
+ * Wonderjar Admin Template - Pages
  * @author Matt
  * @category admin, template
  * @version 1.0
@@ -14,11 +14,8 @@ wj_connect();
 
 // SQL
 $stmt = $conn->prepare("SELECT `page_id`,`page_title`,`page_special`,`page_permalink` FROM `pages`");
-
-// Bind result variables
 $stmt->bind_result($page_id, $page_title, $page_special, $page_permalink);
 
-// Execute statement
 $stmt->execute();
 
 // Output opening HTML
@@ -45,37 +42,39 @@ wj_before_content($type = 'plain-section');
 					?>
 
 					<li title="<?php echo $page_permalink; ?>">
-						<h3>
-							<a href="<?php echo '/wj-admin/index.php?page=new-page&p_id=' . $page_id; ?>">
+						<div class="page-name">
+							<h3>
+								<a href="<?php echo '/wj-admin/index.php?page=new-page&p_id=' . $page_id; ?>">
 
-							<?php
+								<?php
 
-							// Get $page_special value
-							// MySQL tbl `page_special`
+								// Get $page_special value
+								// MySQL tbl `page_special`
 
-							// Initialize $page_speciality
-							$page_speciality = $page_title;
+								// Initialize $page_speciality
+								$page_speciality = $page_title;
 
-							if ($page_special === 'homepage') {
+								if ($page_special === 'homepage') {
 
-								$page_speciality .= '<span class="page-special">- Home</span>';
-							
-							} elseif ($page_special === 'blogpage') {
-							
-								$page_speciality .= '<span class="page-special">- Blog</span>';
-							
-							}
+									$page_speciality .= '<span class="page-special">- Home</span>';
+								
+								} elseif ($page_special === 'blogpage') {
+								
+									$page_speciality .= '<span class="page-special">- Blog</span>';
+								
+								}
 
-							// Echo $page_specialty if set
-							echo $page_speciality;
+								// Echo $page_specialty if set
+								echo $page_speciality;
 
-							?>
+								?>
 
-							</a>
-						</h3>
+								</a>
+							</h3>
+						</div>
 
 
-						<div class="page-options">
+						<div class="page-atts">
 							<a href="<?php echo '/wj-admin/index.php?page=new-page&p_id=' . $page_id . '&action=meta'; ?>">add meta</a>
 							<a href="<?php echo '/wj-admin/index.php?page=new-page&p_id=' . $page_id . '&action=delete'; ?>">delete page</a>
 						</div>

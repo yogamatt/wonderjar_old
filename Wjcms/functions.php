@@ -88,9 +88,10 @@ if (!function_exists('wj_body_classes')) {
 			}
 
 			$stmt->close();
-			$conn->close();
 
 		}
+
+		$conn->close();
 
 		// output $bodyclass
 		// echoing into <body> tag
@@ -142,14 +143,15 @@ if (!function_exists('get_menu')) {
 
 			}
 
+			$stmt->close();
+
 		}
+
+		$conn->close();
 
 		$mark .= '</ul></nav>';
 
 		echo $mark;
-
-		$stmt->close();
-		$conn->close();
 
 	}
 
@@ -231,7 +233,7 @@ if (!function_exists('wj_before_content')) {
 
 	function wj_before_content($type) {
 
-		// Switch the $type
+		// switch the $type
 		switch ($type) {
 			case 'home-section':
 				echo '<div class="home-section"><div class="inner-content">';
@@ -457,10 +459,10 @@ if (!function_exists('insert_new_page')) {
 			$page_permalink = '';
 
 			$stmt->execute();
+			$stmt->close();
 
 		}
 		
-		$stmt->close();
 			
 		// unset sql vars
 		unset($stmt, $sql);
@@ -476,10 +478,9 @@ if (!function_exists('insert_new_page')) {
 
 			$stmt->bind_result($page_id);
 			$stmt->fetch();
+			$stmt->close();
 
 		}
-
-		$stmt->close();
 
 		// unset sql vars
 		unset($stmt, $sql);
@@ -497,10 +498,10 @@ if (!function_exists('insert_new_page')) {
 			$param_id = $page_id;
 
 			$stmt->execute();
+			$stmt->close();
 
 		}
 
-		$stmt->close();
 		$conn->close();
 
 
@@ -547,8 +548,9 @@ if (!function_exists('update_new_page')) {
 			$stmt->execute();
 
 			$stmt->close();
-			$conn->close();
 		}
+
+		$conn->close();
 		
 		// refresh page to include new page_id
 		header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=new-page&p_id=" . $page_id . "");
@@ -594,10 +596,11 @@ if (!function_exists('delete_page')) {
 				header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=pages");
 			}
 
-		$stmt->close();
-		$conn->close();
+			$stmt->close();
 
 		}
+
+		$conn->close();
 
 	}
 
@@ -645,9 +648,10 @@ if (!function_exists('get_page_details')) {
 			
 			}
 
+			$stmt->close();
+
 		}
 
-		$stmt->close();
 		$conn->close();
 
 	}
@@ -692,10 +696,10 @@ if (!function_exists('submit_tagline')) {
 				$param_value = $_POST['tagline-content'];
 
 				$stmt->execute();
+				$stmt->close();
 
 			}
 
-			$stmt->close();
 			$conn->close();
 
 		}
@@ -741,9 +745,10 @@ if (!function_exists('return_tagline')) {
 			$stmt->bind_result($tagline_content);
 			$stmt->fetch();
 
+			$stmt->close();
+
 		}
 
-		$stmt->close();
 		$conn->close();
 
 		return $tagline_content;
@@ -790,10 +795,10 @@ if (!function_exists('submit_promo')) {
 				$param_value = $_POST['promo-content'];
 
 				$stmt->execute();
+				$stmt->close();
 
 			}
 
-			$stmt->close();
 			$conn->close();
 
 		}
@@ -839,9 +844,10 @@ if (!function_exists('return_promo')) {
 			$stmt->bind_result($promo_content);
 			$stmt->fetch();
 
+			$stmt->close();
+
 		}
 
-		$stmt->close();
 		$conn->close();
 
 		return $promo_content;
@@ -892,10 +898,10 @@ if (!function_exists('submit_options')) {
 				$homepage_layout = $_POST['homepage-layout'];
 
 				$stmt->execute();
+				$stmt->close();
 
 			}
 
-			$stmt->close();
 
 		unset($stmt, $sql);
 
@@ -913,10 +919,10 @@ if (!function_exists('submit_options')) {
 				$page_special = 'homepage';
 
 				$stmt->execute();
+				$stmt->close();
 
 			}
 
-			$stmt->close();
 
 		unset($stmt, $sql);
 
@@ -934,10 +940,9 @@ if (!function_exists('submit_options')) {
 				$homepage = $_POST['homepage'];
 
 				$stmt->execute();
+				$stmt->close();
 
 			}
-
-			$stmt->close();
 
 		$conn->close();
 
@@ -1230,9 +1235,9 @@ if (!function_exists('current_menu')) {
 				$stmt->bind_result($result_id, $result_title, $result_plink);
 				$stmt->fetch();
 
-			}
+				$stmt->close();
 
-			$stmt->close();
+			}
 			
 			// Unset prepared vars
 			unset($sql, $stmt);
@@ -1269,39 +1274,42 @@ if (!function_exists('current_menu')) {
 
 			// Set the prepared statement
 			$sql = "SELECT `page_id`, `page_title`, `page_permalink` FROM `pages` WHERE `page_id` = ?";
-			$stmt = $conn->prepare($sql);
-			$stmt->bind_param("s", $page_id);
+			
+			if ($stmt = $conn->prepare($sql)) {
+				$stmt->bind_param("s", $page_id);
 
-			// $_POST['set_menu_'] is an array from the set-menu form
-			$set_array = $_POST['set_menu_'];
+				// $_POST['set_menu_'] is an array from the set-menu form
+				$set_array = $_POST['set_menu_'];
 
-			foreach ($set_array as $page_id) {
+				foreach ($set_array as $page_id) {
 
-				$stmt->execute();
+					$stmt->execute();
 
-				$stmt->bind_result($page_id, $page_title, $page_permalink);
+					$stmt->bind_result($page_id, $page_title, $page_permalink);
 
-				$stmt->fetch();
+					$stmt->fetch();
 
-				// Continue markup
-				$mark .= '<li class="current-menu-item">';
+					// Continue markup
+					$mark .= '<li class="current-menu-item">';
 
-				$mark .= '<div class="item-title-cont"><h3>';
-				$mark .= $page_title;
-				$mark .= '</h3></div>';
+					$mark .= '<div class="item-title-cont"><h3>';
+					$mark .= $page_title;
+					$mark .= '</h3></div>';
 
-				$mark .= '<div class="item-option-cont">';
-				$mark .= '<span><a href="http://wonderjarcreative.com/wj-admin/index.php?page=menus&p_id=' . $page_id . '&action=delete">delete</a></span>';
-				$mark .= '</div>';
+					$mark .= '<div class="item-option-cont">';
+					$mark .= '<span><a href="http://wonderjarcreative.com/wj-admin/index.php?page=menus&p_id=' . $page_id . '&action=delete">delete</a></span>';
+					$mark .= '</div>';
 
-				$mark .= '<input type="hidden" name="menu-id[]" value="' . $page_id . '">';
-				$mark .= '<input type="hidden" name="menu-title[]" value="' . $page_title . '">';
-				$mark .= '<input type="hidden" name="menu-permalinks[]" value="' . $page_permalink . '">';
-				$mark .= '</li>';
+					$mark .= '<input type="hidden" name="menu-id[]" value="' . $page_id . '">';
+					$mark .= '<input type="hidden" name="menu-title[]" value="' . $page_title . '">';
+					$mark .= '<input type="hidden" name="menu-permalinks[]" value="' . $page_permalink . '">';
+					$mark .= '</li>';
+
+				}
+
+				$stmt->close();
 
 			}
-
-			$stmt->close();
 
 			// Unset prepared vars
 			unset($sql, $stmt);
@@ -1358,10 +1366,10 @@ if (!function_exists('current_menu_submit')) {
 			$param_permalink = $current_permalinks[$key];
 
 			$stmt->execute();
+			$stmt->close();
 
 		}
 
-		$stmt->close();
 		$conn->close();
 
 	}
@@ -1380,21 +1388,22 @@ if (!function_exists('delete_menu_item')) {
 	function delete_menu_item() {
 
 		if ($_GET['action'] === 'delete') {
-			// No page id?
+			
+			// no page id?
 			if (!isset($_GET['p_id'])) {
 
 				return;
 
 			} else {
 
-				// Connect to the database
+				// connect to the database
 				require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 				$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
 				if ($conn->connect_error) {
 					die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 				}
 
-				// Delete menu item with get variable
+				// delete menu item with get variable
 				$sql = "DELETE FROM `menus` WHERE `nav_id` = ?";
 
 				if ($stmt = $conn->prepare($sql)) {
@@ -1403,10 +1412,10 @@ if (!function_exists('delete_menu_item')) {
 					$param_id = $_GET['p_id'];
 
 					$stmt->execute();
+					$stmt->close();
 
 				}
 
-				$stmt->close();
 				$conn->close();
 
 			}
@@ -1420,7 +1429,259 @@ if (!function_exists('delete_menu_item')) {
 }
 
 
+/*
+ * Submit New Plugin
+ * @function submit_plugin()
+ *
+ * Used: /wj-admin/templates/template-parts/plugins/plugin-new.php
+ */
 
+
+if (!function_exists('submit_plugin')) {
+
+	function submit_plugin() {
+
+		if (!empty($_POST['submit'])) {
+
+			// connect to the database
+			require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+			$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+			if ($conn->connect_error) {
+				die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+			}
+
+			$sql = "INSERT INTO `plugins` (`plugin_name`, `plugin_dir`, `plugin_url`, `plugin_description`)
+						VALUES (?,?,?,?)
+						ON DUPLICATE KEY UPDATE
+							`plugin_name` = VALUES(`plugin_name`),
+							`plugin_dir` = VALUES(`plugin_dir`),
+							`plugin_url` = VALUES(`plugin_url`),
+							`plugin_description` = VALUES(`plugin_description`)";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("ssss", $param_name, $param_dir, $param_url, $param_description);
+
+				// set params
+				$param_name = $_POST['plugin-name'];
+				$param_dir = 'http://wonderjarcreative.com/wj-admin/plugins/' . str_replace("-admin.php", "", $_POST['plugin-url']) . '/';
+				$param_url = $param_dir . $_POST['plugin-url'];
+				$param_description = $_POST['plugin-description'];
+
+				$stmt->execute();
+				$stmt->close();
+
+			} else {
+				echo 'failed';
+			}
+
+			$conn->close();
+
+		}
+
+	}
+
+}
+
+/*
+ * Update Plugin
+ * @function update_plugin()
+ *
+ * Used: /wj-admin/templates/template-parts/plugins/plugin-edit.php
+ */
+
+if (!function_exists('update_plugin')) {
+
+	function update_plugin() {
+
+		// connect to the database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "UPDATE `plugins` 
+					SET `plugin_name` = ?,
+						`plugin_dir` = ?,
+						`plugin_url` = ?,
+						`plugin_description` = ?
+					WHERE `id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("sssss", $upp_name, $upp_dir, $upp_url, $upp_description, $upp_id);
+
+			// set params
+			$upp_name = $_POST['plugin-name'];
+			$upp_dir = 'http://wonderjarcreative.com/wj-admin/plugins/' . str_replace("-admin.php", "", $_POST['plugin-url']) . '/';
+			$upp_url = 'http://wonderjarcreative.com/wj-admin/plugins/' . str_replace("", "-admin.php", $_POST['plugin-url']);
+			$upp_description = $_POST['plugin-description'];
+			$upp_id = $_GET['plug_id'];
+
+			$stmt->execute();
+			$stmt->close();
+
+		}
+
+		$conn->close();
+
+		header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=plugins");
+
+	}
+
+}
+
+/*
+ * Delete Plugin
+ * @function delete_plugin()
+ *
+ * Used: /wj-admin/templates/template-parts/plugins.php
+ */
+
+if (!function_exists('delete_plugin')) {
+
+	function delete_plugin() {
+
+		// connect to the database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "DELETE FROM `plugins` WHERE `id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $param_id);
+
+			// set param
+			$param_id = $_GET['plug_id'];
+
+			$stmt->execute();
+			$stmt->close();
+		}
+
+		$conn->close();
+
+		header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=plugins");
+
+	}
+
+}
+
+
+/*
+ * Return Plugin
+ * @function return_plugin()
+ *
+ * Used: /wj-admin/templates/template-parts/plugins/plugin-edit.php
+ */
+
+
+if (!function_exists('return_plugin')) {
+
+	function return_plugin() {
+
+		// start global vars
+		global $plugin_id, $plugin_name, $plugin_dir, $plugin_url, $plugin_description;
+
+		// connect to the database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT `id`, `plugin_name`, `plugin_dir`, `plugin_url`, `plugin_description` FROM `plugins` WHERE `id` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("i", $param_id);
+
+			// set param
+			$param_id = $_GET['plug_id'];
+			$stmt->execute();
+
+			$stmt->bind_result($plugin_id, $plugin_name, $plugin_dir, $plugin_url, $plugin_description);
+			$stmt->fetch();
+
+			return array($plugin_id, $plugin_name, $plugin_dir, $plugin_url, $plugin_description);
+
+			$stmt->close();
+
+		}
+
+		$conn->close();
+
+	}
+
+}
+
+
+/*
+ * Get Plugin List
+ * @function get_plugin_list())
+ *
+ * Used: /wj-admin/templates/template-parts/plugins/plugin-list.php
+ */
+
+if (!function_exists('get_plugin_list')) {
+
+	function get_plugin_list() {
+
+		// start mark
+		$mark = '<ul class="plugins">';
+
+		// connect to the database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT `id`, `plugin_name`, `plugin_dir`, `plugin_url`, `plugin_description` FROM `plugins` ORDER BY `id` ASC";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->execute();
+
+			$stmt->bind_result($result_id, $result_name, $result_dir, $result_url, $result_description);
+
+			while ($stmt->fetch()) {
+
+				$actions = '<a href="http://wonderjarcreative.com/wj-admin/index.php?page=plugins&plug_id=' . $result_id . '&action=edit">Edit</a>';
+				$actions .= '<a href="http://wonderjarcreative.com/wj-admin/index.php?page=plugins&plug_id=' . $result_id . '&action=delete">Delete</a>';
+
+				$mark .= '<li class="plugin-item">';
+				$mark .= '<div class="plugin-name">';
+				$mark .= '<h3><a href="' . $result_url . '">' . $result_name . '</a></h3>';
+				$mark .= '<div class="plugin-description">' . $result_description . '</div>';
+				$mark .= '</div>';
+				$mark .= '<div class="plugin-atts">';
+				$mark .= '<div class="plugin-actions">' . $actions . '</div>';
+				$mark .= '</div>';
+				$mark .= '</li>';
+
+			}
+
+			$stmt->close();
+
+		}
+
+		$conn->close();
+
+		$mark .= '</ul></div>';
+
+		echo $mark;
+	}
+
+}
 
 
 

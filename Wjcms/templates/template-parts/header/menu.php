@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Menus Menu Template-Part
+ * Wonderjar Menus Template-Part Menu
  * @author Matt
  * @category menu, template-part
  * @version 1.0

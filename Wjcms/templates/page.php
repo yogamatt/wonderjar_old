@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Page Template
+ * Wonderjar Template - Page
  * @author Matt
  * @category template
  * @version 1.0

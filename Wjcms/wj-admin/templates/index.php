@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Wonderjar Admin Index Template
+ * Wonderjar Admin Template - Index
  * @author Matt
  * @category admin, template
  * @version 1.0

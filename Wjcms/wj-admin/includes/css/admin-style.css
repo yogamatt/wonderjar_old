@@ -159,15 +159,17 @@
 
 /* End options */
 
-/* Pages */
+/* Pages / Plugins Layout */
 
-.pages {
+.pages,
+.plugins {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.pages li {
+.pages li,
+.plugins li {
 	margin: 0;
 	padding: 1em;
 	background: #fff;
@@ -176,28 +178,37 @@
 	transition: box-shadow .3s ease;
 }
 
-	.pages li:hover {
+	.pages li:hover,
+	.plugins li:hover {
 		box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
 	}
 
-	.pages li:last-child {
+	.pages li:last-child,
+	.plugins li:last-child {
 		margin-bottom: 0;
 	}
 
-	.pages li::after {
+	.pages li::after,
+	.plugins li::after {
 		content: '';
 		clear: both;
 		display: table;
 	}
 
-.pages h3 {
+.pages .page-name,
+.plugins .plugin-name {
 	float: left;
+}
+
+.pages h3,
+.plugins h3 {
 	margin: 0;
 	padding: .3em 0;
 	font-weight: 600;
 }
 
-.pages h3 > a {
+.pages h3 > a,
+.plugins h3 > a {
 	box-shadow: none;
 }
 
@@ -210,19 +221,22 @@
 	color: #f8c300;
 }
 
-.page-options {
+.page-atts,
+.plugin-atts {
 	margin: 0;
 	float: right;
 	font-size: .7em;
 }
 
-.page-options a {
+.page-atts a,
+.plugin-atts a {
 	color: #808080;
 	-webkit-transition: opacity .05s;
 	transition: opacity .05s;
 }
 
-	.page-options a:hover {
+	.page-atts a:hover,
+	.plugin-atts a:hover {
 		opacity: .8;
 	}
 
