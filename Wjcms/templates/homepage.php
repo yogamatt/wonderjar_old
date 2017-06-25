@@ -20,6 +20,8 @@ wj_get_homepage();
 // add homepage to bodyclass
 $bodyclass .= 'homepage ';
 
+// add extra stylesheets for plugins
+extra_stylesheets();
 
 // include header
 include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
@@ -34,8 +36,8 @@ echo '<!-- End Header -->';
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
 	</div>
 
-	<div class="homepage-plug">
-		
+	<div class="plugin-area">
+		<?php call_shortcode('feature-01'); ?>
 	</div>
 
 	<div class="homepage-mce-content">
