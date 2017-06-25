@@ -74,7 +74,7 @@ body {
 	background: #fff;
 	font-family: 'Open Sans', sans-serif;
 	font-size: 18px;
-	color: #333;
+	color: #646464;
 }
 
 div, section, aside {
@@ -130,7 +130,6 @@ h5 {
 p {
 	margin: 0 0 1em;
 	font-size: 1rem;
-	color: #454545;
 }
 
 a {

@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="../style.css">
 	<link rel="stylesheet" href="../includes/css/responsive.css">
 	<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/functions.php'); ?>
+	<?php if (!empty($load)) wj_head($load); ?>
 </head>
 <body class="<?php wj_body_classes($bodyclass); ?>">
 

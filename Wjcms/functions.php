@@ -13,22 +13,19 @@
  * WJ Connect
  * @function wj_connect()
  *
- * If need quick db connect
+ * Notes: If need quick db connect
  * connect to database
  *
  * Used: all-over
- *
  */
 
 if (!function_exists('wj_connect')) {
 
 	function wj_connect(){
-		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
-
 		global $conn;
 
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
-
 		if ($conn->connect_error) {
 	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
@@ -39,14 +36,34 @@ if (!function_exists('wj_connect')) {
 }
 
 
+
+/* WJ Head
+ * @function wj_head($load)
+ *
+ * Notes: Print styles/scripts needed in header
+ *
+ * Used: /wj-admin/header.php
+ */
+
+if (!function_exists('wj_head')) {
+
+	function wj_head($load) {
+
+		echo $load;
+
+	}
+
+}
+
+
+
 /*
  * WJ Body Classes
  * @function wj_body_classes()
  *
- * Get body classes
+ * Notes: Get body classes
  *
  * Used: /header.php
- *
  */
 
 if (!function_exists('wj_body_classes')) {
@@ -113,14 +130,14 @@ if (!function_exists('get_menu')) {
 
 	function get_menu() {
 
-		// Database connection
+		// database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
 		if ($conn->connect_error) {
 	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
 
-		// Start markup
+		// start markup
 		$mark = '<nav class="main-nav">';
 		$mark .= '<ul class="main-nav-ul">';
 
@@ -156,8 +173,6 @@ if (!function_exists('get_menu')) {
 	}
 
 }
-
-
 
 
 
@@ -1464,15 +1479,62 @@ if (!function_exists('submit_plugin')) {
 
 				// set params
 				$param_name = $_POST['plugin-name'];
-				$param_dir = 'http://wonderjarcreative.com/wj-admin/plugins/' . str_replace("-admin.php", "", $_POST['plugin-url']) . '/';
-				$param_url = $param_dir . $_POST['plugin-url'];
+				
+					// format vars
+					$folder = str_replace("-admin.php", "", $_POST['plugin-url']);
+					$directory = $_SERVER['DOCUMENT_ROOT'] . '/wj-admin/plugins/' . $folder;
+
+					$param_dir = $directory;
+					$param_url = 'http://wonderjarcreative.com/wj-admin/plugins/' . $folder . '/' . $_POST['plugin-url'];
+
 				$param_description = $_POST['plugin-description'];
 
 				$stmt->execute();
 				$stmt->close();
 
-			} else {
-				echo 'failed';
+			}
+
+			unset ($sql, $stmt, $param_name, $param_dir, $param_url, $param_description);
+			
+			
+			/* return id */
+			
+			// sql
+			$sql = "SELECT `id`, `plugin_url` FROM `plugins` WHERE `plugin_name` = ?";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("s", $param_name);
+
+				// set param
+				$param_name = $_POST['plugin-name'];
+				$stmt->execute();
+
+				$stmt->bind_result($result_id, $result_url);
+				$stmt->fetch();
+				$stmt->close();
+
+			}
+
+			unset ($sql, $stmt, $param_name);
+
+			
+			/* add id to permalink using the results from previous query */
+
+			// sql
+			$sql = "UPDATE `plugins` SET `plugin_url` = ? WHERE `id` = ?";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->bind_param("si", $param_url, $param_id);
+
+				// set params
+				$param_url = $result_url . '?plug_id=' . $result_id;
+				$param_id = $result_id;
+
+				$stmt->execute();
+				$stmt->close();
+
 			}
 
 			$conn->close();
@@ -1502,23 +1564,20 @@ if (!function_exists('update_plugin')) {
 		}
 
 		// sql
+		// not updating the dir or url
 		$sql = "UPDATE `plugins` 
 					SET `plugin_name` = ?,
-						`plugin_dir` = ?,
-						`plugin_url` = ?,
 						`plugin_description` = ?
 					WHERE `id` = ?";
 
 		if ($stmt = $conn->prepare($sql)) {
 
-			$stmt->bind_param("sssss", $upp_name, $upp_dir, $upp_url, $upp_description, $upp_id);
+			$stmt->bind_param("sss", $param_name, $param_description, $param_id);
 
 			// set params
-			$upp_name = $_POST['plugin-name'];
-			$upp_dir = 'http://wonderjarcreative.com/wj-admin/plugins/' . str_replace("-admin.php", "", $_POST['plugin-url']) . '/';
-			$upp_url = 'http://wonderjarcreative.com/wj-admin/plugins/' . str_replace("", "-admin.php", $_POST['plugin-url']);
-			$upp_description = $_POST['plugin-description'];
-			$upp_id = $_GET['plug_id'];
+			$param_name = $_POST['plugin-name'];
+			$param_description = $_POST['plugin-description'];
+			$param_id = $_GET['plug_id'];
 
 			$stmt->execute();
 			$stmt->close();
@@ -1568,7 +1627,6 @@ if (!function_exists('delete_plugin')) {
 		$conn->close();
 
 		header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=plugins");
-
 	}
 
 }
@@ -1683,6 +1741,157 @@ if (!function_exists('get_plugin_list')) {
 
 }
 
+
+/*
+ * Extra Stylesheets
+ * @function extra_stylesheets()
+ *
+ * Notes: Load stylesheets for plugins
+ *
+ * Used: homepage.php
+ */
+
+if (!function_exists('extra_stylesheets')) {
+
+	function extra_stylesheets() {
+
+		global $load;
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// get dir
+		$sql = "SELECT `plugin_dir` FROM `plugins` WHERE `plugin_name` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $fc_name);
+
+			// set param
+			$fc_name = 'Features';
+
+			$stmt->execute();
+
+			$stmt->bind_result($fc_dir);
+			$stmt->fetch();
+
+			$stmt->close();
+
+		}
+
+		$location = 'http://wonderjarcreative.com';
+		$dir = $location . strstr($fc_dir, "/wj-admin");
+
+		// define stylesheets with starting $load variable
+		$load = '<link rel="stylesheet" href="' . $dir . '/includes/css/features.css">';
+
+
+		return $load;
+	}
+
+}
+
+
+/*
+ * Add shortcode
+ * @function add_shortcode()
+ *
+ * Notes: use this to add a new shortcode to the database
+ *
+ * Used: all over
+ */
+
+if (!function_exists('add_shortcode')) {
+
+	function add_shortcode($name, $call, $include) {
+
+		// connect to the database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "INSERT INTO `shortcodes` (`short_name`, `short_call`, `short_include`)
+					VALUES (?, ?, ?)
+					ON DUPLICATE KEY UPDATE
+						`short_name` = VALUES(`short_name`),
+						`short_call` = VALUES(`short_call`),
+						`short_include` = VALUES(`short_include`)";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("sss", $name, $call, $include);
+
+			$stmt->execute();
+			$stmt->close();
+
+		}
+
+		$conn->close();
+	}
+
+}
+
+
+
+/*
+ * Call shortcode
+ * @function call_shortcode()
+ *
+ * Notes: use this to call a shortcode by its short_name
+ *
+ * Used: all over
+ */
+
+if (!function_exists('call_shortcode')) {
+
+	function call_shortcode($short_name) {
+
+		// connect to the database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT `short_call`, `short_include` FROM `shortcodes` WHERE `short_name` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $csp_name);
+
+			// set param
+			$csp_name = $short_name;
+			
+			if ($stmt->execute()) {
+
+				$stmt->bind_result($csr_call, $csr_include);
+
+				$stmt->fetch();
+
+			}
+
+			$stmt->close();
+
+		}
+
+		$conn->close();
+
+		// require file containing function
+		// call function
+		require ($csr_include);
+		$csr_call();
+
+	}
+
+}
 
 
 ?>
