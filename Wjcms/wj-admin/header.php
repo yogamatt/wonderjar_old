@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="/style.css">
 	<link rel="stylesheet" href="/wj-admin/includes/css/admin-style.css">
 	<link rel="stylesheet" href="/includes/css/responsive.css">
-	<?php include_once ($_SERVER['DOCUMENT_ROOT'].'/functions.php'); ?>
+	<?php include_once ($_SERVER['DOCUMENT_ROOT'] . '/functions.php'); ?>
+	<?php if (!empty($load)) wj_head($load); ?>
 	<script>
 	  tinymce.init({
 	    selector: 'textarea',

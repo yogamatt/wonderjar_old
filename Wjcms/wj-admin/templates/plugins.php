@@ -36,13 +36,14 @@ if (!empty($_GET['plug_id'])) {
 
 	} else {
 
+		// new plugin
 		include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/plugins/plugin-new.php');
 
 	}
 
 } else {
 
-	// plugin list
+	// get plugin list
 	include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/plugins/plugin-list.php');
 
 }

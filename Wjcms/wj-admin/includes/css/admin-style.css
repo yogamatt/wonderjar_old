@@ -5,7 +5,7 @@
  *
  */
 
-/* Globals */
+/* globals */
 
 .admin-header {
 	padding-bottom: 1em;
@@ -20,17 +20,17 @@
 	color: #f8c300;
 }
 
-/* End globals */
+/* end globals */
 
-/* Main Header */
+/* main Header */
 
 .main-header {
 	border-bottom: 1px solid #eee;
 }
 
-/* End Main Header */
+/* end Main Header */
 
-/* Logo */
+/* logo */
 
 .logo-link {
 	display: inline-block;
@@ -41,9 +41,9 @@
 	max-height: 46px;
 }
 
-/* End Logo */
+/* end logo */
 
-/* Main Navigation */
+/* main navigation */
 
 .wj-admin .main-nav {
 	width: 100%;
@@ -100,9 +100,9 @@
 }
 
 
-/* End Main Navigation */
+/* end main navigation */
 
-/* Options */
+/* options */
 
 .options-container {
 	position: relative;
@@ -131,6 +131,7 @@
 
 .theme-options li {
 	margin: 0 -.5em;
+	-webkit-transition: background .2s ease;
 	transition: background .2s ease;
 }
 
@@ -141,7 +142,8 @@
 .theme-options a {
 	padding: .25em .5em;
 	display: inline-block;
-	box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
 }
 
 .current-options {
@@ -157,9 +159,9 @@
 	font-size: .8em;
 }
 
-/* End options */
+/* end options */
 
-/* Pages / Plugins Layout */
+/* pages / plugins layout */
 
 .pages,
 .plugins {
@@ -175,12 +177,16 @@
 	background: #fff;
 	border-bottom: 1px solid #eee;
 	-webkit-transition: box-shadow .3s ease;
+	-webkit-transition: -webkit-box-shadow .3s ease;
+	transition: -webkit-box-shadow .3s ease;
 	transition: box-shadow .3s ease;
+	transition: box-shadow .3s ease, -webkit-box-shadow .3s ease;
 }
 
 	.pages li:hover,
 	.plugins li:hover {
-		box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+		-webkit-box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+		        box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
 	}
 
 	.pages li:last-child,
@@ -209,7 +215,8 @@
 
 .pages h3 > a,
 .plugins h3 > a {
-	box-shadow: none;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
 }
 
 .page-special {
@@ -231,6 +238,8 @@
 .page-atts a,
 .plugin-atts a {
 	color: #808080;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
 	-webkit-transition: opacity .05s;
 	transition: opacity .05s;
 }
@@ -240,9 +249,9 @@
 		opacity: .8;
 	}
 
-/* End pages */
+/* end pages */
 
-/* New page */
+/* new page */
 
 .permagroup {
 	margin: 0 0 1em;
@@ -266,21 +275,41 @@
 	max-width: 375px;
 }
 
-/* TinyMCE */
+/* end plugins */
+
+/* tinyMCE */
 
 .form-contain .mce-edit-area {
 	margin-right: 1px !important;
 }
 
-/* End tinyMCE */
+/* end tinyMCE */
 
-/* End new page */
+/* end new page */
 
-/* Menus page */
+/* plugins */
 
-/* End Menus Page */
+.plugin-description {
+	font-size: .975em;
+	color: #ccc;
+}
 
-/* Forms */
+.plugin-actions a {
+	margin-right: .5em;
+	display: inline-block;
+}
+
+	.plugin-actions a::after {
+		margin-right: 0;
+	}
+
+/* end plugins */
+
+/* menus page */
+
+/* end menus page */
+
+/* forms */
 
 .inner-form {}
 
@@ -339,7 +368,7 @@
 	margin-top: 1.5em;
 }
 
-/* Checkboxes */
+/* checkboxes */
 
 input[type="checkbox"] {
 	width: auto !important;
@@ -365,9 +394,9 @@ input[type="checkbox"] {
 	color: #505050;
 }
 
-/* End Forms */
+/* end forms */
 
-/* Sidebars */
+/* sidebars */
 
 .sidebar {
 	float: left;
@@ -389,7 +418,6 @@ input[type="checkbox"] {
 	margin-bottom: .7em;
 }
 
-/* End Sidebars */
-
+/* end sidebars */
 
 

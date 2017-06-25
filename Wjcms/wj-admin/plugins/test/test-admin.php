@@ -9,6 +9,10 @@
  */
 
 
-
+// get header
+include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/header.php');
 
 echo 'test plugin';
+
+// get footer
+include ($_SERVER['DOCUMENT_ROOT'] . '/footer.php');

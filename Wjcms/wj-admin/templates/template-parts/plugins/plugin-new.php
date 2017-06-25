@@ -11,7 +11,7 @@
 
 // pre-post action
 if (!empty($_POST['submit'])):
-
+	
 	submit_plugin();
 	header("Location: http://wonderjarcreative.com/wj-admin/index.php?page=plugins");
 
