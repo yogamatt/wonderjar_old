@@ -5,7 +5,7 @@ $(window).on('load', function(){
 	function padding_top(){
 		var win = $(window).height() * .3;
 		var head = $('.main-header').height();
-		var first = $('.first-section');
+		var first = $('.homepage-tagline');
 		// var first_off = first.offset({top:win});
 		var winfirst = win - head;
 
