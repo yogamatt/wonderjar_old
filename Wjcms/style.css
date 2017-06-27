@@ -467,8 +467,15 @@ div[style^="clear"] {
 	width: 100%;
 }
 
-.homepage-content section {
-	padding: 4em 0;
+	.inner-container::after,
+	.col-container::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+.col-container > *:last-child {
+	margin-bottom: 0 !important;
 }
 
 .homepage-content .mce-button {
@@ -481,31 +488,77 @@ div[style^="clear"] {
 	color: #606060;
 }
 
-	.first-section::after,
-	.second-section::after,
-	.third-section::after,
-	.fourth-section::after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-
-	.section-left::after,
-	.section-right::after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-
-	.homepage-content section *:last-child {
-		margin-bottom: 0;
-	}
-
-.homepage-content section .section-content {
-	padding: 2em;
+.homepage-tagline {
+	padding-bottom: 0;
+	-webkit-transition: padding-top .2s ease;
+	transition: padding-top .2s ease;
 }
 
-.homepage-content section > .inner-container {
+.homepage-tagline .col-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+}
+
+.homepage-tagline .col-6 {
+	padding: 2em 0;
+}
+
+.homepage-tagline h1 {
+	margin-bottom: .1rem;
+	color: #4e4e4e;
+}
+
+.homepage-tagline h4 {
+	letter-spacing: .04em;
+	color: #929292;
+}
+
+.homepage-promo {
+	padding-top: 3em;
+	padding-bottom: 3em;
+	background: #78e8b4;
+	/*
+	background: url('/images/uploads/interior/textures/text1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	*/
+}
+
+.homepage-promo .col-container {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+
+.homepage-promo h3 {
+	margin-bottom: .75rem;
+	font-size: 1.4em;
+	text-transform: uppercase;
+}
+
+.homepage-promo h5 {
+	margin-bottom: 0;
+	color: #767676;
+}
+
+	
+/*
+
+.homepage-content section  .inner-container {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -540,6 +593,8 @@ div[style^="clear"] {
 	color: #929292;
 }
 
+
+
 .homepage-content .second-section {
 	padding-top: 3em;
 	padding-bottom: 3em;
@@ -548,9 +603,9 @@ div[style^="clear"] {
 	background: url('/images/uploads/interior/textures/text1.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	*/
+	
 }
-
+*//*
 .second-section .inner-container {
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;

@@ -5,7 +5,6 @@
  * @category functions, include
  * @version 1.0
  * @since 2017-3-17
- *
  */
 
 
