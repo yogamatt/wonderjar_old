@@ -35,11 +35,11 @@ if (!function_exists('features_call')) {
 			$stmt->execute();
 			$stmt->bind_result($fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
 
-			$feature = '<ul>';
+			$feature = '<ul class="features">';
 
 			while ($stmt->fetch()) {
 
-				$feature .= '<li><h3>' . $fc_title . '</h3></li>';
+				$feature .= '<li class="feature"><h3>' . $fc_title . '</h3></li>';
 
 			}
 
@@ -158,7 +158,7 @@ if (!function_exists('plugin_stylesheets')) {
 		// define stylesheets with starting $load variable
 		global $load;
 
-		$load = '<link rel="stylesheet" href="' . $dir . '/includes/css/admin-features.css">';
+		$load = '<link rel="stylesheet" href="' . $dir . '/includes/css/features-admin.css">';
 
 		return $load;
 

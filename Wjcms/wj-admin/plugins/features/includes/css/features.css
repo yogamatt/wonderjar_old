@@ -1,59 +1,14 @@
+/**
+ * Features plugin stylesheet
+ *
+ * @author Matt
+ * @version 1.0
+ * @since 2017-06-24
+ *
+ * Notes: Stylesheet for displaying
+ * 		  returned shortcode function @function features_call()
+ */
 
-
-
-/* features
----------------------- */
-
-.features-plugin .group-container::after,
-.feature-items::after {
-	content: '';
-	display: table;
-	clear: both;
-}
-
-.features-nav {
-	margin-bottom: .5em;
-	float: right;
-	font-size: .875rem;
-}
-
-.features-nav a {
-	color: #888;
-}
-
-.features-plugin .form-group {
-	margin-bottom: 1em;
-}
-
-.features-plugin .group-container {
-	margin: 0 -1em;
-}
-
-.features-plugin .group-container .form-group {
-	margin: 0 1em;
-	float: left;
-	width: calc(33.33% - 2em);
-}
-
-.features-content {
-	margin: 0 -.5em;
-}
-
-.feature-items {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-} 
-
-.feature-items li {
-	margin: 0 .5em 2em;
-	float: left;
-	width: calc(33.33% - 1em);
-}
-
-.feature-items .feature-item-container {
-	padding: 1.5em;
-	background: #f1f1f1;
-	border-bottom: 1px solid #eee;
-}
-
+ .plugin-area ul {
+ 	list-style: none;
+ }
