@@ -32,17 +32,27 @@ echo '<!-- End Header -->';
 
 <div class="homepage-content">
 
-	<div class="homepage-branding">
+	<section class="homepage-branding">
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
-	</div>
+	</section>
 
-	<div class="plugin-area">
-		<?php call_shortcode('feature-01'); ?>
-	</div>
+	<section class="plugin-area">
+		<div class="feature-plugin">
+			<div class="inner-container">
+				<div class="col-container">
+					<?php call_shortcode('feature-01'); ?>
+				</div>
+			</div>
+		</div>
+	</section>
 
-	<div class="homepage-mce-content">
-		<?php echo $page_content; ?>
-	</div>
+	<section class="homepage-mce-content">
+		<div class="inner-container">
+			<div class="col-container">
+				<?php echo $page_content; ?>
+			</div>
+		</div>
+	</section>
 
 </div>
 
