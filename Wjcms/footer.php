@@ -19,4 +19,5 @@
 	</div><!-- inner-container -->
 
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/includes/scripts/foot-scripts.php'); ?>
+	<?php if (!empty($script)) wj_footer($script); ?>
 </footer>

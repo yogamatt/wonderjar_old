@@ -55,6 +55,24 @@ if (!function_exists('wj_head')) {
 }
 
 
+/* WJ Footer
+ * @function wj_footer($script)
+ *
+ * Notes: Print scripts needed in footer
+ *
+ * Used: footer.php
+ */
+
+if (!function_exists('wj_footer')) {
+
+	function wj_footer($script) {
+
+		echo $script;
+
+	}
+
+}
+
 
 /*
  * WJ Body Classes
@@ -1790,6 +1808,60 @@ if (!function_exists('extra_stylesheets')) {
 
 
 		return $load;
+	}
+
+}
+
+/*
+ * Extra Scripts
+ * @function extra_scripts()
+ *
+ * Notes: Load scripts for plugins
+ *
+ * Used: homepage.php
+ */
+
+if (!function_exists('extra_scripts')) {
+
+	function extra_scripts() {
+
+		global $script;
+
+		// database connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// get dir
+		$sql = "SELECT `plugin_dir` FROM `plugins` WHERE `plugin_name` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $fc_name);
+
+			// set param
+			$fc_name = 'Features';
+
+			$stmt->execute();
+
+			$stmt->bind_result($fc_dir);
+			$stmt->fetch();
+
+			$stmt->close();
+
+		}
+
+		$location = 'http://wonderjarcreative.com';
+		$dir = $location . strstr($fc_dir, "/wj-admin");
+
+		// define stylesheets with starting $load variable
+		$script = '<script src="' . $dir . '/includes/js/features.js"></script>';
+
+
+		return $script;
+
 	}
 
 }
