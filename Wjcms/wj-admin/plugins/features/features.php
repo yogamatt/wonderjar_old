@@ -26,32 +26,49 @@ if (!function_exists('features_call')) {
 			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
 
+		/* get plugin constants */
+
+		$sql = "SELECT `id`, `plugin_name`, `plugin_dir`, `plugin_url`, `plugin_description` FROM `plugins` WHERE `plugin_name` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $param_name);
+
+			// set param
+			$param_name = 'Features';
+			$stmt->execute();
+
+			$stmt->bind_result($plugin_id, $plugin_name, $plugin_dir, $plugin_url, $plugin_description);
+			$stmt->fetch();
+			$stmt->close();
+
+		}
+
+		// define directory
+		$location = 'http://wonderjarcreative.com';
+		$dir = $location . strstr($plugin_dir, "/wj-admin");
+
+		// unset sql vars
+		unset ($sql, $stmt);
+
+
+		/* get feature constants */
+
 		// sql
-		$sql = "SELECT `feature_order`, `feature_title`, `feature_image`, `feature_excerpt`, `feature_content`
+		$sql = "SELECT `id`, `feature_order`, `feature_title`, `feature_image`, `feature_excerpt`, `feature_content`
 					FROM `features` ORDER BY `feature_order`";
 
 		if ($stmt = $conn->prepare($sql)) {
 
 			$stmt->execute();
-			$stmt->bind_result($fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
+			$stmt->bind_result($fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
 
-			$feature = '<ul class="features">';
-
-			while ($stmt->fetch()) {
-
-				$feature .= '<li class="feature"><h3>' . $fc_title . '</h3></li>';
-
-			}
-
-			$feature .= '</ul>';
-
-			$stmt->close();
+				// the call loop
+				include ($plugin_dir . '/plugin-parts/features-call.php');
 
 		}
 
 		$conn->close();
-
-		echo $feature;
 
 	}
 
