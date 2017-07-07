@@ -38,11 +38,7 @@ echo '<!-- End Header -->';
 
 	<section class="plugin-area">
 		<div class="feature-plugin">
-			<div class="inner-container">
-				<div class="col-container">
-					<?php call_shortcode('feature-01'); ?>
-				</div>
-			</div>
+			<?php call_shortcode('feature-01'); ?>
 		</div>
 	</section>
 
@@ -58,6 +54,9 @@ echo '<!-- End Header -->';
 
 
 <?php
+
+// add extra scripts for plugins
+extra_scripts();
 
 // include footer
 include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
