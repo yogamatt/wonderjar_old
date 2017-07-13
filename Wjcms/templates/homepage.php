@@ -36,7 +36,7 @@ echo '<!-- End Header -->';
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
 	</section>
 
-	<section class="plugin-area">
+	<section class="homepage-plugin-area">
 		<div class="feature-plugin">
 			<?php call_shortcode('feature-01'); ?>
 		</div>
