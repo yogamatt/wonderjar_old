@@ -52,21 +52,46 @@ if (!function_exists('features_call')) {
 		unset ($sql, $stmt);
 
 
-		/* get feature constants */
+		/* get feature list */
 
-		// sql
-		$sql = "SELECT `id`, `feature_order`, `feature_title`, `feature_image`, `feature_excerpt`, `feature_content`
-					FROM `features` ORDER BY `feature_order`";
+			$sql = "SELECT `id`, `feature_order`, `feature_title`, `feature_image`, `feature_excerpt`, `feature_content`
+						FROM `features` ORDER BY `feature_order`";
 
-		if ($stmt = $conn->prepare($sql)) {
+			if ($stmt = $conn->prepare($sql)) {
 
-			$stmt->execute();
-			$stmt->bind_result($fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
+				$stmt->execute();
+				$stmt->bind_result($fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
 
-				// the call loop
-				include ($plugin_dir . '/plugin-parts/features-call.php');
+					// the feature loop
+					include ($plugin_dir . '/plugin-parts/features-features.php');
 
-		}
+				$stmt->close();
+
+			}
+
+		// unset sql vars
+		unset ($sql, $stmt);
+
+
+		/* get feature sections
+
+			// sql
+			$sql = "SELECT `id`, `feature_order`, `feature_title`, `feature_image`, `feature_excerpt`, `feature_content`
+						FROM `features` ORDER BY `feature_order`";
+
+			if ($stmt = $conn->prepare($sql)) {
+
+				$stmt->execute();
+				$stmt->bind_result($fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
+
+					// the sections loop
+					include ($plugin_dir . '/plugin-parts/features-sections.php');
+
+				$stmt->close();
+
+			}
+
+			*/
 
 		$conn->close();
 

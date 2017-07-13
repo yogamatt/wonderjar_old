@@ -1,0 +1,162 @@
+/**
+ * Features plugin stylesheet
+ *
+ * @author Matt
+ * @version 1.0
+ * @since 2017-06-24
+ *
+ * Notes: Stylesheet for displaying
+ * 		  returned shortcode function @function features_call()
+ */
+
+
+/* Globals
+ ----------------------------------------------- */
+
+.feature-row {
+	position: relative;
+	text-align: center;
+}
+
+.feature-row.bottom-row {
+	padding: 2em 0;
+}
+
+	.feature-row::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+.feature-col-6,
+.feature-col-12 {
+	position: relative;
+	float: left;
+	min-height: 1em;
+}
+
+.feature-col-12 {
+	width: 100%;
+}
+
+.feature-col-6 {
+	width: 50%;
+}
+
+
+/* Row Colors
+ ----------------------------------------------- */
+
+.feature-section-0 .top-row {
+	background: #f9f9f9;
+}
+
+.feature-section-0 .bottom-row {
+	background: #fff;
+}
+
+.feature-section-1 .top-row {
+	background: #79e8da;
+}
+
+.feature-section-1 .bottom-row {
+	background: #84f7e8;
+}
+
+.feature-section-2 .top-row {
+	background: #fff;
+}
+
+.feature-section-2 .bottom-row {
+	background: #f1f1f1;
+}
+
+
+/* Main
+ ----------------------------------------------- */
+
+.feature-section .top-row-container {
+	min-height: 250px;
+	border-bottom: 1px solid #eee;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+
+.bottom-row {
+	display: none;
+}
+
+.feature-image-container {
+	width: 50%;
+}
+
+a.feature-image-link {
+	position: static;
+	margin: 1em 0;
+	padding: 25px;
+	bottom: auto;
+	display: inline-block;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 100%;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+
+	-webkit-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.feature-image-link > img {
+	height: 100px;
+	width: 100px;
+}
+
+.feature-section .feature-excerpt {
+	margin-top: 75px;
+}
+
+.feature-header {
+	float: right;
+	width: 50%;
+	padding: 3em 0 2em;
+}
+
+.feature-header .feature-title {
+	margin: 1em 0 0;
+	padding: 0;
+	font-size: 2.2em;
+}
+
+/* odd feature */
+
+.feature-odd .feature-header {
+	float: left;
+}
+
+/* show feature */
+
+.show-feature a.feature-image-link {
+	position: absolute;
+	z-index: 101;
+	top: auto;
+	bottom: -75px;
+	left: calc(25% - 75px);
+}
+
+.show-feature.feature-odd a.feature-image-link {
+	right: calc(25% - 75px);
+	left: auto;
+}
+
+.show-feature .bottom-row {
+	display: block;
+}
+
+
