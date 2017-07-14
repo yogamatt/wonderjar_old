@@ -28,7 +28,7 @@ $dir = $location . strstr($plugin_dir, "/wj-admin");
 plugin_stylesheets($dir);
 
 // shortcode vars using plugin directory
-$name = 'feature-01';
+$name = 'features';
 $call = 'features_call';
 $include = $plugin_dir . '/features.php';
 

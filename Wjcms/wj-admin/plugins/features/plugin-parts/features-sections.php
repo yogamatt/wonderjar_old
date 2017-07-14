@@ -17,7 +17,6 @@ $c = 0;
 while ($stmt->fetch()): 
 
 ?>
-
 		<section id="<?php echo $fc_title; ?>" class="feature-section feature_section-id-<?php echo $fc_id; ?> feature_section-<?php echo $c; ?> <?php if ($c % 2 !== 0) echo 'odd-feature'; ?>">
 			<div class="inner-container">
 				<header class="feature-section-header">

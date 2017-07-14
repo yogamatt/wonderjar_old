@@ -42,26 +42,28 @@ wj_before_content($type = 'main-section');
 						</select>
 					</div>
 					<div class="form-group">
+						<label class="label-left" for="homepage">Homepage:</label>
+						<select name="homepage" id="homepage">
+							<option value=""></option>
+							<?php option_pages(); ?>
+						</select>	
+					</div>
+					<div class="form-group">
 						<label class="label-left" for="homepage-layout">Homepage layout style:</label>
 						<select name="homepage-layout" id="homepage-layout">
 							<option value=""></option>
 							<option value="single" <?php if ($option_layout === 'single') echo 'selected'; ?>>Single Page</option>
 							<option value="sections" <?php if ($option_layout === 'sections') echo 'selected'; ?>>Sections</option>
 						</select>
-					</div>
-					<div class="form-group">
-						<label class="label-left" for="homepage">Homepage:</label>
-						<select name="homepage" id="homepage">
-							<option value=""></option>
-							<?php 
-							/*
-							 * @function option_pages()
-							 * from: /functions.php:1049
-							 */
 
-								option_pages();
-							?>
-						</select>	
+						<div class="form-group">
+							<label class="label-left" for="homepage-section-1">Homepage Section #1:</label>
+							<select name="homepage-section-1" id="homepage-section-1">
+								<option value=""></option>
+								<?php homepage_section_1(); ?>
+							</select>
+						</div>
+
 					</div>
 				</fieldset>
 				<input type="submit" name="submit" value="Submit">

@@ -16,29 +16,9 @@
 /* Feature
  ----------------------------------------------- */
 
-.plugin-header {
-	padding: .5em 0 1em;
-	text-align: center;
-}
-
-.plugin-header .plugin-title {
-	margin: 0 0 1em;
-	padding: .5em 0;
-	position: relative;
-	font-size: 2em;
-	text-transform: uppercase;
-	letter-spacing: .055em;
-	color: #6f6f6f;
-}
-
-	.plugin-header .plugin-title::after {
-		content: '';
-		position: absolute;
-		right: 30%;
-		bottom: 0;
-		left: 30%;
-		border-bottom: 1px solid #e8e8e8;
-	}
+ .feature-plugin .plugin-header {
+ 	display: none;
+ }
 
 .features-container ul {
 	margin: 0 -.5em 1em;
@@ -53,7 +33,7 @@
 	}
 
 .features-list li {
- 	margin: 0 .5em 2em;
+ 	margin: 0 .5em;
  	float: left;
  	width: calc(33.33% - 1em);
 }

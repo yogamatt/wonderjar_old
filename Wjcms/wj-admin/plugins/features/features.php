@@ -62,8 +62,14 @@ if (!function_exists('features_call')) {
 				$stmt->execute();
 				$stmt->bind_result($fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content);
 
-					// the feature loop
-					include ($plugin_dir . '/plugin-parts/features-features.php');
+					/*
+					 * the feature loops
+					 * include ($plugin_dir . '/plugin-parts/features-slidedown.php');
+					 * include ($plugin_dir . '/plugin-parts/features-sections.php');
+					 * include ($plugin_dir . '/plugin-parts/features-modals.php');
+					 * include ($plugin_dir . '/plugin-parts/features-nocontent.php');
+					 */
+					include ($plugin_dir . '/plugin-parts/features-nocontent.php');
 
 				$stmt->close();
 

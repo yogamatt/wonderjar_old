@@ -356,13 +356,26 @@
 	font-weight: 800;
 }
 
-.form-group {}
+.form-group {
+	margin: 0 0 .5em;
+	padding: .2em 0;
+}
 
 	.form-group::after {
 		content: '';
 		display: table;
 		clear: both;
 	}
+
+.form-group > * {
+	margin-bottom: 0;
+}
+
+.form-group .form-group {
+	margin: .5em 1em;
+	padding: .7em;
+	background: #f7f7f7;
+}
 
 .submit-group {
 	margin-top: 1.5em;
