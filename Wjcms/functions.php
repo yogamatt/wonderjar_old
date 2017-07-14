@@ -194,19 +194,19 @@ if (!function_exists('get_menu')) {
 
 
 /*
- * Get and return homepage
- * @function wj_get_homepage()
+ * Get Homepage
+ * @function get_homepage()
  *
- * Get the homepage page
- * returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
+ * Notes: Get the homepage page
+ * 		  @returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
  *
  * Used: /templates/homepage.php:17
  *
  */
 
-if (!function_exists('wj_get_homepage')) {
+if (!function_exists('get_homepage')) {
 
-	function wj_get_homepage() {
+	function get_homepage() {
 
 		// Database connection
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
@@ -246,8 +246,64 @@ if (!function_exists('wj_get_homepage')) {
 
 		$conn->close();
 
-		return array ($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
+		return array(
+			'id' => $page_id,
+			'time' => $page_time,
+			'special' => $page_special,
+			'title' => $page_title,
+			'content' => $page_content,
+			'permalink' => $page_permalink,
+		);
 
+	}
+
+}
+
+
+/*
+ * Show Homepage Title
+ * @function show_homepage_title()
+ *
+ * Notes: Uses @function get_homepage().
+ * 		  Echos the homepage title. 
+ *
+ * Used: /templates/homepage.php
+ */
+
+if (!function_exists('show_homepage_title')) {
+
+	function show_homepage_title() {
+
+		$homepage = get_homepage();
+
+		// start the header markup
+		$title = '<h1 class="homepage-title">' . $homepage['title'] . '</h1>';
+
+		echo $title;
+	}
+
+}
+
+/*
+ * Show Homepage Content
+ * @function show_homepage_content()
+ *
+ * Notes: Uses @function get_homepage().
+ * 		  Echos the homepage content
+ *
+ * Used: /templates/homepage.php
+ */
+
+if (!function_exists('show_homepage_content')) {
+
+	function show_homepage_content() {
+
+		$homepage = get_homepage();
+
+		// start the header markup
+		$content = '<div class="page-content">' . $homepage['content'] . '</div>';
+
+		echo $content;
 	}
 
 }
@@ -961,17 +1017,27 @@ if (!function_exists('submit_options')) {
 		/* insert new homepage option */
 
 			// sql
-			$sql = "UPDATE `pages` SET `page_special` = ? WHERE `page_title` = ?";
+			$sql = "UPDATE `pages` SET `page_special` = ? WHERE `page_id` = ?";
 
 			if ($stmt = $conn->prepare($sql)) {
 
-				$stmt->bind_param("ss", $homepage_label, $homepage);
+				$stmt->bind_param("ss", $sop_label, $sop_id);
 
-				// set params
-				$homepage_label = 'homepage';
-				$homepage = $_POST['homepage'];
+				// set homepage params
+				$sop_label = 'homepage';
+				$sop_id = $_POST['homepage'];
 
 				$stmt->execute();
+
+				// set homepage-section-1 params
+				$sop_label = 'homepage-section-1';
+				$sop_id = $_POST['homepage-section-1'];
+
+				$stmt->execute();
+
+
+
+
 				$stmt->close();
 
 			}
@@ -1081,6 +1147,9 @@ if (!function_exists('option_generals')) {
 /*
  * Option Pages
  * @function option_pages()
+ *
+ * Notes: Function used for the Homepage Option only.
+ * 		  Returns the pages as inputs.
  * 
  * Used:
  * /wj-admin/templates/template-parts/options/layout.php:55
@@ -1090,29 +1159,28 @@ if (!function_exists('option_pages')) {
 	
 	function option_pages() {
 
-		// Grab pages for homepage selection
-		// Connect to database
+		// connect to database
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
 		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
 		if ($conn->connect_error) {
 			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
 		}
 
-		if ($stmt = $conn->prepare("SELECT `page_title`, `page_special` FROM `pages` ORDER BY `page_id` ASC")) {
+		if ($stmt = $conn->prepare("SELECT `page_id`, `page_title`, `page_special` FROM `pages` ORDER BY `page_id` ASC")) {
 						
 			$stmt->execute();
 
-			// Get Result and Bind it
-			$stmt->bind_result($ptitle, $pspecial);
+			// get result and bind it
+			$stmt->bind_result($pid, $ptitle, $pspecial);
 
 			$pages = '';
 										
-			// While loop
+			// while loop
 			while ($stmt->fetch()) {
 				
-				$pages .= '<option value="' . $ptitle . '"';
+				$pages .= '<option value="' . $pid . '"';
 
-				// Add 'selected' if homepage
+				// add 'selected' if homepage
 				if ($pspecial === 'homepage') {
 					$pages .= 'selected';
 				}
@@ -1120,18 +1188,77 @@ if (!function_exists('option_pages')) {
 				$pages .= ' >' . $ptitle . '</option>';
 			}
 
-			// Close Statement
 			$stmt->close();
 
 		} else {
 			echo 'SQL Failed';
 		}
 
-		// Close connection
 		$conn->close();
 
 			
-		// Echo $pages
+		echo $pages;
+
+	}
+
+}
+
+
+/*
+ * Homepage Section #1
+ * @function homepage_section_1()
+ *
+ * Notes: Function used for the Homepage Section #1 option.
+ *		  Returns the pages as inputs.
+ *
+ * Used: /wj-admin/templates/template-parts/options/layout.php
+ */
+
+if (!function_exists('homepage_section_1')) {
+
+	function homepage_section_1() {
+
+		// connect to database
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+			die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT `page_id`, `page_title`, `page_special` FROM `pages`";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			// no params
+			$stmt->execute();
+
+			$stmt->bind_result($spr_id, $spr_title, $spr_special);
+
+			// start $pages
+			$pages = '';
+
+			while ($stmt->fetch()) {
+
+				$pages .= '<option value="' . $spr_id . '"';
+
+				if ($spr_special === 'homepage-section-1') {
+
+					$pages .= 'selected';
+
+				}
+
+				$pages .= '>' . $spr_title . '</option>';
+
+			}
+
+			$stmt->close();
+
+		}
+
+		$conn->close();
+
+		// echo the pages
 		echo $pages;
 
 	}
