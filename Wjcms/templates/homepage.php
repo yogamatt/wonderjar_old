@@ -9,12 +9,7 @@
  */
 
 
-/*
- * @function wj_get_homepage()
- * returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
- */
 
-wj_get_homepage();
 
 
 // add homepage to bodyclass
@@ -38,16 +33,19 @@ echo '<!-- End Header -->';
 
 	<section class="homepage-plugin-area">
 		<div class="feature-plugin">
-			<?php call_shortcode('feature-01'); ?>
+			<?php call_shortcode('features'); ?>
 		</div>
 	</section>
 
 	<section class="homepage-mce-content">
-		<div class="inner-container">
-			<div class="col-container">
-				<?php echo $page_content; ?>
-			</div>
-		</div>
+
+		<header class="homepage-header">
+			<?php show_homepage_title(); ?>
+		</header>
+		<main class="homepage-main">
+			<?php show_homepage_content(); ?>
+		</main>
+
 	</section>
 
 </div>
