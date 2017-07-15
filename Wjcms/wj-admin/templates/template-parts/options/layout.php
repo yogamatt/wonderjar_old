@@ -56,13 +56,13 @@ wj_before_content($type = 'main-section');
 							<option value="sections" <?php if ($option_layout === 'sections') echo 'selected'; ?>>Sections</option>
 						</select>
 
-						<div class="form-group">
-							<label class="label-left" for="homepage-section-1">Homepage Section #1:</label>
-							<select name="homepage-section-1" id="homepage-section-1">
-								<option value=""></option>
-								<?php homepage_section_1(); ?>
-							</select>
-						</div>
+						<?php 
+
+						if ($option_layout === 'sections'): 
+						
+							include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/options/sections.php');
+
+						endif; ?>
 
 					</div>
 				</fieldset>

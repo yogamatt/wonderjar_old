@@ -16,9 +16,11 @@ if (!empty($_GET['theme_option'])):
 		case 'tagline':
 			include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/options/tagline.php');
 			break;
+		
 		case 'promo':
 			include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/templates/template-parts/options/promo.php');
 			break;
+		
 		default:
 			echo '';
 
