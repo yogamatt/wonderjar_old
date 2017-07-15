@@ -192,123 +192,6 @@ if (!function_exists('get_menu')) {
 }
 
 
-
-/*
- * Get Homepage
- * @function get_homepage()
- *
- * Notes: Get the homepage page
- * 		  @returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
- *
- * Used: /templates/homepage.php:17
- *
- */
-
-if (!function_exists('get_homepage')) {
-
-	function get_homepage() {
-
-		// Database connection
-		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
-
-		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
-
-		if ($conn->connect_error) {
-	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
-		}
-
-		// Start globals
-		global $page_id, $page_time, $page_special, $page_title, $page_content;
-
-		// SQL
-		$sql = "SELECT * FROM `pages` WHERE `page_special` = ?";
-
-		if ($stmt = $conn->prepare($sql)) {
-
-			// Bind parameters
-			$stmt->bind_param("s", $pspecial);
-
-			// Bind variable parameters
-			$pspecial = 'homepage';
-
-			// Execute
-			$stmt->execute();
-
-			// Bind result variables
-			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
-
-			// Fetch
-			$stmt->fetch();
-
-			$stmt->close();
-
-		}
-
-		$conn->close();
-
-		return array(
-			'id' => $page_id,
-			'time' => $page_time,
-			'special' => $page_special,
-			'title' => $page_title,
-			'content' => $page_content,
-			'permalink' => $page_permalink,
-		);
-
-	}
-
-}
-
-
-/*
- * Show Homepage Title
- * @function show_homepage_title()
- *
- * Notes: Uses @function get_homepage().
- * 		  Echos the homepage title. 
- *
- * Used: /templates/homepage.php
- */
-
-if (!function_exists('show_homepage_title')) {
-
-	function show_homepage_title() {
-
-		$homepage = get_homepage();
-
-		// start the header markup
-		$title = '<h1 class="homepage-title">' . $homepage['title'] . '</h1>';
-
-		echo $title;
-	}
-
-}
-
-/*
- * Show Homepage Content
- * @function show_homepage_content()
- *
- * Notes: Uses @function get_homepage().
- * 		  Echos the homepage content
- *
- * Used: /templates/homepage.php
- */
-
-if (!function_exists('show_homepage_content')) {
-
-	function show_homepage_content() {
-
-		$homepage = get_homepage();
-
-		// start the header markup
-		$content = '<div class="page-content">' . $homepage['content'] . '</div>';
-
-		echo $content;
-	}
-
-}
-
-
 /*
  * @function wj_before_content($type)
  * @function wj_after_content($type)
@@ -476,6 +359,114 @@ if (!function_exists('wj_sidebar')) {
 
 		}
 
+	}
+
+}
+
+
+/*
+ * Get Homepage
+ * @function get_homepage()
+ *
+ * Notes: Get the homepage page
+ * 		  @returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
+ *
+ * Used: /templates/homepage.php:17
+ *
+ */
+
+if (!function_exists('get_homepage')) {
+
+	function get_homepage($section) {
+
+		// batabase connection
+		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
+		$conn = new mysqli('localhost', $wj_username, $wj_password, $wj_dbname);
+		if ($conn->connect_error) {
+	    	die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
+		}
+
+		// sql
+		$sql = "SELECT * FROM `pages` WHERE `page_special` = ?";
+
+		if ($stmt = $conn->prepare($sql)) {
+
+			$stmt->bind_param("s", $pspecial);
+
+			// bind param
+			$pspecial = $section;
+
+			$stmt->execute();
+
+			// bind result vars
+			$stmt->bind_result($page_id, $page_time, $page_special, $page_title, $page_content, $page_permalink);
+
+			// fetch
+			$stmt->fetch();
+			$stmt->close();
+
+		}
+
+		$conn->close();
+
+		return array(
+			'id' => $page_id,
+			'time' => $page_time,
+			'special' => $page_special,
+			'title' => $page_title,
+			'content' => $page_content,
+			'permalink' => $page_permalink,
+		);
+
+	}
+
+}
+
+
+/*
+ * Show Homepage Title
+ * @function show_homepage_title()
+ *
+ * Notes: Uses @function get_homepage().
+ * 		  Echos the homepage title. 
+ *
+ * Used: /templates/homepage.php
+ */
+
+if (!function_exists('show_homepage_title')) {
+
+	function show_homepage_title($section) {
+
+		$homepage = get_homepage($section);
+
+		// start the header markup
+		$title = '<h1 class="homepage-title">' . $homepage['title'] . '</h1>';
+
+		echo $title;
+	}
+
+}
+
+/*
+ * Show Homepage Content
+ * @function show_homepage_content()
+ *
+ * Notes: Uses @function get_homepage().
+ * 		  Echos the homepage content
+ *
+ * Used: /templates/homepage.php
+ */
+
+if (!function_exists('show_homepage_content')) {
+
+	function show_homepage_content($section) {
+
+		$homepage = get_homepage($section);
+
+		// start the header markup
+		$content = '<div class="page-content">' . $homepage['content'] . '</div>';
+
+		echo $content;
 	}
 
 }
@@ -993,7 +984,7 @@ if (!function_exists('submit_options')) {
 
 		unset($stmt, $sql);
 
-		/* unset homepage option */
+		/* unset homepage options */
 
 			// sql
 			$sql = "UPDATE `pages` SET `page_special` = ? WHERE `page_special` = ?";
@@ -1002,11 +993,41 @@ if (!function_exists('submit_options')) {
 
 				$stmt->bind_param("ss", $blank_value, $page_special);
 
-				// set params
+				// set homepage params
 				$blank_value = '';
 				$page_special = 'homepage';
 
 				$stmt->execute();
+
+
+				// set homepage-section-1 params
+				$blank_value = '';
+				$page_special = 'homepage-section-1';
+
+				$stmt->execute();
+
+
+				// set homepage-section-2 params
+				$blank_value = '';
+				$page_special = 'homepage-section-2';
+
+				$stmt->execute();
+
+
+				// set homepage-section-3 params
+				$blank_value = '';
+				$page_special = 'homepage-section-3';
+
+				$stmt->execute();
+
+
+				// set homepage-section-4 params
+				$blank_value = '';
+				$page_special = 'homepage-section-4';
+
+				$stmt->execute();
+
+
 				$stmt->close();
 
 			}
@@ -1014,7 +1035,7 @@ if (!function_exists('submit_options')) {
 
 		unset($stmt, $sql);
 
-		/* insert new homepage option */
+		/* insert new homepage options */
 
 			// sql
 			$sql = "UPDATE `pages` SET `page_special` = ? WHERE `page_id` = ?";
@@ -1029,6 +1050,7 @@ if (!function_exists('submit_options')) {
 
 				$stmt->execute();
 
+				
 				// set homepage-section-1 params
 				$sop_label = 'homepage-section-1';
 				$sop_id = $_POST['homepage-section-1'];
@@ -1036,6 +1058,25 @@ if (!function_exists('submit_options')) {
 				$stmt->execute();
 
 
+				// set homepage-section-2 params
+				$sop_label = 'homepage-section-2';
+				$sop_id = $_POST['homepage-section-2'];
+
+				$stmt->execute();
+
+
+				// set homepage-section-3 params
+				$sop_label = 'homepage-section-3';
+				$sop_id = $_POST['homepage-section-3'];
+
+				$stmt->execute();
+
+
+				// set homepage-section-4 params
+				$sop_label = 'homepage-section-4';
+				$sop_id = $_POST['homepage-section-4'];
+
+				$stmt->execute();
 
 
 				$stmt->close();
@@ -1205,18 +1246,18 @@ if (!function_exists('option_pages')) {
 
 
 /*
- * Homepage Section #1
- * @function homepage_section_1()
+ * Option Section
+ * @function option_section($section)
  *
- * Notes: Function used for the Homepage Section #1 option.
+ * Notes: Function used for the Homepage Section options in options.php.
  *		  Returns the pages as inputs.
  *
- * Used: /wj-admin/templates/template-parts/options/layout.php
+ * Used: /wj-admin/templates/template-parts/options/sections.php
  */
 
-if (!function_exists('homepage_section_1')) {
+if (!function_exists('option_sections')) {
 
-	function homepage_section_1() {
+	function option_sections($section) {
 
 		// connect to database
 		require ($_SERVER['DOCUMENT_ROOT'].'/wj-admin/assets/wj-connect.php');
@@ -1242,7 +1283,7 @@ if (!function_exists('homepage_section_1')) {
 
 				$pages .= '<option value="' . $spr_id . '"';
 
-				if ($spr_special === 'homepage-section-1') {
+				if ($spr_special === $section) {
 
 					$pages .= 'selected';
 
@@ -1264,6 +1305,9 @@ if (!function_exists('homepage_section_1')) {
 	}
 
 }
+
+
+
 
 
 /*
