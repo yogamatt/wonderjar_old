@@ -27,7 +27,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
 	</section>
 
-	<section class="homepage-mce-content homepage">
+	<section class="homepage-section homepage-mce-content homepage">
 		<header class="homepage-header">
 			<?php show_homepage_title('homepage'); ?>
 		</header>
@@ -36,7 +36,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 		</main>
 	</section>
 
-	<section class="homepage-plugin-area">
+	<section class="homepage-section homepage-plugin-area">
 		<div class="feature-plugin">
 			<?php call_shortcode('features'); ?>
 		</div>
