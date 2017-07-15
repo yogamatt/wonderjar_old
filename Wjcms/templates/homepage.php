@@ -9,9 +9,6 @@
  */
 
 
-
-
-
 // add homepage to bodyclass
 $bodyclass .= 'homepage ';
 
@@ -19,8 +16,7 @@ $bodyclass .= 'homepage ';
 extra_stylesheets();
 
 // include header
-include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
-echo '<!-- End Header -->';
+include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 
 ?>
 
@@ -31,22 +27,22 @@ echo '<!-- End Header -->';
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
 	</section>
 
+	<section class="homepage-mce-content homepage">
+		<header class="homepage-header">
+			<?php show_homepage_title('homepage'); ?>
+		</header>
+		<main class="homepage-main">
+			<?php show_homepage_content('homepage'); ?>
+		</main>
+	</section>
+
 	<section class="homepage-plugin-area">
 		<div class="feature-plugin">
 			<?php call_shortcode('features'); ?>
 		</div>
 	</section>
 
-	<section class="homepage-mce-content">
-
-		<header class="homepage-header">
-			<?php show_homepage_title(); ?>
-		</header>
-		<main class="homepage-main">
-			<?php show_homepage_content(); ?>
-		</main>
-
-	</section>
+	<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-sections.php'); ?>
 
 </div>
 
@@ -57,7 +53,6 @@ echo '<!-- End Header -->';
 extra_scripts();
 
 // include footer
-include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
-echo '<!-- End Footer -->';
+include ($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
 
 ?>
