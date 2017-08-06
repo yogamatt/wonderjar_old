@@ -10,7 +10,7 @@
 
 
 // add homepage to bodyclass
-$bodyclass .= 'homepage ';
+$bodyclass .= 'home ';
 
 // add extra stylesheets for plugins
 extra_stylesheets();
@@ -28,17 +28,28 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 	</section>
 
 	<section class="homepage-section homepage-mce-content homepage">
-		<header class="homepage-header">
-			<?php show_homepage_title('homepage'); ?>
-		</header>
-		<main class="homepage-main">
-			<?php show_homepage_content('homepage'); ?>
-		</main>
+		<div class="inner-container">
+			<div class="col-container">
+				<div class="col-6">
+					<header class="homepage-header">
+						<?php show_homepage_title('homepage'); ?>
+					</header>
+					<main class="homepage-main">
+						<?php show_homepage_content('homepage'); ?>
+					</main>
+				</div>
+				<div class="col-6">
+					<?php call_shortcode('forms'); ?>
+				</div>
+			</div>
+		</div>
 	</section>
 
 	<section class="homepage-section homepage-plugin-area">
-		<div class="feature-plugin">
-			<?php call_shortcode('features'); ?>
+		<div class="inner-container">
+			<div class="feature-plugin">
+				<?php call_shortcode('features'); ?>
+			</div>
 		</div>
 	</section>
 
