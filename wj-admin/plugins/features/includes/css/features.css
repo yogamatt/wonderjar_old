@@ -1,0 +1,143 @@
+/**
+ * Features plugin stylesheet
+ *
+ * @author Matt
+ * @version 1.0
+ * @since 2017-06-24
+ *
+ * Notes: Stylesheet for displaying
+ * 		  returned shortcode function @function features_call()
+ */
+
+
+/* Globals
+ ----------------------------------------------- */
+
+/* Feature
+ ----------------------------------------------- */
+
+ .feature-plugin .plugin-header {
+ 	display: none;
+ }
+
+.features-container ul {
+	margin: 0 -.5em 1em;
+ 	padding: 0;
+ 	list-style: none;
+}
+
+	.features-container ul::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+.features-list li {
+ 	margin: 0 .5em;
+ 	float: left;
+ 	width: calc(33.33% - 1em);
+}
+
+/* item blurb */
+
+.features-list li .item-blurb {
+	padding: 2em;
+	background: #fff;
+ 	text-align: center;
+
+ 	-webkit-transition: -webkit-box-shadow .2s ease;
+ 	transition: -webkit-box-shadow .2s ease;
+ 	transition: box-shadow .2s ease;
+ 	transition: box-shadow .2s ease, -webkit-box-shadow .2s ease;
+}
+
+	.features-list li .item-blurb:hover {
+		-webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+		        box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+	}
+
+.feature-bar {
+	position: relative;
+	display: block;
+}
+
+	.feature-bar::after {
+		content: '';
+		position: absolute;
+		right: 20%;
+		left: 20%;
+		border-top: 3px solid #78e8b4;
+	}
+
+.feature-bar-top {
+	margin-bottom: 2em;
+}
+
+.feature-bar-bottom {
+	margin-top: 2em;
+}
+
+.feature-image-container {
+	margin: 0 0 1em;
+}
+
+a.feature-image-link {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1.5em;
+	border-radius: 100%;
+	background: #f7f7f7;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+a.feature-image-link img {
+ 	max-width: 85px;
+}
+
+/* item content */
+
+.features-list .item-content {
+	position: relative;
+	display: none;
+	margin: 2em 0 0;
+	padding: 2em;
+    background: #fff;
+    text-align: center;
+    -webkit-transition: -webkit-box-shadow .2s ease;
+    transition: -webkit-box-shadow .2s ease;
+    transition: box-shadow .2s ease;
+    transition: box-shadow .2s ease, -webkit-box-shadow .2s ease;
+}
+
+.features-list li.show-content .item-blurb {
+	-webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+	        box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+}
+
+.feature-item.show-content .item-content {
+	display: block;
+	-webkit-box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+		        box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
+}
+
+
+
+@media screen and (max-width: 768px) {
+	.features-list li {
+		margin: 0 auto 3em;
+	 	float: none;
+	 	width: auto;
+	 	max-width: 80%;
+	}
+
+		.features-list li:last-child {
+		 	margin-bottom: 0;
+		}
+
+	.features-list li .item-blurb {
+		padding: 4em;
+	}
+
+}
+

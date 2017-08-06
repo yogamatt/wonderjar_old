@@ -1,0 +1,448 @@
+/**
+ * Wonderjar Admin Stylesheet
+ * @author Matt
+ * @since 2017-03-17
+ *
+ */
+
+/* globals */
+
+.admin-header {
+	padding-bottom: 1em;
+}
+
+.admin-header > h2 {
+	margin: 0 0 1em;
+	padding: 0 0 .35em;
+	border-bottom: 1px solid rgba(0,0,0,.1);
+	font-family: 'Angelina', sans-serif;
+	font-size: 2.05em;
+	color: #f8c300;
+}
+
+/* end globals */
+
+/* main Header */
+
+.main-header {
+	border-bottom: 1px solid #eee;
+}
+
+/* end Main Header */
+
+/* logo */
+
+.logo-link {
+	display: inline-block;
+	padding: 15px 0 13px;
+}
+
+.logo {
+	max-height: 46px;
+}
+
+/* end logo */
+
+/* main navigation */
+
+.wj-admin .main-nav {
+	width: 100%;
+	height: 100%;
+	display: block;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+}
+
+.wj-admin .main-nav-ul {
+	margin: 0;
+	padding: 0;
+	float: right;
+	display: table;
+	height: 100%;
+	list-style: none;
+}
+
+	.wj-admin .main-nav-ul::after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+
+.wj-admin .main-nav li {
+	padding: 0 2em;
+	border-left: 1px solid #eee;
+	display: table-cell;
+	vertical-align: middle;
+	background: transparent;
+	height: 100%;
+	-webkit-transition: background .05s ease;
+	transition: background .05s ease;
+}
+
+	.wj-admin .main-nav li:last-child {
+		border-right: 1px solid #eee;
+	}
+
+	.wj-admin .main-nav li:hover {
+		background: #fff;
+	}
+
+.wj-admin .main-nav a {
+	padding: .5em 0;
+	font-size: 1.03em;
+	letter-spacing: .015em;
+	text-transform: lowercase;
+	color: #969696;
+	-webkit-transition: color .05s ;
+	transition: color .05s ;ease
+}
+
+
+/* end main navigation */
+
+/* options */
+
+.options-container {
+	position: relative;
+}
+
+	.options-container::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+.options-container .form-contain {
+	float: left;
+	width: 75%;
+}
+
+.options-container .sidebar {
+	background: #f9f9f9;
+}
+
+.theme-options-container ul.theme-options {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.theme-options li {
+	margin: 0 -.5em;
+	-webkit-transition: background .2s ease;
+	transition: background .2s ease;
+}
+
+	.theme-options li:hover {
+		background: #d9d9d9;
+	}
+
+.theme-options a {
+	padding: .25em .5em;
+	display: inline-block;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.current-options {
+	margin: 4em 0 2em;
+	padding: 2em;
+	border-width: 1px 0;
+	border-style: inset;
+	border-color: rgba(0,0,0,.35);
+	opacity: .35;
+}
+
+.current-options p {
+	font-size: .8em;
+}
+
+/* end options */
+
+/* pages / plugins layout / forms layout */
+
+.pages,
+.plugins,
+.forms {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pages li,
+.plugins li,
+.forms li {
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	-webkit-transition: box-shadow .3s ease;
+	-webkit-transition: -webkit-box-shadow .3s ease;
+	transition: -webkit-box-shadow .3s ease;
+	transition: box-shadow .3s ease;
+	transition: box-shadow .3s ease, -webkit-box-shadow .3s ease;
+}
+
+	.pages li:hover,
+	.plugins li:hover,
+	.forms li:hover {
+		-webkit-box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+		        box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+	}
+
+	.pages li:last-child,
+	.plugins li:last-child,
+	.forms li:last-child {
+		margin-bottom: 0;
+	}
+
+	.pages li::after,
+	.plugins li::after,
+	.forms li::after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+
+.pages .page-name,
+.plugins .plugin-name,
+.forms .form-name {
+	float: left;
+}
+
+.pages h3,
+.plugins h3,
+.forms h3 {
+	margin: 0;
+	padding: .3em 0;
+	font-weight: 600;
+}
+
+.pages h3 > a,
+.plugins h3 > a,
+.forms h3 > a {
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.page-special {
+	padding-left: .5em;
+	font-family: 'Angelina', sans-serif;
+	font-size: .925em;
+	font-weight: 400;
+	letter-spacing: .07em;
+	color: #f8c300;
+}
+
+.page-atts,
+.plugin-atts,
+.form-atts {
+	margin: 0;
+	float: right;
+	font-size: .7em;
+}
+
+.page-atts a,
+.plugin-atts a,
+.form-atts a {
+	color: #808080;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	-webkit-transition: opacity .05s;
+	transition: opacity .05s;
+}
+
+	.page-atts a:hover,
+	.plugin-atts a:hover,
+	.form-atts a:hover {
+		opacity: .8;
+	}
+
+.plugin-description,
+.form-description {
+	font-size: .975em;
+	color: #ccc;
+}
+
+.plugin-actions a,
+.form-actions a {
+	margin-right: .5em;
+	display: inline-block;
+}
+
+	.plugin-actions a::after,
+	.form-actions a::after {
+		margin-right: 0;
+	}
+
+/* end pages */
+
+/* new page */
+
+.permagroup {
+	margin: 0 0 1em !important;
+	padding: .5em !important;
+	opacity: .8;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+	font-size: .8em;
+}
+
+.permagroup label {
+	color: #555;
+}
+
+.permagroup input {
+	margin: 0;
+	color: #555;
+}
+
+.form-contain input:not([type=submit]) {
+	padding: .5em;
+	width: 100%;
+	max-width: 375px;
+}
+
+/* end plugins */
+
+/* tinyMCE */
+
+.form-contain .mce-edit-area {
+	margin-right: 1px !important;
+}
+
+/* end tinyMCE */
+
+/* end new page */
+
+/* menus page */
+
+/* end menus page */
+
+/* forms */
+
+.inner-form {}
+
+	.inner-form::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+.main-form {
+	float: left;
+	width: 73%;
+	margin-left: 2%;
+	padding-left: 2%;
+	border-left: 1px inset #ccc;
+}
+
+.main-form > .form-contain {
+	padding: 2em;
+	background: #fff;
+	min-height: 16em;
+}
+
+.main-form .submit-group {
+	float: right;
+}
+
+.inner-left {
+	float: left;
+	width: 73%;
+	margin-right: 2%;
+	padding-right: 2%;
+	border-right: 1px inset #ccc;
+}
+
+.form-header {
+	margin: 0;
+	padding-bottom: .5em;
+}
+
+.form-header .form-title {
+	margin: 0 0 .5em;
+	font-size: 1.2rem;
+	font-weight: 800;
+}
+
+.form-group {
+	margin: 0 0 .5em;
+	padding: .2em 0;
+}
+
+	.form-group::after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+
+.form-group > * {
+	margin-bottom: 0;
+}
+
+.form-group .form-group {
+	margin: .5em 1em;
+	padding: .7em;
+	background: #f7f7f7;
+}
+
+.submit-group {
+	margin-top: 1.5em;
+}
+
+/* checkboxes */
+
+input[type="checkbox"] {
+	width: auto !important;
+	max-width: none !important;
+}
+
+.checkbox {
+	margin: 0 0 .3em;
+	display: table;
+}
+
+.checkbox input {
+	float: left;
+	margin-bottom: 0 !important;
+}
+
+.checkbox label {
+	margin: 0 !important;
+	padding-left: .4em;
+	display: table-cell;
+	vertical-align: text-top;
+	text-transform: uppercase !important;
+	color: #505050;
+}
+
+/* end forms */
+
+/* sidebars */
+
+.sidebar {
+	float: left;
+	width: 25%;
+	padding: 2em;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.sidebar label {
+	font-size: .95rem;
+	font-weight: 600;
+	text-transform: lowercase;
+}
+
+.sidebar input,
+.sidebar select {
+	width: 100%;
+	margin-bottom: .7em;
+}
+
+/* end sidebars */
+
+
