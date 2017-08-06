@@ -123,3 +123,21 @@ a.feature-image-link img {
 
 
 
+@media screen and (max-width: 768px) {
+	.features-list li {
+		margin: 0 auto 3em;
+	 	float: none;
+	 	width: auto;
+	 	max-width: 80%;
+	}
+
+		.features-list li:last-child {
+		 	margin-bottom: 0;
+		}
+
+	.features-list li .item-blurb {
+		padding: 4em;
+	}
+
+}
+

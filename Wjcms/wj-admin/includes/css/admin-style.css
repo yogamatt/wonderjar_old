@@ -161,17 +161,19 @@
 
 /* end options */
 
-/* pages / plugins layout */
+/* pages / plugins layout / forms layout */
 
 .pages,
-.plugins {
+.plugins,
+.forms {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
 .pages li,
-.plugins li {
+.plugins li,
+.forms li {
 	margin: 0;
 	padding: 1em;
 	background: #fff;
@@ -184,37 +186,43 @@
 }
 
 	.pages li:hover,
-	.plugins li:hover {
+	.plugins li:hover,
+	.forms li:hover {
 		-webkit-box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
 		        box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
 	}
 
 	.pages li:last-child,
-	.plugins li:last-child {
+	.plugins li:last-child,
+	.forms li:last-child {
 		margin-bottom: 0;
 	}
 
 	.pages li::after,
-	.plugins li::after {
+	.plugins li::after,
+	.forms li::after {
 		content: '';
 		clear: both;
 		display: table;
 	}
 
 .pages .page-name,
-.plugins .plugin-name {
+.plugins .plugin-name,
+.forms .form-name {
 	float: left;
 }
 
 .pages h3,
-.plugins h3 {
+.plugins h3,
+.forms h3 {
 	margin: 0;
 	padding: .3em 0;
 	font-weight: 600;
 }
 
 .pages h3 > a,
-.plugins h3 > a {
+.plugins h3 > a,
+.forms h3 > a {
 	-webkit-box-shadow: none;
 	        box-shadow: none;
 }
@@ -229,14 +237,16 @@
 }
 
 .page-atts,
-.plugin-atts {
+.plugin-atts,
+.form-atts {
 	margin: 0;
 	float: right;
 	font-size: .7em;
 }
 
 .page-atts a,
-.plugin-atts a {
+.plugin-atts a,
+.form-atts a {
 	color: #808080;
 	-webkit-box-shadow: none;
 	        box-shadow: none;
@@ -245,8 +255,26 @@
 }
 
 	.page-atts a:hover,
-	.plugin-atts a:hover {
+	.plugin-atts a:hover,
+	.form-atts a:hover {
 		opacity: .8;
+	}
+
+.plugin-description,
+.form-description {
+	font-size: .975em;
+	color: #ccc;
+}
+
+.plugin-actions a,
+.form-actions a {
+	margin-right: .5em;
+	display: inline-block;
+}
+
+	.plugin-actions a::after,
+	.form-actions a::after {
+		margin-right: 0;
 	}
 
 /* end pages */
@@ -254,10 +282,12 @@
 /* new page */
 
 .permagroup {
-	margin: 0 0 1em;
-	padding: .5em;
+	margin: 0 0 1em !important;
+	padding: .5em !important;
+	opacity: .8;
 	background: #eee;
 	border-bottom: 1px solid #ddd;
+	font-size: .8em;
 }
 
 .permagroup label {
@@ -286,24 +316,6 @@
 /* end tinyMCE */
 
 /* end new page */
-
-/* plugins */
-
-.plugin-description {
-	font-size: .975em;
-	color: #ccc;
-}
-
-.plugin-actions a {
-	margin-right: .5em;
-	display: inline-block;
-}
-
-	.plugin-actions a::after {
-		margin-right: 0;
-	}
-
-/* end plugins */
 
 /* menus page */
 

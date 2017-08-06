@@ -1,6 +1,6 @@
 <?php
 /**
- * Wonderjar Plugin - Features
+ * Wonderjar Plugin - Forms
  * @author Matt
  * @category plugin
  * @version 1.0
@@ -11,7 +11,8 @@
 
 // include functions files
 include ($_SERVER['DOCUMENT_ROOT'] . '/functions.php');
-include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/plugins/features/features.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/plugins/plugin-functions.php');
+include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/plugins/forms/forms.php');
 
 // make sure user is logged in
 check_session();
@@ -28,55 +29,46 @@ $dir = $location . strstr($plugin_dir, "/wj-admin");
 plugin_stylesheets($dir);
 
 // shortcode vars using plugin directory
-$name = 'features';
-$call = 'features_call';
-$include = $plugin_dir . '/features.php';
+$name = 'forms';
+$call = 'forms_call';
+$include = $plugin_dir . '/forms.php';
 
 // add shortcode
 add_shortcode($name, $call, $include);
 
 
-
-
+// page types
 if (!empty($_GET['type'])) {
 
 	$type = $_GET['type'];
 
 	switch ($type) {
-
 		case 'new':
-
-			if (!empty($_POST['new-feature'])) {
-				submit_feature();
-			} else {
-				include ($plugin_dir . '/plugin-parts/features-new.php');
-			}
-
+			include ($plugin_dir . '/plugin-parts/admin/forms-new.php');
 		break;
 
 		case 'edit':
-
-			if (!empty($_POST['edit-feature'])) {
-				edit_feature();
-			} else {
-				include ($plugin_dir . '/plugin-parts/features-single.php');
-			}
-
+			include ($plugin_dir . '/plugin-parts/admin/forms-edit.php');
 		break;
 
-		default:
-
-			echo 'default';
-
+		case 'delete':
+			delete_form();
+			header("Location: http://wonderjarcreative.com/wj-admin/plugins/forms/forms-admin.php?plug_id=" . $plugin_id);
 		break;
-
+		
+		default: 
+			include ($plugin_dir . '/plugin-parts/admin/forms-layout.php');
+		break;
 	}
 
 } else {
 
-	// main layout
-	include ($plugin_dir . '/plugin-parts/features-layout.php');
+	// main forms layout
+	include ($plugin_dir . '/plugin-parts/admin/forms-layout.php');
 
 }
+
+
+
 
 
