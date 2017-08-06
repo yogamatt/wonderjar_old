@@ -354,6 +354,21 @@ if (!function_exists('wj_sidebar')) {
 				<?php
 				;
 				break;
+				case 'form-plugin':
+				?>
+					<aside class="sidebar">
+							<header class="form-header">
+								<h3 class="form-title">Form Plugin Options</h3>
+							</header>
+							<fieldset>
+								<div class="form-group">
+									<p><em>Do not use &lsaquo;form&rsaquo; tags</em></p>
+								</div>
+							</fieldset>
+					</aside>
+				<?php
+				;
+				break;
 			default:
 				echo '';
 
@@ -1672,8 +1687,8 @@ if (!function_exists('submit_plugin')) {
 					$folder = str_replace("-admin.php", "", $_POST['plugin-url']);
 					$directory = $_SERVER['DOCUMENT_ROOT'] . '/wj-admin/plugins/' . $folder;
 
-					$param_dir = $directory;
-					$param_url = 'http://wonderjarcreative.com/wj-admin/plugins/' . $folder . '/' . $_POST['plugin-url'];
+				$param_dir = $directory;
+				$param_url = 'http://wonderjarcreative.com/wj-admin/plugins/' . $folder . '/' . $_POST['plugin-url'];
 
 				$param_description = $_POST['plugin-description'];
 
@@ -2129,10 +2144,8 @@ if (!function_exists('call_shortcode')) {
 		// require file containing function
 		// call function
 		require ($csr_include);
-		$csr_call();
-
+		call_user_func($csr_call);
 	}
-
 }
 
 
