@@ -54,6 +54,15 @@ if (!empty($_GET['type'])) {
 
 		break;
 
+		case 'options':
+			if (!empty($_POST['options'])) {
+				submit_feature_options();
+			} else {
+				include ($plugin_dir . '/plugin-parts/features-options.php');
+			}
+
+		break;
+
 		case 'edit':
 
 			if (!empty($_POST['edit-feature'])) {

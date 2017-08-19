@@ -7,7 +7,8 @@
  * @since 2017-06-10
  *
  * @returned @vars in use: $plugin_id, $plugin_name, $plugin_dir, $dir, 
- *			$fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content
+ *			$fc_id, $fc_order, $fc_title, $fc_image, $fc_excrept, $fc_content,
+ *			$fc_option_leading
  */
 
 
@@ -15,7 +16,7 @@
 
 <div id="plugin-<?php echo $plugin_id; ?>" class="features-container">
 	<header class="plugin-header">
-		<h2 class="plugin-title"><?php echo $plugin_name; ?></h2>
+		<h2 class="plugin-title"><?php echo $fc_option_leading ?></h2>
 	</header>
 	<ul class="features-list">
 

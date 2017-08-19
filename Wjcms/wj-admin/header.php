@@ -36,7 +36,7 @@
 			<div class="header-container">
 				<div class="logo-container">
 					<a href="/" class="logo-link">
-						<img src="/images/uploads/logo/wjmagicwand.png" alt="wonderjar-logo" class="logo">
+						<img src="/images/uploads/logo/logo-black.png" alt="wonderjar-logo" class="logo">
 					</a>
 				</div>
 				<div class="navigation-container">

@@ -28,6 +28,7 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/wj-admin/header.php');
 
 			<div class="features-buttons">
 				<button class="wj-admin"><a href="<?php echo $plugin_url . '&type=new'; ?>">New Feature</a></button>
+				<button class="wj-admin"><a href="<?php echo $plugin_url . '&type=options'; ?>">Feature Options</a></button>
 			</div>
 
 			<div class="features-content">

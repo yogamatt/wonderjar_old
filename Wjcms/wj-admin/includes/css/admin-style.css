@@ -22,13 +22,19 @@
 
 /* end globals */
 
-/* main Header */
+/* main header */
 
-.main-header {
+.wj-admin .main-header {
 	border-bottom: 1px solid #eee;
 }
 
-/* end Main Header */
+.wj-admin .header-container {
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch;
+}
+
+/* end main header */
 
 /* logo */
 
@@ -72,7 +78,7 @@
 
 .wj-admin .main-nav li {
 	padding: 0 2em;
-	border-left: 1px solid #eee;
+	border-left: 1px solid #ddd;
 	display: table-cell;
 	vertical-align: middle;
 	background: transparent;
@@ -82,7 +88,7 @@
 }
 
 	.wj-admin .main-nav li:last-child {
-		border-right: 1px solid #eee;
+		border-right: 1px solid #ddd;
 	}
 
 	.wj-admin .main-nav li:hover {

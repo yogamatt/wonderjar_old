@@ -63,3 +63,12 @@
 	border-bottom: 1px solid #eee;
 }
 
+.feature-items .feature-item-image {
+	text-align: center;
+}
+
+.feature-items .feature-item-image > img {
+	display: inline-block;
+	max-width: 150px;
+}
+

@@ -17,7 +17,7 @@
  ----------------------------------------------- */
 
  .feature-plugin .plugin-header {
- 	display: none;
+
  }
 
 .features-container ul {
@@ -44,6 +44,8 @@
 	padding: 2em;
 	background: #fff;
  	text-align: center;
+ 	-webkit-box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+ 	        box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
 
  	-webkit-transition: -webkit-box-shadow .2s ease;
  	transition: -webkit-box-shadow .2s ease;
