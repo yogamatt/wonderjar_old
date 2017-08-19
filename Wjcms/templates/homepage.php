@@ -27,6 +27,14 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
 	</section>
 
+	<section class="homepage-section homepage-plugin-area">
+		<div class="inner-container">
+			<div class="feature-plugin">
+				<?php call_shortcode('features'); ?>
+			</div>
+		</div>
+	</section>
+
 	<section class="homepage-section homepage-mce-content homepage">
 		<div class="inner-container">
 			<div class="col-container">
@@ -41,14 +49,6 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 				<div class="col-6">
 					<?php call_shortcode('forms'); ?>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="homepage-section homepage-plugin-area">
-		<div class="inner-container">
-			<div class="feature-plugin">
-				<?php call_shortcode('features'); ?>
 			</div>
 		</div>
 	</section>

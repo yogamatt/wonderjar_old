@@ -25,7 +25,7 @@
 			<div class="header-container">
 				<div class="logo-container">
 					<a href="/" class="logo-link">
-						<img src="/images/uploads/logo/wonderslant.png" alt="wjlogo" class="logo">
+						<img src="/images/uploads/logo/logo-black-sans.png" alt="wjlogo" class="logo">
 					</a>
 				</div>
 				<div class="navigation-container">
@@ -44,7 +44,6 @@
 
 				</div><!-- navigation-container -->
 			</div><!-- header-container -->
-			<div class="border-bottom"></div>
 		</div><!-- inner-container -->
 	</header>
 

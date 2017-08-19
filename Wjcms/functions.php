@@ -1992,7 +1992,6 @@ if (!function_exists('extra_stylesheets')) {
 		// define stylesheets with starting $load variable
 		$load = '<link rel="stylesheet" href="' . $dir . '/includes/css/features.css">';
 
-
 		return $load;
 	}
 
