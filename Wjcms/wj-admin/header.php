@@ -30,7 +30,7 @@
 	  });
   </script>
 </head>
-<body class="<?php wj_body_classes($bodyclass); ?>">
+<body class="<?php if (empty($bodyclass)): $bodyclass = 'wj-admin '; endif; wj_body_classes($bodyclass); ?>">
 	<header class="main-header" id="top" role="header">
 		<div class="inner-container">
 			<div class="header-container">

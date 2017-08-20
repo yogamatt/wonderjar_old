@@ -16,10 +16,6 @@
 /* Feature
  ----------------------------------------------- */
 
- .feature-plugin .plugin-header {
-
- }
-
 .features-container ul {
 	margin: 0 -.5em 1em;
  	padding: 0;
@@ -33,9 +29,9 @@
 	}
 
 .features-list li {
- 	margin: 0 .5em;
+ 	margin: 0 1em;
  	float: left;
- 	width: calc(33.33% - 1em);
+ 	width: calc(33.33% - 2em);
 }
 
 /* item blurb */
@@ -43,6 +39,7 @@
 .features-list li .item-blurb {
 	padding: 2em;
 	background: #fff;
+	font-size: .9em;
  	text-align: center;
  	-webkit-box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
  	        box-shadow: 0 0 1px 1px rgba(0,0,0,.1);

@@ -1,0 +1,38 @@
+/**
+ * Scroll Text Admin CSS
+ * @author Matt
+ * @version 0.1
+ * @since 2017-06-10
+ *
+ */
+
+.scroll-container .group-container::after,
+.scroll-items::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.scroll-nav {
+	margin-bottom: .5em;
+	float: right;
+	font-size: .875rem;
+}
+
+.scroll-nav a {
+	color: #888;
+}
+
+.scroll-container .form-group {
+	margin-bottom: 1em;
+}
+
+.scroll-container .group-container {
+	margin: 0 -1em;
+}
+
+.scroll-container .group-container .form-group {
+	margin: 0 1em;
+	float: left;
+	width: calc(33.33% - 2em);
+}

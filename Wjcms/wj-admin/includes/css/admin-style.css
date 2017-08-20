@@ -278,8 +278,8 @@
 	display: inline-block;
 }
 
-	.plugin-actions a::after,
-	.form-actions a::after {
+	.plugin-actions a:last-child,
+	.form-actions a:last-child {
 		margin-right: 0;
 	}
 
@@ -308,7 +308,7 @@
 .form-contain input:not([type=submit]) {
 	padding: .5em;
 	width: 100%;
-	max-width: 375px;
+	max-width: 300px;
 }
 
 /* end plugins */
@@ -372,6 +372,10 @@
 	margin: 0 0 .5em;
 	font-size: 1.2rem;
 	font-weight: 800;
+}
+
+.group-container {
+	margin-bottom: 2em !important;
 }
 
 .form-group {

@@ -16,7 +16,7 @@
 
 <div id="plugin-<?php echo $plugin_id; ?>" class="features-container">
 	<header class="plugin-header">
-		<h2 class="plugin-title"><?php echo $fc_option_leading ?></h2>
+		<h2 class="plugin-title"><?php echo strip_tags($fc_option_leading); ?></h2>
 	</header>
 	<ul class="features-list">
 

@@ -1,0 +1,118 @@
+/**
+ * Scroll Text Admin CSS
+ * @author Matt
+ * @version 0.1
+ * @since 2017-06-10
+ *
+ */
+
+ /* new and edit scroll */
+
+.scroll-container .group-container::after,
+.scroll-items::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+.scroll-nav {
+	margin-bottom: .5em;
+	float: right;
+	font-size: .875rem;
+}
+
+.scroll-nav a {
+	color: #888;
+}
+
+.scroll-container .form-group {
+	margin-bottom: 1em;
+}
+
+.scroll-container .group-container {
+	margin: 0 -1em;
+}
+
+.scroll-container .group-container .form-group {
+	margin: 0 1em;
+	float: left;
+	width: calc(33.33% - 2em);
+}
+
+
+/* scrolls list */
+
+.scrolls {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.scrolls li {
+	margin: 0;
+	padding: 1em;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+	-webkit-transition: box-shadow .3s ease;
+	-webkit-transition: -webkit-box-shadow .3s ease;
+	transition: -webkit-box-shadow .3s ease;
+	transition: box-shadow .3s ease;
+	transition: box-shadow .3s ease, -webkit-box-shadow .3s ease;
+}
+
+	.scrolls li:hover {
+		-webkit-box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+		        box-shadow: 0 0 2px 1px rgba(0,0,0,.05);
+	}
+
+	.scrolls li:last-child {
+		margin-bottom: 0;
+	}
+
+	.scrolls li:after {
+		content: '';
+		clear: both;
+		display: table;
+	}
+
+.scrolls .scroll-name {
+	float: left;
+}
+
+.scrolls h3 {
+	margin: 0;
+	padding: .3em 0;
+	font-weight: 600;
+}
+
+.scrolls h3 > a {
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.scroll-atts {
+	margin: 0;
+	float: right;
+	font-size: .7em;
+}
+
+.scroll-atts a {
+	color: #808080;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+	-webkit-transition: opacity .05s;
+	transition: opacity .05s;
+}
+
+	.scroll-atts a:hover {
+		opacity: .8;
+	}
+
+.scroll-actions a {
+	margin-right: .5em;
+	display: inline-block;
+}
+
+	.scroll-actions a:last-child {
+		margin-right: 0;
+	}
