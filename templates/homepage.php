@@ -9,23 +9,14 @@
  */
 
 
-/*
- * @function wj_get_homepage()
- * returns: `page_id`, `page_time`, `page_special`, `page_title`, `page_content`
- */
-
-wj_get_homepage();
-
-
 // add homepage to bodyclass
-$bodyclass .= 'homepage ';
+$bodyclass .= 'home ';
 
 // add extra stylesheets for plugins
 extra_stylesheets();
 
 // include header
-include ($_SERVER['DOCUMENT_ROOT'].'/header.php');
-echo '<!-- End Header -->';
+include ($_SERVER['DOCUMENT_ROOT'] . '/header.php');
 
 ?>
 
@@ -36,31 +27,43 @@ echo '<!-- End Header -->';
 		<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-branding.php'); ?>
 	</section>
 
-	<section class="plugin-area">
-		<div class="feature-plugin">
-			<div class="inner-container">
-				<div class="col-container">
-					<?php call_shortcode('feature-01'); ?>
+	<section class="homepage-plugin-area homepage-section">
+		<div class="inner-container">
+			<div class="feature-plugin">
+				<?php call_shortcode('features'); ?>
+			</div>
+		</div>
+	</section>
+
+	<section class="homepage-mce-content homepage-section homepage">
+		<div class="inner-container">
+			<div class="col-container">
+				<div class="col-6">
+					<header class="homepage-header">
+						<?php show_homepage_title('homepage'); ?>
+					</header>
+					<main class="homepage-main">
+						<?php show_homepage_content('homepage'); ?>
+					</main>
+				</div>
+				<div class="col-6">
+					<?php call_shortcode('forms'); ?>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="homepage-mce-content">
-		<div class="inner-container">
-			<div class="col-container">
-				<?php echo $page_content; ?>
-			</div>
-		</div>
-	</section>
+	<?php include ($_SERVER['DOCUMENT_ROOT'] . '/templates/template-parts/homepage/homepage-sections.php'); ?>
 
 </div>
 
 
 <?php
 
+// add extra scripts for plugins
+extra_scripts();
+
 // include footer
-include ($_SERVER['DOCUMENT_ROOT'].'/footer.php');
-echo '<!-- End Footer -->';
+include ($_SERVER['DOCUMENT_ROOT'] . '/footer.php');
 
 ?>
